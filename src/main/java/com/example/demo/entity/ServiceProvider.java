@@ -1,7 +1,10 @@
 package com.example.demo.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -18,6 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ServiceProvider {
 	@Id
+	@GeneratedValue
 	private int sid;
 	private String firstName;
 	private String city;
@@ -26,5 +30,5 @@ public class ServiceProvider {
 	private int contactNum;
 	@OneToMany(targetEntity=ServiceProviderBooked.class, cascade=CascadeType.ALL)
 	@JoinColumn(name="serv_id", referencedColumnName="sid")
-	private ServiceProviderBooked sBook;
+	private List<ServiceProviderBooked> sBook;
 }
