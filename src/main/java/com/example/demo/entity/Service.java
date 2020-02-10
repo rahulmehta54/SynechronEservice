@@ -21,4 +21,5 @@ public class Service {
 	@Id
 	private int service_id;
 	private String Role; 
+	private String categories;
 }
