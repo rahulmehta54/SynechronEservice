@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
 import com.synechronEservice.demo.services.LoginServices;
 
 @Controller
@@ -20,25 +21,31 @@ public class LoginController {
 	LoginServices service;
 	
 	
+	
    @GetMapping("/")
 	private String loginUser(Model model) {
-	   System.out.println("inside");
+	   
 		return "index";
 	}
    
    @RequestMapping(value="/login", method = RequestMethod.POST)
-   public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password){
-
-       boolean isValidUser = service.validateUser(name, password);
-
-       if (!isValidUser) {
+   public String showWelcomePage(ModelMap model, @RequestParam String emailIId, @RequestParam String password){
+  
+	   System.out.println(emailIId+" "+password);
+	   boolean isValidUser = service.isAuthUser(emailIId, password);
+       
+	   if (!isValidUser) {
            model.put("errorMessage", "Invalid Credentials");
-           return "login";
+           return "index";
+       }else {
+    	   model.put("name", emailIId);
+           if(service.isAdmin(emailIId,password)) {
+        	   return "adminPage";
+    	   }else {
+    		   return "userPage";
+    	   }
        }
-       model.put("name", name);
-       model.put("password", password);
-
-       return "welcome";
+      
    }
   
    

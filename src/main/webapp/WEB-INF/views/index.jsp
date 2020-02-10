@@ -8,8 +8,8 @@
 </head>
 <body>
 <font color="red">${errorMessage}</font>
-    <form method="post">
-        Name : <input type="text" name="name" />
+    <form method="post" action="/login">
+         Email : <input type="email" name="emailIId"  />
         Password : <input type="password" name="password" /> 
         <input type="submit" />
     </form>

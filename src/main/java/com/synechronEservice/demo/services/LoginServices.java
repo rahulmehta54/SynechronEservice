@@ -6,15 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import com.synechronEservice.demo.dao.LoginImpl;
+
 @Service
 public class LoginServices {
 	@Autowired
-    private JdbcTemplate jdbcTemplateOne;
+	LoginImpl loginImp;
 
-	public boolean validateUser(String userid, String password) {
+	public boolean isAuthUser(String username, String password) {
 		// TODO Auto-generated method stub
-		  
-		 return userid.equalsIgnoreCase("in28minutes")
-	                && password.equalsIgnoreCase("dummy");
+		return loginImp.getUserCount(username, password);
+	}
+
+	public boolean isAdmin(String emailIId, String password) {
+		// TODO Auto-generated method stub
+		return loginImp.isUserIsAdmin(emailIId,password);
 	}
 }
