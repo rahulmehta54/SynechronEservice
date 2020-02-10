@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -10,17 +8,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Component
-@Table(name="address")
-public class Address {
+@Table(name="cart")
+public class Cart {
+
+	private int service_id;
+	private String Servicemen_name;
+	private int contact;
+	private String category;
+	private int user_id;
 	
- @Id
- private int city_id;
- private String add_id;
- private String address;
- 
 }
