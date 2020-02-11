@@ -9,49 +9,47 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "orderTable")
-public class Orders implements Serializable {
+@Table(name = "servicesmenTable")
+public class ServicesMen implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int orderId;
-	
+	private int sId;
+
 	private String sMenFName;
 	private String sMenLName;
 	private String mobile;
+	private String category;
 	private String city;
 	private String experience;
 	private String inspectionRates;
 	private String payAmount;
 	private String paymentMode;
-	private int userId;
-	private int sId;
 
-	public Orders() {
+	public ServicesMen() {
 	}
 
-	public Orders(int orderId, String sMenFName, String sMenLName, String mobile, String city, String experience,
-			String inspectionRates, String payAmount, String paymentMode, int userId, int sId) {
+	public ServicesMen(int sId, String sMenFName, String sMenLName, String mobile, String category, String city,
+			String experience, String inspectionRates, String payAmount, String paymentMode) {
 		super();
-		this.orderId = orderId;
+		this.sId = sId;
 		this.sMenFName = sMenFName;
 		this.sMenLName = sMenLName;
 		this.mobile = mobile;
+		this.category = category;
 		this.city = city;
 		this.experience = experience;
 		this.inspectionRates = inspectionRates;
 		this.payAmount = payAmount;
 		this.paymentMode = paymentMode;
-		this.userId = userId;
+	}
+
+	public int getsId() {
+		return sId;
+	}
+
+	public void setsId(int sId) {
 		this.sId = sId;
-	}
-
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
 	}
 
 	public String getsMenFName() {
@@ -76,6 +74,14 @@ public class Orders implements Serializable {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getCity() {
@@ -116,22 +122,6 @@ public class Orders implements Serializable {
 
 	public void setPaymentMode(String paymentMode) {
 		this.paymentMode = paymentMode;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getsId() {
-		return sId;
-	}
-
-	public void setsId(int sId) {
-		this.sId = sId;
 	}
 
 }

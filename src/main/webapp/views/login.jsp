@@ -10,7 +10,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title> <b>… WelcomeTo the SyneService...</b></title>
+        <title> <b>… Welcome to the SyneService..</b></title>
     </head>
     <body>
         <table align="center">
