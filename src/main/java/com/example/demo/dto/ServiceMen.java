@@ -15,12 +15,11 @@ public class ServiceMen implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int sId;
-
 	private String sMenFName;
 	private String sMenLName;
 	private String mobile;
-	private String category;
 	private String city;
+	private String category;
 	private String experience;
 	private String inspectionRates;
 	private String payAmount;
@@ -31,7 +30,6 @@ public class ServiceMen implements Serializable {
 
 	public ServiceMen(int sId, String sMenFName, String sMenLName, String mobile, String category, String city,
 			String experience, String inspectionRates, String payAmount, String paymentMode) {
-		super();
 		this.sId = sId;
 		this.sMenFName = sMenFName;
 		this.sMenLName = sMenLName;

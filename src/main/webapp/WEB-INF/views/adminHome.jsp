@@ -17,7 +17,7 @@
 			<br>
 			<h2 class="centerText blue">Admin Home</h2>
 			<br>
-		
+
 			<!-- <nav class="navbar navbar-light bg-light">
 				<a class="navbar-brand">Navbar</a>
 				<form class="form-inline">
@@ -27,8 +27,8 @@
 				</form>
 			</nav> -->
 
-			<jsp:include page="adminheader.jsp" />
-			
+			<jsp:include page="adminHeader.jsp" />
+
 
 		</div>
 	</div>

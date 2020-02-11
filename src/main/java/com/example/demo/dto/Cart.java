@@ -13,7 +13,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartId;
-	
+
 	private int userId;
 	private int sId;
 	private String fName;
@@ -72,5 +72,4 @@ public class Cart {
 		this.category = category;
 	}
 
-	
 }

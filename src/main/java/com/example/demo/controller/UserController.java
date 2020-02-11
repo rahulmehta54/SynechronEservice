@@ -42,7 +42,7 @@ public class UserController {
 
 	@PostMapping("/login")
 	public String checkLogin(@ModelAttribute("command") User user) {
-		String nextPage = "index";
+		String nextPage = "login";
 		int i = this.userDaoImpl.loginUser(user);
 		if (i == 1) {
 			nextPage = "adminHome";

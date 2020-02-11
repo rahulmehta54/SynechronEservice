@@ -12,17 +12,16 @@
 <title>E-Service</title>
 </head>
 <body>
+
+	
 	<div align="center">
 		<div class="col-md-6">
+			<br>
 			<h2 class="centerText blue">User Home</h2>
-			<br> <br>
+			<br>
 
-			<div class="form-group">
-				<a href="getCust">Get Service Men</a>
-			</div>
-			<div class="form-group">
-				<a href="index">Logout</a>
-			</div>
+			<jsp:include page="userHeader.jsp" />
+
 
 		</div>
 	</div>

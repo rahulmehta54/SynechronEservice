@@ -15,29 +15,26 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int loginUser(User user) {
-		//0 - Not found
-		//1 - admin
-		//2 - user
-		
+		// 0 - Not found
+		// 1 - admin
+		// 2 - user
+
 		int i = 0;
 		String sql = "select count(*) from tbl_user where email=? and password=?";
-		/*
-		 * List<Map<String, Object>> list = this.template.queryForList(sql,
-		 * user.getEmail(), user.getPassword()); if (list != null && list.size() == 1) {
-		 * 
-		 * }
-		 */
-
-		int val = this.template.queryForObject(sql, new Object[] { user.getEmail(), user.getPassword() },
+		int count = this.template.queryForObject(sql, new Object[] { user.getEmail(), user.getPassword() },
 				Integer.class);
-
-		if (val == 1) {
-			String sqlQuery = "select userType from tbl_user where email=? and password=?";
-		}else {
-			
+//		System.out.println("==========Count :" + count + "===========");
+		if (count == 1) {
+			String query = "select userType from tbl_user where email=? and password=?";
+			int userType = this.template.queryForObject(query, new Object[] { user.getEmail(), user.getPassword() },
+					Integer.class);
+//			System.out.println("==========UserType :" + userType + "===========");
+			if (userType == 1) {
+				i = 1;
+			} else if (userType == 2) {
+				i = 2;
+			}
 		}
-
-		System.out.println("==========" + val + "===========");
 		return i;
 	}
 }
