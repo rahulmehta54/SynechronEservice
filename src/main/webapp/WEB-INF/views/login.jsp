@@ -13,11 +13,11 @@
 <title>Login Module</title>
 </head>
 <body>
-<form:form action="validateLogin" method="post">  
+<form:form action="validateAdminLogin" method="post">  
 
-UserID:<input type="text" name="email"/><br/><br/>  
+UserID:<input type="text" name="mailId"/><br/><br/>  
 Password:<input type="password" name="password"/><br/><br/>  
-
+<input type="hidden" name="role" value="user">
 <input type="submit" value="login"/>
 <br>
 <a href="Register">SignUp</a>

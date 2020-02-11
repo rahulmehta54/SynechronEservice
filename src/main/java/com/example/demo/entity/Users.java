@@ -25,9 +25,10 @@ public class Users {
 	private int userId;
 	private String firstName;
 	private String lastName;
-	private int contactNum;
-	
+	private String contactNum;
+	private String role;
 	private String password;
+	private String mailId;
 	
 	@OneToMany(targetEntity=ServiceProviderBooked.class, cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id", referencedColumnName="userId")

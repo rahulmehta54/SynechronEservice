@@ -27,7 +27,8 @@ public class ServiceProvider {
 	private String city;
 	private String catagory;
 	private double rates;
-	private int contactNum;
+	private String contactNum;
+	private int experience; 
 	@OneToMany(targetEntity=ServiceProviderBooked.class, cascade=CascadeType.ALL)
 	@JoinColumn(name="serv_id", referencedColumnName="sid")
 	private List<ServiceProviderBooked> sBook;

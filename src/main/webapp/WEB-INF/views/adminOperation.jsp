@@ -12,10 +12,12 @@
 
 <ul>
 <h2>E-service Page</h2>
+<h2>Admin Operations</h2>
 <br>
 <br>
-<li><a href="login">USER LOGIN</a> </li>
-<li><a href="admin">ADMIN LOGIN</a> </li>
+<li><a href="addService">Add Service</a> </li>
+<li><a href="#">Edit Service</a> </li>
+<li><a href="#">Delete Service</a> </li>
 
 </ul>
 </body>
