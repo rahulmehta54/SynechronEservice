@@ -14,7 +14,7 @@
 <body>
 
 <h1> Registration done successfully! </h1>
-<a href = "login.jsp">Click here to go back to Login Page.</a>
+<a href = "/login">Click here to go back to Login Page.</a>
 
 </body>
 </html>

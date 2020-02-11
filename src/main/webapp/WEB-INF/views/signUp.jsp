@@ -17,13 +17,20 @@
 
 <h2 align = "center"> Please fill the below details to create an account! </h2>
 	<form action="signUp" method="post">
-	<input type="email" name="emailId" placeholder="Enter the Email"><br>
+	<label for = "firstName"><b>First Name :</b></label>
+	<input type = "text" name = "firstName" placeholder= "Enter First Name"><br>
+	<label for = "lastName"><b>Last Name :</b></label>
+	<input type = "text" name = "lastName" placeholder= "Enter Last Name"><br>
+	<label for = "emailId"><b>Email ID :</b></label>
+	<input type="email" name="emailId" placeholder="Enter Email ID"><br>
+	<label for = "mobileNo"><b>Mobile Number :</b></label>
+	<input type = "text" name = "mobileNo" placeholder= "Enter Mobile Number"><br>
+	<label for = "address"><b>Address :</b></label>
+	<input type = "text" name = "address" placeholder= "Enter Address"><br>
+	<label for = "pwd"><b>Password :</b></label>
 	<input type="password" name="pwd" placeholder="Enter the Password"><br>
-	<input type="submit" value="Login">
+	<input type="submit" value="Register">
 	</form>
-
-
-
 
 </body>
 </html>
