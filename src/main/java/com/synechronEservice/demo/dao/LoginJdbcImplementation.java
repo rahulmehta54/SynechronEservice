@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 import com.synechronEservice.demo.constants.ApplicationConstant;
 
 @Repository
-public class LoginImpl implements LoginInterFace {
+public class LoginJdbcImplementation {
 
 	@Autowired
     private JdbcTemplate jdbcTemplateOne;
-	@Override
+	
+	
 	public boolean getUserCount(String useremail, String password) {
 		int resultCount=this.jdbcTemplateOne.queryForObject(ApplicationConstant.GET_VALID_USER_COUNT,new Object[] { useremail,password }, Integer.class);
 		System.out.println(resultCount);

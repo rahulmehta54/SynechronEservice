@@ -14,7 +14,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Synechron_E_Service</name>
-	<description>Problem Statement:  Any middle class and above family do have some electrical and electronic appliances with them and these are prone to some small or big type of failures. In urgency, it is sometimes possible to gather and store the contact information of the servicemen in the city who can repair these types of items.  It is very difficult to manage the information for long time, even if stored, then the information can update and the old data will be useless. </description>
+	<description>Problem Statement: Any middle class and above family do
+		have some electrical and electronic appliances with them and these are
+		prone to some small or big type of failures. In urgency, it is
+		sometimes possible to gather and store the contact information of the
+		servicemen in the city who can repair these types of items. It is very
+		difficult to manage the information for long time, even if stored,
+		then the information can update and the old data will be useless. </description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -75,6 +81,22 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
