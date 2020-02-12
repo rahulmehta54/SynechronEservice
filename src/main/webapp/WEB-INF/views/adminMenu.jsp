@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,18 +17,27 @@
 <title>Syne E-service</title>
 </head>
 <body>
-	<h2><b>Admin login</b></h2>
-	<div class = "container">
-	<form action="adminLogin" method="post">
-	<label for = "userId"><b>User ID :</b></label>
-	<input type="text" name="userId" placeholder="Enter User ID" required><br>
-	<label for = "pwd"><b>Password :</b></label>
-	<input type="password" name="pwd" placeholder="Enter Password" required><br>
-	<input type="submit" value="Login"><br><br>
-	
-	<p>${error}</p>
-	
-	</form>
-</div>
+<h2>Welcome Admin</h2>
+<ul>
+<li><a href = "addServiceMen" > Add New Service Man</a></li>
+<li><a href = "viewServiceMen"> Edit or Delete Service Man Information</a></li>
+</ul>
+
+
+<!-- 
+<script>
+
+function myFunction(){
+	var x = document.getElementById("myID");
+	if(x.style.display == "none"){
+		x.style.display = "block";
+	}
+	else{
+		x.style.display = "none";
+	}
+}
+
+</script>
+-->
 </body>
 </html>

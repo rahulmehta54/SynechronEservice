@@ -6,7 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.example.demo.entity.Admin;
+import com.example.demo.entity.ServiceMen;
 import com.example.demo.entity.User;
 
 
@@ -26,8 +27,18 @@ public class WebConfig {
 		return new User();
 	}
 	
+	@Bean
+	public Admin admin()
+	{
+		return new Admin();
+	}
 	
-
+	
+	@Bean
+	public ServiceMen smen()
+	{
+		return new ServiceMen();
+	}
 
 
 }

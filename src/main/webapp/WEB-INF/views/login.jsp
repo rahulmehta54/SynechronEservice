@@ -16,20 +16,24 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<title>Urban Clap</title>
+<title>Syne E-service</title>
 </head>
 <body>
 <div class = "container">
 	<h2><b>Welcome to Syne E-service</b></h2>
 	<form action="login" method="post">
 	<label for = "emailId"><b>Email ID</b></label>
-	<input type="email" name="emailId" placeholder="Enter the Email"><br>
+	<input type="email" name="emailId" placeholder="Enter the Email" required><br>
 	<label for = "pwd"><b>Password</b></label>
-	<input type="password" name="pwd" placeholder="Enter the Password"><br>
+	<input type="password" name="pwd" placeholder="Enter the Password" required><br>
 	<input type="submit" value="Login">
 	
-	<a href = "/signUp">Don't have an account? Click here to register!</a><br><br><br>
-	<a href = "/adminLogin"><b><u>Admin Login</u></b></a>
+	<a href = "/signUp">Don't have an account? Click here to register!</a><br><br>
+	
+	<p>${error}</p><br>
+	
+	<a href = "/adminLogin"><b>Admin Login</b></a>
+	 
 	</form>
 </div>
 </body>

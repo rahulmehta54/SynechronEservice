@@ -9,19 +9,17 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="user")
+@Table(name = "servicemen")
 @Data
-public class User {
+public class ServiceMen {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int uniqueId;
-	private String firstName;
-	private String lastName;
-	private String emailId;
+	private int id;
+	private String name;
+	private String occupation;
+	private String city;
 	private String mobileNo;
-	private String address;	
-	private String pwd;
-	private String role;
-
+	private String serviceCharges;
+	
 }

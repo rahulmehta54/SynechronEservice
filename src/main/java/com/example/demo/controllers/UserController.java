@@ -26,11 +26,7 @@ public class UserController {
 	@Autowired
 	private User user;
 	
-//	@GetMapping(path="/signUp")
-//	public String initForm(Model model) {
-//		model.addAttribute("command", user);
-//		return "signUp";
-//	}
+
 	
 	@PostMapping(path="/signUp")
 	public String onSubmit(@Valid @ModelAttribute("command") User user) {

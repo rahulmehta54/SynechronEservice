@@ -19,7 +19,9 @@ public class LoginService {
 		// TODO Auto-generated method stub
 	}
 	
-	
+	public boolean isValidAdmin(String userId, String pwd) {
+		return loginimpl.isValidAdmin(userId, pwd);
+	}
 	
 	
 	
