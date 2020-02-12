@@ -22,7 +22,6 @@
 
 			<jsp:include page="userHeader.jsp" />
 
-
 		</div>
 	</div>
 </body>

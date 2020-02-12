@@ -66,3 +66,7 @@ public class UserController {
 	}
 
 }
+
+
+// https://www.javaguides.net/2019/08/spring-boot-web-application-with-jsp-crud-example-tutorial.html
+// 

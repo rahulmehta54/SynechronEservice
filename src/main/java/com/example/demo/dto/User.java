@@ -23,12 +23,13 @@ public class User implements Serializable {
 	private String password;
 	private String cpassword;
 	private int userType;
+	private int active;
 
 	public User() {
 	}
 
 	public User(int userId, String email, String fName, String lName, String mobile, String password, String cpassword,
-			int userType) {
+			int userType, int active) {
 		super();
 		this.userId = userId;
 		this.email = email;
@@ -38,6 +39,7 @@ public class User implements Serializable {
 		this.password = password;
 		this.cpassword = cpassword;
 		this.userType = userType;
+		this.active = active;
 	}
 
 	public int getUserId() {
@@ -102,6 +104,14 @@ public class User implements Serializable {
 
 	public void setUserType(int userType) {
 		this.userType = userType;
+	}
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
 	}
 
 }

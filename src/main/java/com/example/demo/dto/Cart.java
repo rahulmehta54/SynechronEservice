@@ -19,17 +19,27 @@ public class Cart {
 	private String fName;
 	private String mobile;
 	private String category;
+	private int active;
 
 	public Cart() {
 	}
 
-	public Cart(int userId, int sId, String fName, String mobile, String category) {
-		super();
+	public Cart(int cartId, int userId, int sId, String fName, String mobile, String category, int active) {
+		this.cartId = cartId;
 		this.userId = userId;
 		this.sId = sId;
 		this.fName = fName;
 		this.mobile = mobile;
 		this.category = category;
+		this.active = active;
+	}
+
+	public int getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 
 	public int getUserId() {
@@ -70,6 +80,14 @@ public class Cart {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
 	}
 
 }

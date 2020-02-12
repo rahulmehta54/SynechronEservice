@@ -24,12 +24,13 @@ public class ServiceMen implements Serializable {
 	private String inspectionRates;
 	private String payAmount;
 	private String paymentMode;
+	private int active;
 
 	public ServiceMen() {
 	}
 
 	public ServiceMen(int sId, String sMenFName, String sMenLName, String mobile, String category, String city,
-			String experience, String inspectionRates, String payAmount, String paymentMode) {
+			String experience, String inspectionRates, String payAmount, String paymentMode, int active) {
 		this.sId = sId;
 		this.sMenFName = sMenFName;
 		this.sMenLName = sMenLName;
@@ -40,6 +41,7 @@ public class ServiceMen implements Serializable {
 		this.inspectionRates = inspectionRates;
 		this.payAmount = payAmount;
 		this.paymentMode = paymentMode;
+		this.active = active;
 	}
 
 	public int getsId() {
@@ -120,6 +122,22 @@ public class ServiceMen implements Serializable {
 
 	public void setPaymentMode(String paymentMode) {
 		this.paymentMode = paymentMode;
+	}
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
+	@Override
+	public String toString() {
+		return "ServiceMen [sId=" + sId + ", sMenFName=" + sMenFName + ", sMenLName=" + sMenLName + ", mobile=" + mobile
+				+ ", city=" + city + ", category=" + category + ", experience=" + experience + ", inspectionRates="
+				+ inspectionRates + ", payAmount=" + payAmount + ", paymentMode=" + paymentMode + ", active=" + active
+				+ "]";
 	}
 
 }

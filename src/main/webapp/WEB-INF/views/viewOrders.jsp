@@ -25,16 +25,16 @@
 	<div align="center">
 		<div class="col-md-6">
 			<br>
-			<h2 class="centerText blue">Admin Home</h2>
+			<h2 class="centerText blue">User Home</h2>
 			<br>
 
-			<jsp:include page="adminHeader.jsp" />
+			<jsp:include page="userHeader.jsp" />
 
 			<br>
-			<h4 class="centerText blue">View Service Men</h4>
-			<br>
+			<h4 class="centerText blue">Orders Placed</h4>
+			<br> <br>
 
-			<table class="table table-hover">
+			<table>
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -44,6 +44,7 @@
 						<th>Action</th>
 					</tr>
 				</thead>
+
 				<tbody>
 					<c:forEach items="${allServiceMens}" var="serviceMenBean">
 						<tr>
@@ -51,16 +52,8 @@
 							<td><c:out value="${serviceMenBean.mobile}" /></td>
 							<td><c:out value="${serviceMenBean.category}" /></td>
 							<td><c:out value="${serviceMenBean.city}" /></td>
-
-							<td><a class="btn btn-warning btn-xs"
-								href="edit">Edit</a> <a
-								class="btn btn-danger btn-xs"
-								href="/delete?id=${serviceMenBean.sId}">Delete</a> <a
-								class="btn btn-success btn-xs"
-								href="delete/${serviceMenBean.sId}">Delete2</a> <%-- <form action="/delete/${serviceMenBean.getsId()}" method="post">
-									<input class="btn btn-warning btn-xs" type="submit"
-										value="Delete" />
-								</form> --%></td>
+							<td><button>Edit</button>
+								<button>Delete</button></td>
 						</tr>
 					</c:forEach>
 				</tbody>

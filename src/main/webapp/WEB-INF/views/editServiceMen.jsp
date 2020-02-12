@@ -31,28 +31,31 @@
 
 			<form:form action="addServiceMen" method="post">
 				<br>
-				<h4 class="centerText blue">Add Service Men</h4>
+				<h4 class="centerText blue">Edit Service Men</h4>
 				<br>
 				<br>
 
 				<div class="form-group">
-					<label class="align-left">First Name:</label>
-					<form:input path="sMenFName" cssClass="form-control" />
+					<label class="align-left">First Name:</label> <input type="text"
+						id="sMenFName" class="form-control"
+						value="${serviceMenBean.sMenFName}" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Last Name:</label>
-					<form:input path="sMenLName" cssClass="form-control" />
+					<label class="align-left">Last Name:</label> <input type="text"
+						id="sMenLName" class="form-control"
+						value="${serviceMenBean.sMenFName}" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Mobile Number:</label>
-					<form:input path="mobile" cssClass="form-control" />
+					<label class="align-left">Mobile Number:</label> <input type="text"
+						id="mobile" class="form-control"
+						value="${serviceMenBean.sMenFName}" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">City:</label>
-					<form:input path="city" cssClass="form-control" />
+					<label class="align-left">City:</label> <input type="text"
+						id="city" class="form-control" value="${serviceMenBean.sMenFName}" />
 				</div>
 
 				<div class="form-group">
@@ -68,16 +71,18 @@
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Experience:</label>
-					<form:input path="experience" cssClass="form-control" />
+					<label class="align-left">Experience:</label> <input type="text"
+						id="experience" class="form-control"
+						value="${serviceMenBean.sMenFName}" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Rates:</label>
-					<form:input path="inspectionRates" cssClass="form-control" />
+					<label class="align-left">Rates:</label> <input type="text"
+						id="inspectionRates" class="form-control"
+						value="${serviceMenBean.sMenFName}" />
 				</div>
 
-				<input class="btn btn-success" type="submit" value="Register">
+				<input class="btn btn-success" type="submit" value="Update">
 			</form:form>
 
 
