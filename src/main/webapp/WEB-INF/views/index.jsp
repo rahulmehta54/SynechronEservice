@@ -12,6 +12,7 @@
 
 
 <a href="login">Login</a>
+<a href="signup">SingnUp</a>
 
 <!-- <a href="viewHotel" >viewtrip</a>
 <a href="addTrip" >Addtrip</a> -->

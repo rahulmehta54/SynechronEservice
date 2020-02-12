@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.SalesPerson;
 import com.example.demo.entity.User;
 @Configuration
 public class WebConfig {
@@ -14,6 +15,10 @@ public class WebConfig {
 	@Bean
 	public User  user() {
 		return new User();
+	}
+	@Bean
+	public SalesPerson  salesPerson() {
+		return new SalesPerson ();
 	}
 	
 

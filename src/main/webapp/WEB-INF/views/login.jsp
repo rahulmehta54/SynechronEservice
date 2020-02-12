@@ -15,8 +15,8 @@
 		<form:input path="email"/>
 		<label>Pass</label>
 		<form:input path="password"/>
-		<label>role</label>
-		<form:input path="role"/>
+		<form:radiobutton path="role" value="user"/>user 
+<form:radiobutton path="role" value="admin"/>admin 
 		
 		<input type="submit" value=submit>
 	</form:form>

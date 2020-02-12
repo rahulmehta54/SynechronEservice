@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.controller.repository.UserRepository;
@@ -47,24 +48,56 @@ public class LoginController {
 
 
 	@PostMapping(path="/login")
-	private String onSubmit(@Valid @ModelAttribute("command") User user) 
+	private ModelAndView onSubmit(@Valid @ModelAttribute("command") User user) 
 		{
 		System.out.println(user.toString());
 		System.out.print(user.getName()+user.getPassword()+user.getRole());
 		List<User>	loggedinuser=repo.findByEmailAndPasswordAndRole(user.getEmail(),user.getPassword(),user.getRole());
 		System.out.println("insidelogin"+loggedinuser.toString());
+		String name="default";
 		for (User user2 : loggedinuser) {
 			System.out.println("foeacch"+user2.toString());
-			
+			 name=user2.getName();
 		}
+		
 		System.out.println("aaya");
 			if(!loggedinuser.isEmpty()) {
 				System.out.println("logged in");
-				return "success";
-			}
-			else
-				return "index";
+				if(user.getRole().equalsIgnoreCase("user"))
+				{
+					mdlview.setViewName("userdashboard");
+					mdlview.addObject("name",name);
+					return mdlview;
+				}
+				else 
+				{
+					mdlview.setViewName("admindashboard");
+					mdlview.addObject("name",name);
+					return mdlview;
+				}}
+			
+			else {
+				mdlview.setViewName("index");
+				return mdlview;}
 		
 		}
+	@GetMapping(path="/signup")
+	public String inituser(Model model) {
+		System.out.println("inside signup");
+		model.addAttribute("command",user);
+		
+		return "signup";
+		
+		
+	}
+	@PostMapping(path="/signup")
+	private String onSumit(@Valid @ModelAttribute("command") User user) 
+		{
+		repo.save(user);
+	
+	return "success";
+		}
+	
+	
 
 }
