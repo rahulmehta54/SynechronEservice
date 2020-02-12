@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.entity.ServiceProvider;
 import com.example.demo.entity.Users;
 import com.example.demo.repo.userRepository;
 import com.example.demo.services.userServiceImpl;
@@ -23,6 +24,7 @@ public class UserController {
 	@Autowired
 	userServiceImpl userv;
 	
+
 	
 	
 	@GetMapping(path="/login")
@@ -67,4 +69,9 @@ public class UserController {
 
 		  
 	  }
+	 
+	 
+	 
+	
+	 
 }
