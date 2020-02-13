@@ -4,29 +4,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
+@Entity
 @Table(name="servicemen")
 public class Service {
 
 	@Id
+	private int service_id;
 	private String Sfname;
 	private String Slname;
-	private int service_id;
 	private String category; 
-	private double mob;
+	private long mob;
 	private String city;
 	private int exp;
-	private long insp_rate;
+	private int insp_rate;
 	private double pay_amt;
 	private String pay_mode;
 }

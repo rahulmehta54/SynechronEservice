@@ -1,0 +1,23 @@
+
+.centerText {
+	text-align: center;
+}
+
+.blue {
+	color: #0000ff;
+}
+
+.red {
+	color: #ff0000;
+}
+
+.align-left {
+	align-items: flex-start;
+	color: orange;
+}
+
+.for-logout {
+	float: right;
+	text-align: right;
+	color: #ff0000;
+}
