@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,44 +27,48 @@
 
 <body>
 
-	<div id="editEmployeeModal" >
-		<div >
+	<div class="editEmployeeModal empclass" >
+		<div>
 			<div class="modal-content">
-				<form>
+				<form:form method="post" action="/${url}">
 					<div class="modal-header">
 						<h4 class="modal-title">Edit Service Provider</h4>
 					</div>
 					<div class="modal-body">
-						<div class="form-group">
-							<label>First Name</label> <input type="text" class="form-control" value="${userDetail.firstName}">
-						</div>
-						<div class="form-group">
-							<label>Last Name</label> <input type="text" class="form-control" value="${userDetail.lastName}">
+					
+					<form:input type="text"  path="serviceId" hidden="hidden"/>
+					   
+					   <div class="form-group">
+							<label>First Name</label> <form:input path="firstName" type="text" class="form-control" />
 						</div>
 						
 						<div class="form-group">
-							<label>City</label> <input type="text" class="form-control"
-								value="${userDetail.city}">
+							<label>Last Name</label> <form:input path="lastName" type="text" class="form-control" />
+						</div>
+						
+						<div class="form-group">
+							<label>City</label> <form:input path="city" type="text" class="form-control"/>
 						</div>
 						
 						<div class="form-group">
 							<label>Category</label>
-							<input type="text" class="form-control" value="${userDetail.category}">
+							<form:input path="category"  type="text" class="form-control" />
 						</div>
 						
 						<div class="form-group">
-							<label>Mobile Number</label> <input type="text" class="form-control"
-								value="${userDetail.mobileNo}">
+							<label>Mobile Number</label> <form:input path="mobileNo"  type="text" class="form-control"
+								/>
 						</div>
 						<div class="form-group">
-							<label>Rate For Service</label> <input type="text" class="form-control"
-								value="${userDetail.rate}">
+							<label>Rate For Service</label> <form:input path="rate" type="text" class="form-control"
+								/>
 						</div>
 					</div>
 					<div class="modal-footer">
-						 <input type="submit" class="btn btn-info" value="Save">
+						 <input type="submit" class="btn btn-info" value="${save}">
 					</div>
-				</form>
+					
+				</form:form>
 			</div>
 		</div>
 	</div>

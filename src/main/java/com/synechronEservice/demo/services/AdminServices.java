@@ -22,4 +22,11 @@ public class AdminServices {
        serviceProvider=servcProvide.get();
 	   return serviceProvider;
     }
+
+	public void deleteServiceProvide(int id) {
+		srvcprointr.deleteById(id);
+	}
+	
+	
+
 }

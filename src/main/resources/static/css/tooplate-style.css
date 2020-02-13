@@ -456,6 +456,7 @@ figure {
 @media (min-width: 1200px) {
   .container {
     max-width: 1233px;
+        
   }
 
   .tm-company-about {
@@ -548,4 +549,58 @@ figure {
   .navbar-expand-md .navbar-nav .nav-link {
     padding: 10px 15px;
   }
+  
+  .empclass{
+    margin-left: 256px;
+    width: 285px;
+    height: 598px;
+    margin-top: 40px;
+  
+  }
+
+}
+
+
+
+.wrapper{
+	position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0,0.6);
+    max-width: 100%;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.wrapper .input {
+    width: 85%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 10px 0;
+}
+
+.searchbtn {
+    background: #ffec00;
+    width: 10%;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.searchbtn .fas{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.detaiPage{
+	margin-top: 88px;
 }

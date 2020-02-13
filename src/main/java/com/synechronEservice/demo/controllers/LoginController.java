@@ -48,6 +48,7 @@ public class LoginController {
 	   return "index";
 	}
    
+   
    @RequestMapping(value="/login", method = RequestMethod.POST)
    public String showWelcomePage(ModelMap model, @RequestParam String emailIId, @RequestParam String password){
        
@@ -59,8 +60,6 @@ public class LoginController {
     	   model.put("name", emailIId);
            if(service.isAdmin(emailIId,password)) {
         	   List <ServiceProvider> getUserList=srvcprointr.findAll();
-        	   System.out.println();
-        	   getUserList.stream().forEach((eachUser)->System.out.println(eachUser.getCategory()));
         	   model.put("serviceproviderList", getUserList);
         	   return "adminPage";
     	   }else {
@@ -88,11 +87,4 @@ public class LoginController {
  	   }
  	   
  	}
-   
-   
-   
-	
-	
-	
-	
 }

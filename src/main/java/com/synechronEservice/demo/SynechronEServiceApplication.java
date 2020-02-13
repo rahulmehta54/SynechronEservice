@@ -10,5 +10,6 @@ public class SynechronEServiceApplication {
 		SpringApplication.run(SynechronEServiceApplication.class, args);
 	}
 	
+	
 
 }

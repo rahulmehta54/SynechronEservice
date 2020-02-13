@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -29,9 +30,13 @@ public class ServiceProvider {
 	private String rate;
 	
 	
+	
+
 	public int getServiceId() {
 		return serviceId;
 	}
+
+
 
 
 	public void setServiceId(int serviceId) {
@@ -39,9 +44,13 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public String getFirstName() {
 		return firstName;
 	}
+
+
 
 
 	public void setFirstName(String firstName) {
@@ -49,9 +58,13 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public String getLastName() {
 		return lastName;
 	}
+
+
 
 
 	public void setLastName(String lastName) {
@@ -59,9 +72,13 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public String getCity() {
 		return city;
 	}
+
+
 
 
 	public void setCity(String city) {
@@ -69,9 +86,13 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public String getCategory() {
 		return category;
 	}
+
+
 
 
 	public void setCategory(String category) {
@@ -79,9 +100,13 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public String getMobileNo() {
 		return mobileNo;
 	}
+
+
 
 
 	public void setMobileNo(String mobileNo) {
@@ -89,9 +114,13 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public String getRate() {
 		return rate;
 	}
+
+
 
 
 	public void setRate(String rate) {
@@ -99,14 +128,20 @@ public class ServiceProvider {
 	}
 
 
+
+
 	public List<UserServiceProviderBookingTracker> getUserserviceproviderlist() {
 		return userserviceproviderlist;
 	}
 
 
+
+
 	public void setUserserviceproviderlist(List<UserServiceProviderBookingTracker> userserviceproviderlist) {
 		this.userserviceproviderlist = userserviceproviderlist;
 	}
+
+
 
 
 	@OneToMany(targetEntity=UserServiceProviderBookingTracker.class,cascade=CascadeType.ALL)

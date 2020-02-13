@@ -1,4 +1,3 @@
-<%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
@@ -30,24 +29,34 @@
 <body>
 
 	<div>
-		<h2>Welcome Admin: ${name}!!</h2>
+		<h2>Welcome User: ${name}!!</h2>
 		<h3>${succesfull}</h3>
 	</div>
-    <div class="container">
+
+	<form action="/searchProvider" method="post">
+		<div class="wrapper">
+			<input type="text" name="service" class="input"
+				placeholder="What Services are you looking for?"> <input
+				type="text" class="input" placeholder="Enter the Location"
+				name="location"> <input type="submit" class="searchbtn"><i
+				class="fas fa-search"></i>
+		</div>
+	</form>
+
+
+	<div class="container detaiPage">
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
 						<h3>
-							<b>Manage Service Provides</b>
+							<b>${service}s Available in ${city} </b>
 						</h3>
 					</div>
 					<div class="col-sm-6">
 						<a href="/addEmployeeModal" class="btn btn-success"
-							data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add
-								Service Provider Details</span></a> <!-- <a href="#deleteEmployeeModal"
-							class="btn btn-danger" data-toggle="modal"><i
-							class="material-icons">&#xE15C;</i> <span>Delete</span></a> -->
+							data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Go
+								To Cart</span></a>
 					</div>
 				</div>
 			</div>
@@ -59,35 +68,37 @@
 						<th>Category</th>
 						<th>Mobile No</th>
 						<th>Rate of The Service</th>
-						<th>Actions</th>
+						<th>Add to cart</th>
 					</tr>
 				</thead>
 				<tbody>
+
 					<c:forEach var="serviceProvider" items="${serviceproviderList}">
 						<tr>
-							
 							<td>${ serviceProvider.firstName}</td>
 							<td>${ serviceProvider.city}</td>
 							<td>${ serviceProvider.category}</td>
 							<td>${ serviceProvider.mobileNo}</td>
 							<td>${ serviceProvider.rate}</td>
-							<td><a href="/editEmployeeModal/${serviceProvider.serviceId}" class="edit"
-								data-toggle="modal"><i class="material-icons"
-									data-toggle="tooltip" title="Edit">&#xE254;</i></a> 
-									<a href="/deleteEmployeeModal/${serviceProvider.serviceId}" class="delete" data-toggle="modal"><i
-									class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
+							<td><a href="/addTocart/${serviceProvider.serviceId}" ><i
+									class="fa fa-shopping-cart" 
+									 title="Add to cart" >&#xE254;</i></a></td>
 						</tr>
 					</c:forEach>
+
+					<c:if test="${serviceproviderList==null}">
+						<tr>
+							<td>No Service Provider Found in your Location</td>
+						</tr>
+					</c:if>
 
 				</tbody>
 			</table>
 		</div>
-	</div>
 
 
 
-
+		
 
 </body>
 </html>
