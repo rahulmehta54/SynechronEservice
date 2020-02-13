@@ -10,7 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.controller.repository.SalesPersonRepository;
@@ -60,12 +64,48 @@ public class AdminController {
 		List<SalesPerson> list=repo.findAll();
 		
 		
-		
+		List<Integer> idlist=new ArrayList<Integer>();
 		mdlview.addObject("vendorlist",list);
+		mdlview.addObject("idlist",idlist);
 		mdlview.setViewName("editdelvendor");
 		return mdlview;
 	
 	}
+	@PostMapping(path="/deleteSaleperson")
+	private String delete(@RequestParam("check")Long[] checkboxvalues) 
+	{
+	//	Integer[] selectedStudentIds = request.getParameterValues("selected");
+  
+   for (Long  check: checkboxvalues) {
+	 //  repo.deleteById(integer);
+	   System.out.println(check);
+	   repo.deleteById(check);
+
+}
+   
+		return "success";
+
+
+	}
+//	editemp/${vendor.id}
+	   @RequestMapping(value="/editvendor/{id}")    
+	    public String edit(@PathVariable Long id, Model m){    
+	        SalesPerson vendor=repo.getOne(id);    
+	        m.addAttribute("command",vendor);  
+	        return "editvendor";    
+	    }  
+	   @RequestMapping(value="/editandsave",method = RequestMethod.POST)    
+	    public String editandsave(@ModelAttribute("salesperson") SalesPerson sp){  
+		 //  System.out.println(sp.getId()+"In the end");
+		   
+		   
+	     //   repo.updateSalesPerson(sp.getId(),sp.getCategory(),sp.getCity(),sp.getExperience(),sp.getRate(),sp.getMobileNumber(),sp.getSalePersonName());
+		  // repo.save(sp);
+		   
+	        return "success";    
+	    } 
+	
+	
 	
 
 
