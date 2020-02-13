@@ -4,10 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,18 +21,24 @@ import javax.persistence.Table;
 public class UserInfo {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "userId")
 	private long userId;
 	private String userName;
+	private String password;
 	private String address;
 	private String city;
 	private long phoneNumber;
+	
+	@ManyToOne
+	private Cart cart;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "serviceProvider_ref")	// primary column of client table
 	private Set<ServiceProviderInfo> serviceProviderList =  new HashSet<>();
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_ref")
+	@JoinColumn(name = "userId")
 	private Set<UserServiceProviderRelation> userRef =  new HashSet<>();
 
 	public UserInfo() {
@@ -36,11 +46,12 @@ public class UserInfo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserInfo(long userId, String userName, String address, String city, long phoneNumber,
+	public UserInfo(long userId, String userName, String password, String address, String city, long phoneNumber,
 			Set<ServiceProviderInfo> serviceProviderList, Set<UserServiceProviderRelation> userRef) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
+		this.password = password;
 		this.address = address;
 		this.city = city;
 		this.phoneNumber = phoneNumber;
@@ -62,6 +73,14 @@ public class UserInfo {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getAddress() {
@@ -106,9 +125,9 @@ public class UserInfo {
 
 	@Override
 	public String toString() {
-		return "UserInfo [userId=" + userId + ", userName=" + userName + ", address=" + address + ", city=" + city
-				+ ", phoneNumber=" + phoneNumber + ", serviceProviderList=" + serviceProviderList + ", userRef="
-				+ userRef + "]";
+		return "UserInfo [userId=" + userId + ", userName=" + userName + ", password=" + password + ", address="
+				+ address + ", city=" + city + ", phoneNumber=" + phoneNumber + ", serviceProviderList="
+				+ serviceProviderList + ", userRef=" + userRef + "]";
 	}
 
 	

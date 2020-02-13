@@ -7,13 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 class="centerText blue">${mainheading}</h1>
+
+<h1 class="centerText blue">${mainheading}</h1>
 	<nav class="navbar navbar-light" style="background-color: red">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a href="adminLogin">Admin Login</a></li>
-			<li class="nav-item"><a href="userLogin">User Login</a></li>
-			<li class="nav-item"><a href="newUser">Create Account</a></li>
+			<li class="nav-item"><a href="addServicemen">Add Servicemen</a></li>
+			<li class="nav-item"><a href="editAndDeleteServicemen">Edit And Delete Servicemen</a></li>
 		</ul>
 	</nav>
+
 </body>
 </html>
