@@ -52,8 +52,8 @@
 							<td><c:out value="${serviceMenBean.mobile}" /></td>
 							<td><c:out value="${serviceMenBean.category}" /></td>
 							<td><c:out value="${serviceMenBean.city}" /></td>
-							<td><button>Edit</button>
-								<button>Delete</button></td>
+							<td><a class="btn btn-warning btn-xs"
+								href="/cart/remove/${serviceMenBean.sId}">Remove</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

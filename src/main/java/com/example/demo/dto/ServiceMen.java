@@ -44,6 +44,18 @@ public class ServiceMen implements Serializable {
 		this.active = active;
 	}
 
+	public ServiceMen(int sId, String sMenFName, String sMenLName, String mobile, String category, String city,
+			String experience, String inspectionRates) {
+		this.sId = sId;
+		this.sMenFName = sMenFName;
+		this.sMenLName = sMenLName;
+		this.mobile = mobile;
+		this.category = category;
+		this.city = city;
+		this.experience = experience;
+		this.inspectionRates = inspectionRates;
+	}
+
 	public int getsId() {
 		return sId;
 	}

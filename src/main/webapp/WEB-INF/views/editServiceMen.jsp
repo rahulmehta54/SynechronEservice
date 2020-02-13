@@ -29,33 +29,40 @@
 
 			<jsp:include page="adminHeader.jsp" />
 
-			<form:form action="addServiceMen" method="post">
+			<form:form action="/updateServiceMen" method="post">
 				<br>
 				<h4 class="centerText blue">Edit Service Men</h4>
 				<br>
 				<br>
 
+				<form:input path="sId" type="text" hidden="hidden"
+					class="form-control" />
+				<form:input path="payAmount" type="text" hidden="hidden"
+					class="form-control" />
+				<form:input path="paymentMode" type="text" hidden="hidden"
+					class="form-control" />
+				<form:input path="active" type="text" hidden="hidden"
+					class="form-control" />
+
 				<div class="form-group">
-					<label class="align-left">First Name:</label> <input type="text"
-						id="sMenFName" class="form-control"
-						value="${serviceMenBean.sMenFName}" />
+					<label class="align-left">First Name:</label>
+					<form:input path="sMenFName" class="form-control" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Last Name:</label> <input type="text"
-						id="sMenLName" class="form-control"
-						value="${serviceMenBean.sMenFName}" />
+					<label class="align-left">Last Name:</label>
+					<form:input path="sMenLName" class="form-control" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Mobile Number:</label> <input type="text"
-						id="mobile" class="form-control"
-						value="${serviceMenBean.sMenFName}" />
+					<label class="align-left">Mobile Number:</label>
+					<form:input path="mobile" class="form-control" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">City:</label> <input type="text"
-						id="city" class="form-control" value="${serviceMenBean.sMenFName}" />
+					<label class="align-left">City:</label>
+					<%-- <input type="text"	id="city" class="form-control" value="${city}" /> --%>
+					<form:input path="city" cssClass="form-control" />
 				</div>
 
 				<div class="form-group">
@@ -71,15 +78,13 @@
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Experience:</label> <input type="text"
-						id="experience" class="form-control"
-						value="${serviceMenBean.sMenFName}" />
+					<label class="align-left">Experience:</label>
+					<form:input path="experience" cssClass="form-control" />
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Rates:</label> <input type="text"
-						id="inspectionRates" class="form-control"
-						value="${serviceMenBean.sMenFName}" />
+					<label class="align-left">Rates:</label>
+					<form:input path="inspectionRates" cssClass="form-control" />
 				</div>
 
 				<input class="btn btn-success" type="submit" value="Update">

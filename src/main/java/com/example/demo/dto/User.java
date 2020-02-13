@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,10 @@ public class User implements Serializable {
 	private String mobile;
 	private String password;
 	private String cpassword;
+
+	@Column(name = "userType", columnDefinition = "int(11) default '2'")
 	private int userType;
+	@Column(name = "active", columnDefinition = "int(11) default '1'")
 	private int active;
 
 	public User() {

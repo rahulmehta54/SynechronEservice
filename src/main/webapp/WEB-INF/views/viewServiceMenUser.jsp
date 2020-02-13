@@ -34,6 +34,19 @@
 			<h4 class="centerText blue">View Service Men</h4>
 			<br>
 
+			<%-- <div>
+				<form:form action="/searchServiceMenUser" method="post">
+					<!-- 					<input class="form-control mr-sm-2" type="search"
+						placeholder="City" aria-label="Search" />
+ -->
+					<form:input path="city" cssClass="form-control" />
+					<form:input path="category" cssClass="form-control" />
+
+					<input class="btn btn-success" type="submit" value="Register">
+
+				</form:form>
+			</div> --%>
+
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -51,8 +64,12 @@
 							<td><c:out value="${serviceMenBean.mobile}" /></td>
 							<td><c:out value="${serviceMenBean.category}" /></td>
 							<td><c:out value="${serviceMenBean.city}" /></td>
-							<td><button>+Cart</button>
-								<button>Order</button></td>
+
+							<td><a class="btn btn-warning btn-xs"
+								href="/cart/${serviceMenBean.sId}">Cart</a> <a
+								class="btn btn-danger btn-xs"
+								href="/order/${serviceMenBean.sId}">Order</a></td>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

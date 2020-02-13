@@ -14,6 +14,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <meta charset="ISO-8859-1">
@@ -52,15 +54,18 @@
 							<td><c:out value="${serviceMenBean.category}" /></td>
 							<td><c:out value="${serviceMenBean.city}" /></td>
 
+							<%-- <td><a
+								href="/edit/${serviceMenBean.sId}"
+								class="edit" data-toggle="modal"><i class="material-icons"
+									data-toggle="tooltip" title="Edit">&#xE254;</i></a> <a
+								href="/delete/${serviceMenBean.sId}"
+								class="delete" data-toggle="modal"><i class="material-icons"
+									data-toggle="tooltip" title="Delete">&#xE872;</i></a></td> --%>
+
 							<td><a class="btn btn-warning btn-xs"
-								href="edit">Edit</a> <a
+								href="/edit/${serviceMenBean.sId}">Edit</a> <a
 								class="btn btn-danger btn-xs"
-								href="/delete?id=${serviceMenBean.sId}">Delete</a> <a
-								class="btn btn-success btn-xs"
-								href="delete/${serviceMenBean.sId}">Delete2</a> <%-- <form action="/delete/${serviceMenBean.getsId()}" method="post">
-									<input class="btn btn-warning btn-xs" type="submit"
-										value="Delete" />
-								</form> --%></td>
+								href="/delete/${serviceMenBean.sId}">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

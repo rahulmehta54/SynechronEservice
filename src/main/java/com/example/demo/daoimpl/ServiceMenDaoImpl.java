@@ -1,5 +1,7 @@
 package com.example.demo.daoimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -29,5 +31,13 @@ public class ServiceMenDaoImpl implements ServiceMenDao {
 			i = 1;
 		}
 		return i;
+	}
+
+	@Override
+	public List<ServiceMen> filteredServiceMens(ServiceMen serviceMen) {
+		String sql = "select * FROM tbl_servicemen WHERE city=? and category=?";
+		List<ServiceMen> filteredServiceMensList = this.template.queryForList(sql,
+				new Object[] { serviceMen.getCity(), serviceMen.getCategory() }, ServiceMen.class);
+		return filteredServiceMensList;
 	}
 }
