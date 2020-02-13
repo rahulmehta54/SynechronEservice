@@ -34,20 +34,36 @@
 <!-- 	<label for = "serviceCharges"><b>Basic Service Charges :</b></label> -->
 <!-- 	<input type = "text" name = "serviceCharges"  required><br> -->
 
-
-<c:forEach items ="${serviceMenList}" var="item">
-	<label for = "id">ID: </label>${item.id}
+<c:forEach items="${serviceMenDetail}" var = "item">
+	<label for = "id"><b>ID: </b></label>&nbsp;<span>${item.id}</span><br>
 	<label for = "name"><b>Name :</b></label>
-	<input type = "text" name = "name" value="${item.name}" required><br>
+	<input type = "text" name = "name" value = "${item.name}" required><br>
 	<label for = "occupation"><b>Occupation :</b></label>
-	<input type = "text" name = "occupation" value ="${item.occupation}"  required><br>
+	<input type = "text" name = "occupation" value = "${item.occupation}" required><br>
 	<label for = "city"><b>City :</b></label>
-	<input type = "text" name = "city" value ="${item.city}" required><br>
+	<input type = "text" name = "city" value="${item.city}" required><br>
 	<label for = "mobileNo"><b>Mobile Number :</b></label>
-	<input type = "text" name = "mobileNo" value ="${item.mobileNo}" required><br>
+	<input type = "text" name = "mobileNo" value="${item.mobileNo}" required><br>
 	<label for = "serviceCharges"><b>Basic Service Charges :</b></label>
 	<input type = "text" name = "serviceCharges" value = "${item.serviceCharges}" required><br>
+
+
+
 </c:forEach>
+
+<!-- 	<label for = "id">ID: </label> -->
+<!-- 	<label for = "name"><b>Name :</b></label> -->
+<!-- 	<input type = "text" name = "name"  value= "Deepesh" required><br> -->
+<!-- 	<label for = "occupation"><b>Occupation :</b></label> -->
+<%-- 	<input type = "text" name = "occupation" value ="${serviceMenDetail.occupation}"  required><br> --%>
+<!-- 	<label for = "city"><b>City :</b></label> -->
+<%-- 	<input type = "text" name = "city" value ="${serviceMenDetail.city}" required><br> --%>
+<!-- 	<label for = "mobileNo"><b>Mobile Number :</b></label> -->
+<%-- 	<input type = "text" name = "mobileNo" value ="${serviceMenDetail.mobileNo}" required><br> --%>
+<!-- 	<label for = "serviceCharges"><b>Basic Service Charges :</b></label> -->
+<%-- 	<input type = "text" name = "serviceCharges" value = "${serviceMenDetail.serviceCharges}" required><br> --%>
+
+
 	<button type="submit" onClick = "myFunction()">Update Information</button>
 	</form>
 </div>

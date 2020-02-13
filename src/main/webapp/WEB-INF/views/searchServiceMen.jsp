@@ -8,7 +8,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/style.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script
@@ -21,8 +20,11 @@
 <title>Syne E-service</title>
 </head>
 <body>
-
-<table class = "table table-striped table-hover table-bordered">
+<div class = "container">
+<p>Type something in search field to search service man  </p>
+<input class="form-control" id="myInput" type="text"  placeholder="Search..">
+<br>
+<table  class = "table table-striped table-hover table-bordered">
 <thead>
 <tr>
 	<th>ID</th>
@@ -35,7 +37,7 @@
 </tr>
 </thead>
 
-<tbody>	
+<tbody id = "myTable" >	
 <c:forEach items="${serviceMenList}" var = "item">
 <tr>
 	<td><c:out value="${item.id}"/></td>
@@ -44,16 +46,29 @@
 	<td><c:out value="${item.city}"/></td>
 	<td><c:out value="${item.mobileNo}"/></td>
 	<td><c:out value="${item.serviceCharges}"/></td>
-	<td><a href="/editServiceMen?id=${item.id}">
-         <span class="glyphicon glyphicon-pencil">Edit</span>
-        </a>&nbsp;<span><a href="#">
-         <span class="glyphicon glyphicon-trash">Delete</span>
-        </a></span></td>
+	<td><a href=#>
+          <span class="glyphicon glyphicon-shopping-cart">Add to Cart</span>
+        </a></td>
 <!--  	?id=${item.id} -->
 </tr>
 </c:forEach>
 </tbody>
 </table>
+</div>
 
+
+
+ 
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+ 
 </body>
 </html>

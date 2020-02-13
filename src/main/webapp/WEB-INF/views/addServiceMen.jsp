@@ -17,28 +17,73 @@
 <title>Syne E-service</title>
 </head>
 <body>
-<h1>Please fill the below details to add new Service Man</h1>
 <div class = "container">
-<form action="addServiceMen" method = "post">
 
-	<label for = "name"><b>Name :</b></label>
-	<input type = "text" name = "name" placeholder= "Enter Name" required><br>
-	<label for = "occupation"><b>Occupation :</b></label>
-	<input type = "text" name = "occupation" placeholder= "Enter Occupation" required><br>
-	<label for = "city"><b>City :</b></label>
-	<input type = "text" name = "city" placeholder= "City" required><br>
-	<label for = "mobileNo"><b>Mobile Number :</b></label>
-	<input type = "text" name = "mobileNo" placeholder= "Enter Mobile Number" required><br>
-	<label for = "serviceCharges"><b>Basic Service Charges :</b></label>
-	<input type = "text" name = "serviceCharges" placeholder= "Enter Basic Service Charges" required><br>
-	<button type="submit" onClick = "myFunction()">Add Service Man</button>
-	</form>
-</div>
+<div class="row justify-content-center" >
+	<div class = "col-md-8">
+		<div class = "card">
+			<div class = "card-header">Fill The Below Details To Add New Service Man</div>
+				<form name = "addservice" action="addServiceMen" method = "post" >
+					<div class = "form-group row">
+						<div class= "col-md-4 col-form-label text-md-right">
+							<label for = "name"><b>Name :</b></label>
+						</div>
+						<div class = "col-md-6">
+							<input type = "text" name = "name" placeholder= "Enter Name" class="form-control" required><br>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<div class= "col-md-4 col-form-label text-md-right">
+							<label for = "occupation"><b>Occupation :</b></label>
+						</div>
+						<div class = "col-md-6">
+							<input type = "text" name = "occupation" placeholder= "Enter Occupation" class="form-control" required><br>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<div class= "col-md-4 col-form-label text-md-right">
+							<label for = "city"><b>City :</b></label>
+						</div>
+						<div class = "col-md-6">
+							<input type = "text" name = "city" placeholder= "City" class="form-control" required><br>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<div class= "col-md-4 col-form-label text-md-right">
+							<label for = "mobileNo"><b>Mobile Number :</b></label>
+						</div>	
+						<div class = "col-md-6">
+							<input type = "text" name = "mobileNo" placeholder= "Enter Mobile Number" class="form-control" required><br>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<div class= "col-md-4 col-form-label text-md-right">
+							<label for = "serviceCharges"><b>Basic Service Charges :</b></label>
+						</div>
+						<div class = "col-md-6">
+							<input type = "text" name = "serviceCharges" placeholder= "Enter Basic Service Charges" class="form-control" required><br>
+						</div>
+					</div>
+					<div class="col-md-6 offset-md-4">
+						<button type="submit" class = "btn btn-primary ">Add Service Man</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>	
+			
 
 <script>
-function myFunction() {
-    alert("Service Man added successfully!");
-}
+$(document).ready(function(){
+	  $("form").submit(function(){
+	    alert("Service Man Added Successfully!");
+	  });
+	});
 
 </script>
 
