@@ -7,11 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name="tbl_cart")
+@Component
 public class Cart {
 
 	@Id

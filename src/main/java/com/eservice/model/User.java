@@ -14,12 +14,14 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name="tbl_user")
+@Component
 public class User {
 
 	@Id

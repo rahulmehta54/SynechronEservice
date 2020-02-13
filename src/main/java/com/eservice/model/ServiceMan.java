@@ -20,12 +20,14 @@ import javax.validation.Valid;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="tbl_serviceMan")
+@Table(name = "tbl_serviceMan")
+@Component
 public class ServiceMan {
 
 	@Id
@@ -34,7 +36,7 @@ public class ServiceMan {
 
 	private String name;
 
-	private Number mobileNumber;
+	private long mobileNumber;
 
 	private String emailId;
 
@@ -64,5 +66,7 @@ public class ServiceMan {
 	private int bookingStatus;
 
 	private int experience;
+
+	private double rate;
 
 }

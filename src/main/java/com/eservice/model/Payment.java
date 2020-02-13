@@ -11,11 +11,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name="tbl_payment")
+@Component
 public class Payment {
 
 	@Id

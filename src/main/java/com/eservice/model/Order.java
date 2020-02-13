@@ -14,12 +14,14 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="tbl_order")
+@Table(name = "tbl_order")
+@Component
 public class Order {
 
 	@Id
@@ -36,8 +38,7 @@ public class Order {
 
 	@OneToOne
 	private InspectionRate rate;
-	
-	
+
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_date")
