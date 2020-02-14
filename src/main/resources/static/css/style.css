@@ -7,3 +7,20 @@ p{
 #myID{
 	display:none;
 }
+
+#addservice{
+	background-color:#DADADA  ;
+}
+
+/* #searchservice{ */
+/* 	background-color:#DADADA  ; */
+/* } */
+
+#searchtable{
+	
+	  border-collapse: collapse;
+}
+
+#searchtable tr{
+	border-color:black;
+}

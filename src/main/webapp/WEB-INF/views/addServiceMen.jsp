@@ -16,13 +16,24 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <title>Syne E-service</title>
 </head>
-<body>
+<body id ="addservice">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<ul class="navbar-nav">
+    <li style="color:white" class="nav-item active">Syne E-service</li>  	
+</ul>
+</nav>
+   
+   <br>
+
+
 <div class = "container">
 
 <div class="row justify-content-center" >
 	<div class = "col-md-8">
 		<div class = "card">
-			<div class = "card-header">Fill The Below Details To Add New Service Man</div>
+			<div class = "card-header"><b>Fill The Below Details To Add New Service Man</b></div>
+			<div class = "card-body">
 				<form name = "addservice" action="addServiceMen" method = "post" >
 					<div class = "form-group row">
 						<div class= "col-md-4 col-form-label text-md-right">
@@ -72,6 +83,7 @@
 						<button type="submit" class = "btn btn-primary ">Add Service Man</button>
 					</div>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>

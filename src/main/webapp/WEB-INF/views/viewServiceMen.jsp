@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/style.css" rel="stylesheet">
@@ -22,7 +23,17 @@
 </head>
 <body>
 
-<table class = "table table-striped table-hover table-bordered">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<ul class="navbar-nav">
+    <li style="color:white" class="nav-item active"><b>Syne E-service</b></li>  	
+</ul>
+</nav>
+<br>
+<div class="container">
+<p style="color:black">Type something in search field to filter service man  </p>
+<input class="form-control" id="myInput" type="text"  placeholder="Search..">
+<br>
+<table  class = "table table-striped table-hover table-bordered">
 <thead>
 <tr>
 	<th>ID</th>
@@ -35,7 +46,7 @@
 </tr>
 </thead>
 
-<tbody>	
+<tbody id="myTable">	
 <c:forEach items="${serviceMenList}" var = "item">
 <tr>
 	<td><c:out value="${item.id}"/></td>
@@ -46,7 +57,7 @@
 	<td><c:out value="${item.serviceCharges}"/></td>
 	<td><a href="/editServiceMen?id=${item.id}">
          <span class="glyphicon glyphicon-pencil">Edit</span>
-        </a>&nbsp;<span><a href="#">
+        </a>&nbsp;<span><a href="/deleteServiceMan?id=${item.id}" onclick="return confirm('Are you sure you want to delete this entry?');">
          <span class="glyphicon glyphicon-trash">Delete</span>
         </a></span></td>
 <!--  	?id=${item.id} -->
@@ -54,6 +65,17 @@
 </c:forEach>
 </tbody>
 </table>
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 </body>
 </html>

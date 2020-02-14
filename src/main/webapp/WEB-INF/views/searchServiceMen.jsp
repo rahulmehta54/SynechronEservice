@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script
@@ -19,12 +20,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <title>Syne E-service</title>
 </head>
-<body>
+<body id = "searchservice">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<ul class="navbar-nav">
+    <li style="color:white" class="nav-item active"><b>Syne E-service</b></li>  	
+</ul>
+</nav>
+
 <div class = "container">
-<p>Type something in search field to search service man  </p>
+<p style="color:black">Type something in search field to search service man  </p>
 <input class="form-control" id="myInput" type="text"  placeholder="Search..">
 <br>
-<table  class = "table table-striped table-hover table-bordered">
+<table id = "searchtable" class = "table table-striped table-hover table-bordered">
 <thead>
 <tr>
 	<th>ID</th>

@@ -90,20 +90,7 @@ public class ServiceMenController {
 		
 		return mav;
 	}
-//	public String showEditServicePage() {
-//		return "editServiceMen";
-//	}
-//	
 
-//	@RequestMapping(value = "/editServiceMen", method=RequestMethod.GET)
-//	public  String getAttr(@PathVariable(value="id") int id,ModelMap model) {
-//		srepo.findById(id);
-//		Optional<ServiceMen> s =srepo.findById(id);
-//		ServiceMen ser=s.get();
-//	//	System.out.println(serProv.getFirstName());
-//		model.put("serviceMenDetail", ser);
-//		return "editServiceMen";
-//	}
 	
 	@GetMapping(path = "/searchServiceMen")
 	public String searchAll(Model model, @ModelAttribute("command") ServiceMen smen) {
@@ -112,6 +99,24 @@ public class ServiceMenController {
 		model.addAttribute("serviceMenList", serviceMenList);
 		return "searchServiceMen" ;
 	}
+	
+	@PostMapping(path="/editServiceMen")
+	public String onUpdate(Model model, @Valid @ModelAttribute("command") ServiceMen smen ) {
+		srepo.save(smen);
+		return "adminMenu";
+		
+	}
+	@GetMapping(path="/deleteServiceMan")
+	public String deleteService(@RequestParam int id,@Valid @ModelAttribute("command") ServiceMen smen) {
+		System.out.println("delete..................");
+		srepo.deleteById(id);
+		return "/back";
+	}
+	@PostMapping(path="/back")
+	public String showViewService() {
+	return "/viewServiceMen";	
+	}
+	
 }
 
 
