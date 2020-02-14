@@ -14,6 +14,7 @@
 <h2>E-service Page</h2>
 <br>
 <br>
+<div><h2>${fail}</h2></div>
 <li><a href="login">USER LOGIN</a> </li>
 <li><a href="admin">ADMIN LOGIN</a> </li>
 

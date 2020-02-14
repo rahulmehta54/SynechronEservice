@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.ServiceProvider;
+import com.example.demo.entity.Users;
 import com.example.demo.repo.serviceProviderRepo;
 import com.example.demo.services.serviceProviderImpl;
 @Controller
@@ -29,7 +31,8 @@ public class serviceProviderController {
 	@Autowired
 	serviceProviderImpl spServ;
 	
-	
+	@Autowired
+	Users u;
 	
 	
 	@GetMapping(path="/addService")
@@ -100,6 +103,9 @@ public class serviceProviderController {
 		 mm.addAttribute("success","Service deleted successfully!");
 		 return "viewServices";
 	 }
+	 
+	 
+	
 	
 
 }
