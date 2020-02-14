@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<nav class="navbar navbar-light" style="background-color: yellow">
 <div class="col-md-6">
 	<form:form method="post" action="addServiceProvider">
 	
@@ -53,7 +53,11 @@
 	<div>
 		<input type="submit" value = "Add" class="btn btn-info">
 	</div>	
-</form:form>	
+</form:form>
 </div>
+<div>
+ <input type=button value="Back" onCLick="history.back()">	
+ </div>
+ </nav>
 </body>
 </html>

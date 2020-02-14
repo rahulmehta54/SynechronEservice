@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<nav class="navbar navbar-light" style="background-color: yellow">
 <div align="center">
     <h2>Service Providers</h2>
     <h1 class="centerText blue">${id}</h1>
@@ -48,8 +48,9 @@
     <div>
     <a href="/viewCart?id=${ServiceProviderInfo.serviceId}&userId=${id}">View Cart</a>
     </div>
+     <input type=button value="Back" onCLick="history.back()">
 </div>   
-
+</nav>
 
 </body>
 </html>

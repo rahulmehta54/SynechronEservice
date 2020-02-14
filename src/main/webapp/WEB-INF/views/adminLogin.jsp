@@ -13,8 +13,8 @@
 </head>
 <body>
 <div class="col-md-6">
+<nav class="navbar navbar-light" style="background-color: yellow">
 	<form:form method="post" action="adminLoginValidation">
-	
 	<div class="form-group">
 		<label>Admin Name</label>
 		<form:input path="name" cssClass="form-control"/>   <!--  call setter method-->
@@ -27,6 +27,10 @@
 		<input type="submit" value = "Login" class="btn btn-info">
 	</div>	
 </form:form>
+<div>
+ <input type=button value="Back" onCLick="history.back()">	
+ </div>
+</nav>
 </div>	
 </body>
 </html>

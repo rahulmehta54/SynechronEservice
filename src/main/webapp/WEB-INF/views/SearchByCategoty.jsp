@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="col-md-6">
+<nav class="navbar navbar-light" style="background-color: yellow">
 	<form:form method="get" action="SearchByCategotyName">
 	
 	<div class="form-group">
@@ -25,6 +26,8 @@
 		<input type="submit" value = "Search" class="btn btn-info">
 	</div>	
 </form:form>	
+ <input type=button value="Back" onCLick="history.back()">
+ </nav>
 </div>
 </body>
 </html>

@@ -10,6 +10,7 @@
 </head>
 <body>
 <div>
+<nav class="navbar navbar-light" style="background-color: yellow">
 		<div class="col-md-6">
 			<form:form method="get" action="searchByCityName">
 				<div class="form-group">
@@ -25,6 +26,8 @@
 					
 			</form:form>
 		</div>
+		 <input type=button value="Back" onCLick="history.back()">
+		 </nav>
 	</div>
 </body>
 </html>

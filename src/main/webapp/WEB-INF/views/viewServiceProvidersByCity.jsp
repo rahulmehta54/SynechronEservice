@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<nav class="navbar navbar-light" style="background-color: yellow">
 <div align="center">
     <h2>Service Providers</h2>
     <table border="1" cellpadding="5">
@@ -32,6 +33,8 @@
         </tr>
         </c:forEach>
     </table>
+     <input type=button value="Back" onCLick="history.back()">
 </div>   
+</nav>
 </body>
 </html>

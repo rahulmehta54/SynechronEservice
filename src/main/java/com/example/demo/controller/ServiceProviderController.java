@@ -24,10 +24,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.daos.ServiceProviderDao;
 import com.example.demo.entity.Admin;
+import com.example.demo.entity.Booked;
 import com.example.demo.entity.Cart;
 import com.example.demo.entity.ServiceProviderInfo;
 import com.example.demo.entity.UserInfo;
 import com.example.demo.entity.UserServiceProviderRelation;
+import com.example.demo.repos.BookedRepository;
 import com.example.demo.repos.CartRepository;
 import com.example.demo.repos.ServiceProviderRepository;
 import com.example.demo.repos.UserServiceProviderRelationRepository;
@@ -49,6 +51,9 @@ public class ServiceProviderController {
 	private ServiceProviderInfo serviceProviderInfo ;
 	
 	@Autowired
+	private BookedRepository repo3 ;
+	
+	@Autowired
 	private ServiceProviderDao dao;
 	
 	@GetMapping(path = "/addServicemen")
@@ -67,7 +72,7 @@ public class ServiceProviderController {
 		System.out.println("data:"+serviceProviderInfo.getCategory());
 		repo.save(serviceProviderInfo);
 		
-		return "success";
+		return "Back";
 		
 	}
 	
@@ -169,20 +174,53 @@ public class ServiceProviderController {
 		return mav;
 	}
 	
+	
+	@GetMapping(path = "/viewOrder")
+	public ModelAndView viewOrder(@RequestParam long userId) {
+		
+		List<ServiceProviderInfo> listServicemen = new ArrayList<>();
+		
+		List<Booked> serviceId = repo3.findByUserId(userId);
+		Set<Booked> bookedId  = new LinkedHashSet<>();
+		System.out.println("size..: "+serviceId.size());
+		for(Booked serId : serviceId )
+		{
+			System.out.println("id: "+ serId.getServiceId());
+			
+			  Optional<ServiceProviderInfo> Servicemen = repo.findById(serId.getServiceId());
+			  bookedId.addAll(repo3.findByUserIdAndServiceId(userId,serId.getServiceId()));
+			  System.out.println("info: "+Servicemen.get());
+			  listServicemen.add(Servicemen.get());
+			 
+		} 
+		for(ServiceProviderInfo Servicemen: listServicemen) 
+		{
+			System.out.println("list data: "+Servicemen.getMobileNumber());
+			System.out.println("list data: "+Servicemen.getServiceId());
+		}
+		ModelAndView mav = new ModelAndView("viewOrder");
+		mav.addObject("userId", userId);
+		mav.addObject("bookedId", bookedId);
+		mav.addObject("listServicemen", listServicemen);
+		return mav;
+		
+	}
+	
+	
 	@PostMapping("/saveEditedData")
 	public String saveCustomer(@ModelAttribute("command") ServiceProviderInfo serviceProviderInfo) {
 		System.out.println("inside save ");
 		System.out.println(serviceProviderInfo.getProviderName());
 		System.out.println(serviceProviderInfo.getInspectionRate());
 		repo.save(serviceProviderInfo);
-	    return "success";
+	    return "Back";
 	}
 	
 	@GetMapping(path = "/delete")
 	public String editCustomerForm(@RequestParam long id) {
 		System.out.println("inside delete 1");
 		dao.delete(id);
-		return "success";
+		return "Back";
 	}
 	
 	/*
@@ -242,7 +280,48 @@ public class ServiceProviderController {
 	public String deleteFromCart(@RequestParam long id) {
 		
 		repo2.deleteById(id);
-	    return "success";
+	    return "Back";
 	}
 	
+
+	@GetMapping(path = "/placeOrder")
+	public ModelAndView placeOrder(@ModelAttribute("command") ServiceProviderInfo serviceProviderInfo, @RequestParam long cartId) {
+
+		System.out.println("cartId....: "+cartId);
+		List<ServiceProviderInfo> listServicemen = new ArrayList<>();
+		
+		List<Cart> cartInfo = repo2.findByCartId(cartId);		
+		ModelAndView mav = new ModelAndView("purchaseForm");
+		ServiceProviderInfo serviceProvider = new ServiceProviderInfo();
+		for(Cart cartid :cartInfo )
+		{
+			  System.out.println("id: "+ cartid.getServiceId());			
+			  Optional<ServiceProviderInfo> Servicemen = repo.findById(cartid.getServiceId());
+			  System.out.println("info: "+Servicemen.get());
+			  listServicemen.add(Servicemen.get());	
+			  serviceProvider = Servicemen.get();
+		} 
+		System.out.println("data..."+serviceProvider.getServiceId()+", "+serviceProvider.getCategory());
+		System.out.println("data..."+serviceProvider.getCity()+", "+serviceProvider.getExperience());
+		mav.addObject("serviceProviderInfo", serviceProvider);  
+		mav.addObject("cartId", cartId); 
+		mav.addObject("userId", cartInfo.get(0).getUserId());
+		return mav;
+	}
+	
+	@GetMapping(path = "/BookServiceMen")
+	public String bookServiceMen(@ModelAttribute("command") ServiceProviderInfo serviceProviderInfo, @RequestParam long serviceProviderId, @RequestParam long userId, @RequestParam long cartId)
+	{
+		System.out.println("booked data: "+serviceProviderId);
+		
+		  System.out.println("card id:   "+cartId); 
+		  Booked booked = new Booked();
+		  System.out.println("booked :id: "+ booked.getBookedId());
+		  booked.setServiceId(serviceProviderId);
+		  booked.setUserId(userId);
+		  repo3.insert(booked.getBookedId(), booked.getServiceId(), booked.getUserId());
+		  repo2.deleteById(cartId);
+		 return "Back";
+		
+	}
 }

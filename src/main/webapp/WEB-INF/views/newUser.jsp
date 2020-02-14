@@ -14,6 +14,7 @@
 <body>
 
 <div class="col-md-6">
+<nav class="navbar navbar-light" style="background-color: yellow">
 	<form:form method="post" action="createNewUser">
 	
 	<div class="form-group">
@@ -39,7 +40,9 @@
 	<div>
 		<input type="submit" value = "Create" class="btn btn-info">
 	</div>	
-</form:form>	
+</form:form>
+ <input type=button value="Back" onCLick="history.back()">
+</nav>
 </div>
 </body>
 </html>

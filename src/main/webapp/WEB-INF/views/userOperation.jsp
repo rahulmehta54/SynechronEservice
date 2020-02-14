@@ -13,23 +13,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 class="centerText blue">${listServicemen}</h1>
+<%-- <h1 class="centerText blue">${listServicemen}</h1> --%>
+<nav class="navbar navbar-light" style="background-color: yellow">
 	<table>
 		<c:forEach items="${listServicemen}" var="user">
 			<tr>
-				<nav class="navbar navbar-light" style="background-color: red">
+				<nav class="navbar navbar-light" style="background-color: yellow">
 					<ul class="navbar-nav">
 
 						<li class="nav-item"><a href="viewAllServicemen?id=${user.userId}">View All Servicemen</a></li>
-						<li class="nav-item"><a href="viewOrders">View Orders</a></li>
 						<li class="nav-item"><a href="viewCart?userId=${user.userId}">View Cart</a></li>
+						<li class="nav-item"><a href="viewOrder?userId=${user.userId}">View Order</a></li>
 						<li class="nav-item"><a href="SearchByCategoty">Search By Category</a></li>
 						<li class="nav-item"><a href="SearchByCity">Search By City</a></li>
 					</ul>
 				</nav>
-				<td>${user.userId}</td>
+				<%-- <td>${user.userId}</td> --%>
 			</tr>
 		</c:forEach>
 	</table>
+	</nav>
 </body>
 </html>

@@ -3,9 +3,6 @@
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"  %>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix ="fmt"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +12,8 @@
 <body>
 <nav class="navbar navbar-light" style="background-color: yellow">
 <div align="center">
-    <h2>Service Providers</h2>
+<h1 class="centerText blue">${userId}</h1>
+    <h2> Booked Service Providers</h2>
     <table border="1" cellpadding="5">
         <tr>
             <th>Provider ID</th>
@@ -34,27 +32,14 @@
             <td>${listServicemen.mobileNumber}</td>
             <td>${listServicemen.city}</td>
             <td>${listServicemen.experience}</td>
-            <td>${listServicemen.inspectionRate}</td>  
-               
+            <td>${listServicemen.inspectionRate}</td>                
         </tr>
         </c:forEach>
         <tr>
-            <th>Card ID</th>
-            <th>Provider ID</th>           
+        <input type=button value="Back" onCLick="history.back()">
         </tr>
-       
-        <c:forEach items="${cartId}" var="cartId" >
-		<tr>
-        <td>${cartId.cartId}</td>
-        <td>${cartId.serviceId}</td>
-        <td><a href="/deleteFromCart?id=${cartId.cartId}">Delete From Cart</a></td> 
-        <td><a href="/placeOrder?cartId=${cartId.cartId}">Place Order</a></td>
-        </tr>
-        </c:forEach>    
     </table>
-     <input type=button value="Back" onCLick="history.back()">
 </div>   
 </nav>
-
 </body>
 </html>

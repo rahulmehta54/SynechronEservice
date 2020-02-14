@@ -8,11 +8,7 @@
 </head>
 <body>
 <nav class="navbar navbar-light" style="background-color: yellow">
-<%-- <h1 class="centerText blue">${id}</h1>
-<h1 class="centerText blue">${userId}</h1 --%>
-
-<a href="viewAllServicemen?id=${userId}">View All Servicemen</a>
-<br>
+<h1>Success</h1>
  <input type=button value="Back" onCLick="history.back()">
  </nav>
 </body>

@@ -14,6 +14,7 @@
 <body>
 
 <div class="col-md-6">
+<nav class="navbar navbar-light" style="background-color: yellow">
 	<form:form method="post" action="userLoginValidation">
 	
 	<div class="form-group">
@@ -28,6 +29,7 @@
 		<input type="submit" value = "Login" class="btn btn-info">
 	</div>	
 </form:form>
+</nav>
 </div>
 
 </body>

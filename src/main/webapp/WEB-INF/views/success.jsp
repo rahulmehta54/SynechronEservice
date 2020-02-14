@@ -7,7 +7,8 @@
 <title>Sai Travels</title>
 </head>
 <body>
-
+<nav class="navbar navbar-light" style="background-color: yellow">
 ${command} <span>Added</span>
+</nav>
 </body>
 </html>

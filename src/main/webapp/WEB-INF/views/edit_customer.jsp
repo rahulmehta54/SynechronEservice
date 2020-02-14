@@ -12,9 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+ <nav class="navbar navbar-light" style="background-color: yellow">
 <div align="center">
         <h2>Edit Servive Providers</h2>
+       
         <form:form action="saveEditedData" method="post" modelAttribute="serviceProviderInfo">
             <table border="0" cellpadding="5">
                 <tr>
@@ -52,7 +53,11 @@
                 </tr>                    
             </table>
         </form:form>
+      
     </div>
-
+<div>
+ <input type=button value="Back" onCLick="history.back()">	
+ </div>
+   </nav>
 </body>
 </html>

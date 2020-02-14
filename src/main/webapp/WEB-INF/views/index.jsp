@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 class="centerText blue">${mainheading}</h1>
-	<nav class="navbar navbar-light" style="background-color: red">
+
+	<%-- <h1 class="centerText blue">${mainheading}</h1> --%>
+	<nav class="navbar navbar-light" style="background-color: yellow">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a href="adminLogin">Admin Login</a></li>
 			<li class="nav-item"><a href="userLogin">User Login</a></li>
