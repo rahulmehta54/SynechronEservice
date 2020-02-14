@@ -17,6 +17,9 @@ public class UserService {
 	ServiceProviderInterface srvInterF;
 	@Autowired
 	AdminServices adminservice;
+	
+	@Autowired
+	ServiceProviderJdbcImpl jfbcimpl;
 
 	public List<ServiceProvider> getDetailsOnTheBasis(String service, String location) {
 		// TODO Auto-generated method stub
@@ -31,6 +34,12 @@ public class UserService {
 			servcProvider.add(serProv);
 		}
 		return servcProvider;
+	}
+
+
+	public boolean paymentFormSubmission(String datetime, int userid, int[] serviceid, boolean isPaymentSuccesfull) {
+		// TODO Auto-generated method stub
+		     return jfbcimpl.paymentFormSubmission( datetime,  userid, serviceid, isPaymentSuccesfull);
 	}
 
 	

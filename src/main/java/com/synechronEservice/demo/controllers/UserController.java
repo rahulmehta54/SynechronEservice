@@ -60,18 +60,13 @@ public class UserController {
 	
 	@RequestMapping(value = "/checkoutPayment", method=RequestMethod.POST)
 	public  String paymentForm(@RequestParam("serviceid") int[] serviceid,@RequestParam("userid") int userid , @RequestParam("exp") String exp, @RequestParam("cnumber") String cnumber
-			,@RequestParam("datetime") String datetime) {
-		
-		System.out.println(serviceid);
-		System.out.println(userid);
-		System.out.println(datetime);
-		uspt.setBookingDate(datetime);
-		uspt.setPaymentCompleted(true);
-	
+			,@RequestParam("datetime") String datetime,ModelMap model) {
 		
 		
-		
-		return cnumber;
+		boolean isPaymentSuccesfull=true;
+		userservice.paymentFormSubmission(datetime,userid,serviceid,isPaymentSuccesfull);
+		model.put("error","No Service Provider Found");
+		return "providerList";
 		
 	}
 }

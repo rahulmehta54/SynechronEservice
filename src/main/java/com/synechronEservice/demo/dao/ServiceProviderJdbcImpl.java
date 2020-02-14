@@ -17,6 +17,16 @@ import com.synechronEservice.demo.models.ServiceProvider;
 public class ServiceProviderJdbcImpl {
 	@Autowired
     private JdbcTemplate jdbcTemplateOne;
+
+	public boolean paymentFormSubmission(String datetime, int userid, int[] serviceid, boolean isPaymentSuccesfull) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<serviceid.length;i++) {
+			System.out.println("dt"+datetime);
+			   Object[] params = new Object[] {datetime , isPaymentSuccesfull,userid, serviceid[i] };
+			   jdbcTemplateOne.update(ApplicationConstant.INSERT_DATA_INTO_USP, params);
+		}
+		return true;
+	}
 	
 	
 

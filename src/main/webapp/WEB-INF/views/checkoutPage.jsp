@@ -30,9 +30,9 @@
 					<h2>Order Summary For Service Provider</h2>
 					<c:set var="total" value="0" />
 
-					<input type="text" value="${userid}" name="userid">
+					<input type="text" value="${userid}" name="userid" hidden="hidden">
 					<c:forEach var="serviceProvider" items="${serviceproviders}">
-                        <input type="text" value="${serviceProvider.serviceId}" name="serviceid">
+                        <input type="text" value="${serviceProvider.serviceId}" name="serviceid" hidden="hidden">
 						<div class='line'></div>
 						<table class='order-table'>
 							<tbody>
