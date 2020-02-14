@@ -91,7 +91,6 @@
 		</tr>
 
 	</span>
-
 	<table class="table table-bordered" id="myTable">
 		<thead class="thead-dark">
 
@@ -116,8 +115,12 @@
 					<td><c:out value="${item.contact_No} " /></td>
 					<td><c:out value="${item.exp} " /></td>
 					<td><c:out value="${item.inspection_rate}" /></td>
-					<td><a href="/editServiceman/${item.service_Id}"> <i
-							class="fa fa-edit"></i></a> <a
+					<td>
+					
+					<a href="/editServiceman/${item.service_Id}"> <i
+							class="fa fa-shopping-cart"></i></a> 
+							
+					<a
 						href="/deleteServiceman/${item.service_Id} " style="color: red">
 							<i class="fa fa-trash"></i>
 					</a></td>

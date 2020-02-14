@@ -25,9 +25,5 @@ public class CartController {
 	@Autowired
 	private ModelAndView modelAndView;
 
-	public String initCart(Model model) {
-		model.addAttribute("command", serviceman);
-		return "viewServicemen";
-
-	}
+	
 }

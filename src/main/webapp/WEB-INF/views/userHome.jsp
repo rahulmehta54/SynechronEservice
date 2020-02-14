@@ -31,21 +31,14 @@
 
 	<h1 style="text-align: center;">Welcome to User Home</h1>
 
-	<form:form action="/viewServicemen">
 
-		<button class="btn btn-info">
-			<a href="/viewServicemen">View Servicemen</a>
-		</button>
-		<br>
 
-		<%-- Search for Category:<form:input path=""/> --%>
+	<button class="btn btn-info">
+		<a href="/userServiceman">View Servicemen</a>
+	</button>
+	<br>
 
-		<input type="text" id="myInput" onkeyup="myFunction()"
-			placeholder="Search for names.." title="Type in a name">
-			
-		
 
-	</form:form>
 
 </body>
 </html>

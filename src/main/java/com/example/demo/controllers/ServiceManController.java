@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -88,6 +86,17 @@ public class ServiceManController {
 //		List<Serviceman> allserviceman = this.servicemanRepository.findAll();
 		model.addAttribute("list", servicemanRepository.findAll());
 		return "viewServicemen";
+	}
+
+	@GetMapping("/userServiceman")
+	public String initCart(Model model) {
+		// modelAndView.setViewName("viewServicemenForUser");
+		List<Serviceman> list = servicemanRepository.findAll();
+		System.out.println("=========" + list);
+		// modelAndView.addObject("list",list);
+		model.addAttribute("list", list);
+		return "userServiceman";
+
 	}
 
 }

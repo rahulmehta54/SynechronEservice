@@ -20,6 +20,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 
 <div align="center">
@@ -60,8 +62,9 @@
 				<form:input path="password" cssClass="form-control" />
 			</div>
 
-			
-			<input class="btn btn-success" type="submit" value="Register">
+
+			<input class="btn btn-success registerstyle" type="submit"
+				value="Register">
 		</form:form>
 	</div>
 </div>
