@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.loginedit:hover {
+	text-decoration: none;
+	s
+}
+
+.loginForm {
+	width: 48%;
+	margin-left: 207px;
+	margin-top: 73px;
+	background-color: aquamarine;
+	border-right: 11px, 18px;
+	border-radius: 113px;
+}
+
+.wrapper {
+	text-align: center;
+}
