@@ -7,6 +7,8 @@ import com.EServiceApp.entity.Address;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long>{
+
+
 	
 
 }

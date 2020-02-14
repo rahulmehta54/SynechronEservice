@@ -2,6 +2,8 @@ package com.EServiceApp.Service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,12 @@ public class CategoryService {
 	public List<Category> findByStatus(int i) {
 		
 		return repo.findByStatus(i);
+	}
+
+	@Transactional
+	public int deleteById(int status, long cid) {
+	
+		return repo.deleteById(status, cid);
 	}
 
 	

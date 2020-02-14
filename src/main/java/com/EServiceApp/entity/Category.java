@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Component
 @Entity
 @Data
@@ -26,7 +27,5 @@ public class Category {
 	private String name;
 	@Column
 	private int status;
-
-	
 
 }

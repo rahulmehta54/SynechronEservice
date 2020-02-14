@@ -38,7 +38,4 @@ public class Address {
 	@OneToOne(cascade = CascadeType.ALL)
 	private State state;
 
-	
-	
-
 }

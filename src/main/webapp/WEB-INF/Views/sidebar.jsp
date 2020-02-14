@@ -28,7 +28,6 @@
                                     <li><a href="#">Menuitem 3</a></li>
                                 </ul>
                             </li> -->
-
 						<li><a href="javascript:void(0)" aria-expanded="true"><i
 								class="fa fa-align-left"></i> <span>index menu</span></a>
 							<ul class="collapse">
@@ -36,25 +35,30 @@
 								<li><a href="/login">User Login</a></li>
 								<li><a href="#" aria-expanded="true">Category</a>
 									<ul class="collapse">
-										<li><a href="/addCategory">Add Category</a></li>
-										<li><a href="/updateCategory">Update Category</a></li>
-										<li><a href="/deleteCategory">Delete Category</a></li>
+										<li><a href="/category">Add Category</a></li>
+										<!-- <li><a href="/deleteCategory">Delete Category</a></li> -->
 										<li><a href="/viewCategory">View Category</a></li>
 									</ul></li>
-								<li><a href="#"></a></li>
+
+								<li><a href="#" aria-expanded="true">ServiceMan</a>
+									<ul class="collapse">
+										<li><a href="/addServiceman">Add Serviceman</a></li>
+									<!-- 	<li><a href="/deleteServiceman">Delete Serviceman</a></li> -->
+										<li><a href="/viewServiceman">View Serviceman</a></li>
+									</ul></li>
 							</ul></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</div>
-	</div>
+
 	<!-- sidebar menu area end -->
 
-
+	<!-- 
 	<div class="header-area">
 		<div class="row align-items-center">
-			<!-- nav and search button -->
+			nav and search button
 			<div class="col-md-6 col-sm-8 clearfix">
 				<div class="nav-btn pull-left">
 					<span></span> <span></span> <span></span>
@@ -66,8 +70,9 @@
 					</form>
 				</div>
 			</div>
-			<!-- profile info & task notification -->
-			<div class="col-md-6 col-sm-4 clearfix">
+	 -->
+	<!-- profile info & task notification -->
+	<!-- <div class="col-md-6 col-sm-4 clearfix">
 				<ul class="notification-area pull-right">
 					<li id="full-view"><i class="ti-fullscreen"></i></li>
 					<li id="full-view-exit"><i class="ti-zoom-out"></i></li>
@@ -213,7 +218,7 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- header area end -->
 
 </body>

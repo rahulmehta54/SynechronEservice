@@ -63,19 +63,13 @@
 
 							<li><a href="javascript:void(0)" aria-expanded="true"><i
 									class="fa fa-align-left"></i> <span>index menu</span></a>
-								<ul class="collapse">
-									<li><a href="/registration">User registration</a></li>
-									<li><a href="/login">User Login</a></li>
-									<li><a href="#" aria-expanded="true">Category</a>
-										<ul class="collapse">
-											<li><a href="/category">Add Category</a></li>
-											<li><a href="/viewCategory">View Category</a></li>
-										</ul></li>
+								
+									
 
 									<li><a href="#" aria-expanded="true">ServiceMan</a>
 										<ul class="collapse">
-											<li><a href="/addServiceman">Add Serviceman</a></li>
-											<li><a href="/viewServiceman">View Serviceman</a></li>
+											<!-- <li><a href="/addServiceman">Add Serviceman</a></li> -->
+											<li><a href="viewServiceman2">View Serviceman</a></li>
 										</ul></li>
 								</ul></li>
 						</ul>

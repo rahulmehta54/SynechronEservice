@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -62,47 +63,70 @@
 		<!-- page title area start -->
 
 		<!-- page title area end -->
-		<div class="main-content-inner">
-			<!-- sales report area start -->
 
-			<div class="col-12 mt-5">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="header-title">Data Table Default</h4>
-						<div class="data-tables">
-							<table id="dataTable" class="text-center">
-								<thead class="bg-light text-capitalize">
-									<tr>
-										<th>id</th>
-										<th>name</th>
-										<th>Update</th>
-										<th>delete</th>
-									</tr>
-								</thead>
-								<tbody>
+		<div class="main-content">
+			<div class="main-content-inner">
+
+				<div class="row">
 
 
+					<div class="col-12 mt-5">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="header-title">Data Table Default</h4>
+								<div class="data-tables">
+									<table id="dataTable" class="text-center">
+										<thead class="bg-light text-capitalize">
+											<tr>
+												<th>cart id</th>
+												<th>Serviceman name</th>
+												<th>Serviceman Mobile number</th>
+												<th>Serviceman city</th>
+												<th>Serviceman category</th>
+												<th>Serviceman Experience</th>
+												<th>inspection rate</th>
+												<th>delete</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach items="${cartList}" var="cart">
+												<tr>
 
-									<c:forEach items="${CategoryList}" var="item">
-										<tr>
-											<td><c:out value="${item.cid} "></c:out></td>
-											<td><c:out value="${item.name} "></c:out></td>
-											<td><button onclick="update(${item.cid},'${item.name}')">update</button></td>
-											<td><a href="/deleteCategory?cid=${item.cid}"><button>delete</button></a>
-											</td>
-										</tr>
+													<td><c:out value="${cart.cartid}"></c:out></td>
+													<td><c:out value="${cart.serviceman.sName}"></c:out></td>
+													<td><c:out value="${cart.serviceman.sMobileNo}"></c:out></td>
+													<td><c:out value="${cart.serviceman.sAddress.city.cityName}"></c:out></td>
+													<td><c:out value="${cart.serviceman.sCategory.name}"></c:out></td>
+													<td><c:out value="${cart.serviceman.sExperience}"></c:out></td>
+													<td><c:out value="${cart.serviceman.inspectioncharge}"></c:out></td>
+													<td><a href="deleteCart?cartid=${cart.cartid}"><button>delete</button></a></td>
 
-									</c:forEach>
-
-
-								</tbody>
-							</table>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
+
 				</div>
+
+
+
 			</div>
 		</div>
 	</div>
+
+	<!-- sales report area start -->
+
+
+
+
+
+
+
 
 	<!-- sales report area end -->
 	<!-- overview area start -->
@@ -173,14 +197,10 @@
 		$(document).ready(function() {
 			$('#dataTable').DataTable();
 		});
-		
-		
-		function update(cid,name)
-		{
-			location.href="/updateCategory/"+cid+"/"+name;
+
+		function delete1(sid) {
+			location.href = "/deleteServiceman/" + sid;
 		}
-		
-		
 	</script>
 </body>
 
