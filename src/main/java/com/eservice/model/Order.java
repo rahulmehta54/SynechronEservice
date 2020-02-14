@@ -28,26 +28,29 @@ public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long o_id;
+	private long orderId;
 	
-	private String o_orderStatus;
-	
-	@OneToOne
-	private User o_user;
+	private String orderStatus;
 	
 	@OneToOne
-	private ServiceMan o_serviceMan;
+	private User user;
 	
 	@OneToOne
-	private InspectionCharge o_charges;
+	private ServiceMan serviceMan;
+	
+	@OneToOne
+	private InspectionCharge charges;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "o_createDate")
-	private Date o_createDate;
+	@Column(name = "createDate")
+	private Date createDate;
 	
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "o_modifyDate")
-	private Date o_modifyDate;
+	@Column(name = "modifyDate")
+	private Date modifyDate;
+	
+	@OneToOne
+	private Cart cart;
 }

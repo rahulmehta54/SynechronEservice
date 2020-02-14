@@ -6,10 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,16 +21,16 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long c_id;
+	private long cartId;
 	
 	@OneToOne
-	private User c_user;
+	private User user;
 	
 	@OneToOne
-	private ServiceMan c_serviceMan;
+	private ServiceMan serviceMan;
 	
 	@OneToOne
-	private InspectionCharge c_charges;
+	private InspectionCharge charges;
 	
-	private int c_status;
+	private int status;
 }

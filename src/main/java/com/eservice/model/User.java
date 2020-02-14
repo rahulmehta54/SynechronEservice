@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -26,26 +27,29 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long u_id;
-	private String u_firstName;
-	private String u_lastName;
-	private Number u_mobile;
-	private String u_userName;
-	private String u_password;
+	private long userId;
+	private String firstName;
+	private String lastName;
+	private Long mobile;
+	@NotEmpty
+	@Column(nullable = false, unique = true)
+	private String userName;
+	@NotEmpty
+	private String password;
 	@OneToOne
-	private Address u_address;
+	private Address address;
 	
 	@OneToOne
-	private Role u_role;
+	private Role role;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "u_createDate")
-	private Date u_createDate;
+	@Column(name = "createDate")
+	private Date createDate;
 	
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "u_modifyDate")
-	private Date u_modifyDate;
+	@Column(name = "modifyDate")
+	private Date modifyDate;
 
 }

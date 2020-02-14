@@ -6,10 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +21,7 @@ public class Address {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long a_id;
+	private long id;
 	private String addressLine1;
 	private String addressLine2;
 	

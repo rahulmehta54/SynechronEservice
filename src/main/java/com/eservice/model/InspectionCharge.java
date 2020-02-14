@@ -17,8 +17,8 @@ public class InspectionCharge {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long i_id;
-	private String i_serviceName;
-	private long i_minCharges;
-	private int i_status;
+	private long id;
+	private String serviceName;
+	private long minCharges;
+	private int status;
 }

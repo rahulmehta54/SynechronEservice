@@ -18,11 +18,13 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,36 +33,38 @@ public class ServiceMan {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long s_id;
-	private String s_name;
-	private Number s_mobile;
-	private String s_email;
+	private long serviceId;
+	private String serviceName;
+	private long mobile;
+	private String email;
 	private int status;
 	
 	@OneToOne 
-	private Category s_category;
+	private Category category;
 	
 	@OneToOne 
-	private Address s_address;
+	private Address address;
 	
-	private int s_experience;
+	private int experience;
 	
-	@Value("0")
-	private int s_bookingStatus;
+	@Value("1")
+	private int bookingStatus;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name= "serviceman_inspectionRate")
-	private List<InspectionCharge> s_inspectionRate;
+	@JoinTable(name= "servicemanInspectionRate")
+	private List<InspectionCharge> inspectionRate;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "s_createDate")
-	private Date s_createDate;
+	@Column(name = "createDate")
+	private Date createDate;
 	
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "s_modifyDate")
-	private Date s_modifyDate;
+	@Column(name = "modifyDate")
+	private Date modifyDate;
+	
+	private long inspectionCharge;
 	
 
 	

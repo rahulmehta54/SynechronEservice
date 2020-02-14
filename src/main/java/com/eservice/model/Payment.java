@@ -22,21 +22,24 @@ public class Payment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long p_id;
-	private String p_paymentDiscription;
-	private String p_modeOfPayment;
-	private double p_amount;
+	private long paymentId;
+	private String paymentDiscription;
+	private String modeOfPayment;
+	private double amount;
 	
 	@Temporal(TemporalType.DATE)
-	private Date p_payDate;
+	private Date payDate;
 	
 	@OneToOne
-	private User p_user;
+	private User user;
 	
 	@OneToOne
-	private ServiceMan p_serviceMan;
+	private ServiceMan serviceMan;
 	
 	@OneToOne
-	private InspectionCharge p_inspectionCharge;
+	private InspectionCharge inspectionCharge;
+	
+	@OneToOne
+	private Cart cart;
 
 }
