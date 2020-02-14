@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="tbl_payment")
+@Table(name = "tbl_payment")
 @Component
 public class Payment {
 
@@ -42,5 +43,11 @@ public class Payment {
 
 	@OneToOne
 	private InspectionRate rate;
+
+	@OneToOne
+	private Cart cart;
+	
+	@Transient
+	private long cartId;
 
 }

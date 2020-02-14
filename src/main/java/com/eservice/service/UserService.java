@@ -21,7 +21,5 @@ public class UserService {
 		return repo.findByEmailAndPassword(user.getEmail(), user.getPassword());
 
 	}
-	
-	
 
 }

@@ -32,7 +32,7 @@ public class User {
 
 	private String lastName;
 
-	private Number mobilenumber;
+	private long mobilenumber;
 
 	private String email;
 	

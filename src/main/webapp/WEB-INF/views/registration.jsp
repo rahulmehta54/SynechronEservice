@@ -51,33 +51,54 @@
 							<!-- general form elements -->
 							<div class="card card-primary">
 								<div class="card-header">
-									<h3 class="card-title">Login</h3>
+									<h3 class="card-title">Registration</h3>
 								</div>
 								<!-- /.card-header -->
 								<!-- form start -->
-								<form:form role="form" action="/login" method="post">
+								<form:form role="form" action="/addUser" method="post">
 									<div class="card-body">
 
 										<div class="form-group">
 											<label for="exampleInputEmail1" style="color: red;">${errorMessage}</label>
 										</div>
 
+
+										<div class="form-group">
+											<label for="exampleInputEmail1">First Name</label>
+											<form:input path="firstName" class="form-control"
+												id="exampleInputEmail1" placeholder="First Name" />
+											<form:errors path="firstName"></form:errors>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Last Name</label>
+											<form:input path="lastName" class="form-control"
+												id="exampleInputPassword1" placeholder="Last Name" />
+											<form:errors path="lastName"></form:errors>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Mobile Number</label>
+											<form:input path="mobilenumber" class="form-control"
+												id="exampleInputPassword1" placeholder="Mobile Number" />
+											<form:errors path="mobilenumber"></form:errors>
+										</div>
+
 										<div class="form-group">
 											<label for="exampleInputEmail1">Email address</label>
 											<form:input path="email" class="form-control"
-												id="exampleInputEmail1" placeholder="Enter email" value="" />
+												id="exampleInputEmail1" placeholder="Enter email" />
 											<form:errors path="email"></form:errors>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Password</label>
 											<form:input path="password" class="form-control"
-												id="exampleInputPassword1" placeholder="Password" value="" />
+												id="exampleInputPassword1" placeholder="Password" />
 											<form:errors path="password"></form:errors>
 										</div>
 
-										<div class="form-check">
-											<a href="/registration">Create New Account</a>
-										</div>
+
+
+
+
 									</div>
 									<!-- /.card-body -->
 

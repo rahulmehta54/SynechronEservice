@@ -117,7 +117,7 @@
 											<tr>
 												<td><c:out value="${item.id}" /></td>
 												<td><c:out value="${item.name}" /></td>
-												<td><a href="/deleteById/${item.id}"
+												<td><a
 													onclick="editCategory(${item.id},'${item.name}');"><i
 														class="fa fa-pencil-alt" style="color: #007bff;"></i></a>&emsp;<a
 													onclick="deleteCategory(${item.id});"><i

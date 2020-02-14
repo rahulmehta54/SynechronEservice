@@ -17,4 +17,7 @@ public class StatusSetting {
 	@Value("${save}")
 	private int saveStatus;
 
+	@Value("${userRole}")
+	private long userRole;
+
 }

@@ -2,6 +2,8 @@ package com.eservice.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,11 @@ public class CartService {
 
 	public Cart findById(long id) {
 		return cartRepo.getOne(id);
+	}
+
+	@Transactional
+	public int updateStatus(int status, long id) {
+		return cartRepo.updateStatus(status, id);
 	}
 
 }

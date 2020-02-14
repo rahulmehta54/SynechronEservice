@@ -104,7 +104,8 @@
 
 							</div>
 
-							<div class="card card-body" id="tableDiv">
+							<div class="card card-body" id="tableDiv"
+								style="overflow-x: auto;">
 								<table id="example1" class="table table-bordered table-striped">
 									<thead>
 										<tr>
@@ -117,11 +118,16 @@
 											<th>Experience</th>
 											<th>Inspection Rate</th>
 											<c:if test="${adminStatus==1}">
+												<th>Booking Status</th>
+											</c:if>
+											<c:if test="${adminStatus==1}">
 												<th>Action</th>
 											</c:if>
 											<c:if test="${adminStatus==2}">
-												<th>Book</th>
+												<th width="100px;">Book</th>
 											</c:if>
+
+
 										</tr>
 									</thead>
 									<tbody>
@@ -135,6 +141,17 @@
 												<td><c:out value="${item.address.city.name}" /></td>
 												<td><c:out value="${item.experience}" /></td>
 												<td><c:out value="${item.rate}" /></td>
+
+												<c:if test="${adminStatus==1}">
+													<c:if test="${item.bookingStatus==1}">
+														<td style="color: red;">Booked</td>
+													</c:if>
+												</c:if>
+												<c:if test="${adminStatus==1}">
+													<c:if test="${item.bookingStatus==0}">
+														<td style="color: green;">Not Booked</td>
+													</c:if>
+												</c:if>
 												<c:if test="${adminStatus==1}">
 													<td><a
 														onclick="editServiceProvider(${item.id},'${item.name}',${item.mobileNumber},'${item.emailId}',${item.category.id},${item.address.city.id},'${item.address.addressLine1}','${item.address.addressLine2}',${item.address.state.id},${item.experience},${item.rate})
@@ -146,12 +163,21 @@
 												</c:if>
 
 												<c:if test="${adminStatus==2}">
-													<td><button class="btn pull-right"
-															style="background-color: #007bff; color: white;"
-															onclick="addToCart(${item.id});">Add To Cart</button></td>
+													<c:if test="${item.bookingStatus==0}">
+														<td><button class="btn pull-right"
+																style="background-color: #007bff; color: white;"
+																onclick="addToCart(${item.id});">Add To Cart</button></td>
+													</c:if>
 												</c:if>
 
-
+												<c:if test="${adminStatus==2}">
+													<c:if test="${item.bookingStatus==1}">
+														<td><button class="btn pull-right"
+																style="background-color: #007bff; color: white;"
+																onclick="addToCart(${item.id});" disabled="disabled">Add
+																To Cart</button></td>
+													</c:if>
+												</c:if>
 
 
 											</tr>

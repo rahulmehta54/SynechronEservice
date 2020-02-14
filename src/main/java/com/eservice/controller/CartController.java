@@ -36,7 +36,6 @@ public class CartController {
 
 	@GetMapping("/addToCart/{id}")
 	public ResponseEntity<Response> addToCart(@PathVariable("id") long id, HttpSession session) {
-
 		try {
 			User existingUser = new User();
 			existingUser = (User) session.getAttribute("userData");
@@ -95,5 +94,26 @@ public class CartController {
 
 		return modelAndView;
 	}
+
+	@GetMapping("/deleteFromCart/{id}")
+	public ResponseEntity<Response> deleteFromCart(@PathVariable("id") long id) {
+		try {
+
+			int i = cartService.updateStatus(statusSetting.getDeleteStatus(), id);
+			if (i == 1) {
+				return new ResponseEntity<Response>(new Response("success"), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<Response>(new Response("Failed to delete from cart. Please try again."),
+						HttpStatus.OK);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<Response>(new Response("Failed. Please try again."), HttpStatus.OK);
+		}
+
+	}
+
+	
 
 }

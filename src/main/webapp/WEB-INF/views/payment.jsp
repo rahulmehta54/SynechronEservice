@@ -11,29 +11,29 @@
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
-<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Tempusdominus Bbootstrap 4 -->
 <link rel="stylesheet"
-	href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+	href="localhost:8080/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 <!-- iCheck -->
 <link rel="stylesheet"
-	href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- JQVMap -->
-<link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+<link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
 <!-- overlayScrollbars -->
 <link rel="stylesheet"
-	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+	href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 <!-- Daterange picker -->
 <link rel="stylesheet"
-	href="plugins/daterangepicker/daterangepicker.css">
+	href="/plugins/daterangepicker/daterangepicker.css">
 
 <link rel="stylesheet"
-	href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+	href="/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 
 <!-- summernote -->
 <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
@@ -106,8 +106,7 @@
 
 
 
-							<div class="row card-body" id="addServiceProviderDiv"
-								style="display: block;">
+							<div class="row card-body" id="addPaymentDiv">
 								<!-- left column -->
 								<div class="col-md-12">
 									<!-- general form elements -->
@@ -128,106 +127,53 @@
 														<div class="form-group col-md-4">
 															<label for="exampleInputEmail1">Service Provider
 																Name</label>
-															<form:input path="serviceMan.name" class="form-control"
-																id="name" placeholder="Enter Service Provider Name"
-																disabled="disabled" />
-															<form:errors path="name"></form:errors>
-															<input type="hidden" id="id" name="id">
+															<form:input path="" class="form-control" id="name"
+																placeholder="Enter Service Provider Name"
+																value="${cart.serviceMan.name}" />
+
+															<form:errors path="cart.serviceMan.name"></form:errors>
+
 														</div>
 														<div class="form-group col-md-4">
 															<label for="exampleInputEmail1">Amount To Be Paid</label>
-															<form:input path="serviceMan.rate" class="form-control"
-																id="rate" placeholder="Enter Inspection Rate"
-																disabled="disabled" />
+															<form:input path="amount" class="form-control" id="rate"
+																placeholder="Enter Inspection Rate"
+																value="${cart.serviceMan.rate}" />
 															<form:errors path="rate"></form:errors>
 
 														</div>
+
 														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">Payment Mode</label>
-															<form:radiobutton path="sex" value="M" />
-															Male
-															<form:radiobutton path="sex" value="F" />
-															Female
-															<form:errors path="emailId"></form:errors>
+															<label for="exampleInputEmail1">Payment
+																Description</label>
+															<form:input path="paymentDescription"
+																class="form-control" id="rate"
+																placeholder="Enter Inspection Rate" disabled="disabled" />
+															<form:errors path="paymentDescription"></form:errors>
 
 														</div>
+
 													</div>
 
 													<div class="row">
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">Category</label> <select
-																class="form-control" name="category.id" id="categoryId">
-																<option value="">--Select Category--</option>
-																<c:forEach items="${categoryList}" var="category">
-																	<option value="${category.id}">${category.name}</option>
-																</c:forEach>
-															</select>
-															<form:errors path="category.id"></form:errors>
+														<form:hidden path="cartId" class="form-control"
+															placeholder="Enter Service Provider Name" value="${id}" />
+														<div class="form-group col-md-5">
+															<label for="exampleInputEmail1">Payment Mode</label>&emsp;
+															<form:radiobutton path="modeOfPayment" value="Cash" />
+															Cash
+															<form:radiobutton path="modeOfPayment" value="Card" />
+															Card
+															<form:radiobutton path="modeOfPayment" value="UPI" />
+															UPI
+															<form:radiobutton path="modeOfPayment"
+																value="Net Banking" />
+															Net Banking
+															<form:errors path="modeOfPayment"></form:errors>
 
 														</div>
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">AddessLine1</label>
-															<form:input path="address.addressLine1"
-																class="form-control" id="addressLine1"
-																placeholder="Enter Service Provider Name" />
-															<form:errors path="address.addressLine1"></form:errors>
 
-														</div>
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">AddressLine2</label>
-															<form:input path="address.addressLine2"
-																class="form-control" id="addressLine2"
-																placeholder="Enter Email Address" />
-															<form:errors path="address.addressLine2"></form:errors>
-
-														</div>
 													</div>
-
-													<div class="row">
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">City</label> <select
-																class="form-control" name="address.city.id" id="city">
-																<option value="">--Select City--</option>
-																<c:forEach items="${cityList}" var="city">
-																	<option value="${city.id}">${city.name}</option>
-																</c:forEach>
-															</select>
-															<form:errors path="address.city.id"></form:errors>
-
-														</div>
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">State</label> <select
-																class="form-control" name="address.state.id" id="state">
-																<option>--Select State--</option>
-																<c:forEach items="${stateList}" var="state">
-																	<option value="${state.id}">${state.name}</option>
-																</c:forEach>
-															</select>
-															<form:errors path="address.state.id"></form:errors>
-
-														</div>
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">Experience</label>
-															<form:input path="experience" class="form-control"
-																id="experience" placeholder="Enter Experience" />
-															<form:errors path="experience"></form:errors>
-
-														</div>
-													</div>
-
-
-													<div class="row">
-
-														<div class="form-group col-md-4">
-															<label for="exampleInputEmail1">Rate</label>
-															<form:input path="rate" class="form-control" id="rate"
-																placeholder="Enter Inspection Rate" />
-															<form:errors path="rate"></form:errors>
-
-														</div>
-													</div>
-
-
 
 												</div>
 
@@ -241,7 +187,7 @@
 											<!-- /.card-body -->
 
 											<div class="card-footer">
-												<button type="submit" class="btn btn-primary">Submit</button>
+												<button type="submit" class="btn btn-primary">Pay</button>
 											</div>
 										</form:form>
 

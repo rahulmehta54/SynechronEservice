@@ -20,4 +20,8 @@ public interface ServiceManRepo extends JpaRepository<ServiceMan, Long> {
 	@Modifying
 	@Query("update ServiceMan c set c.status=:status where c.id=:id")
 	public int updateStatus(@Param("status") int status, @Param("id") long id);
+	
+	@Modifying
+	@Query("update ServiceMan c set c.bookingStatus=:status where c.id=:id")
+	public int updateBookingStatus(@Param("status") int status, @Param("id") long id);
 }

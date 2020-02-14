@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eservice.config.Response;
@@ -22,6 +23,7 @@ import com.eservice.model.User;
 import com.eservice.service.AddressService;
 import com.eservice.service.CategoryService;
 import com.eservice.service.CityService;
+import com.eservice.service.OrderService;
 import com.eservice.service.ServiceManService;
 import com.eservice.service.StateService;
 
@@ -51,6 +53,9 @@ public class ServiceManController {
 
 	@Autowired
 	private AddressService addressService;
+
+	@Autowired
+	private OrderService orderService;
 
 	@GetMapping("/serviceProvider")
 	public ModelAndView serviceProvider(HttpSession session) {
@@ -150,7 +155,7 @@ public class ServiceManController {
 				return new ResponseEntity<Response>(new Response("Service Provider Id can not be null."),
 						HttpStatus.OK);
 			} else {
-				int a = service.deleteByStatus(statusSetting.getDeleteStatus(), id);
+				int a = service.updateStatus(statusSetting.getDeleteStatus(), id);
 
 				System.out.println("232323=" + a);
 
@@ -166,6 +171,29 @@ public class ServiceManController {
 			e.printStackTrace();
 			return new ResponseEntity<Response>(new Response("failed"), HttpStatus.OK);
 		}
+	}
+
+	@GetMapping("/changeBookingStatus")
+	public ResponseEntity<Response> changeBookingStatus(@RequestParam("id") long id) {
+		try {
+
+			int orderStatus = orderService.updateOrderStatus("Service Complete", id);
+
+			int status = service.updateBookingStatus(statusSetting.getDeleteStatus(),
+					orderService.findById(id).getCart().getServiceMan().getId());
+
+			if (status == 1 && orderStatus == 1) {
+
+				return new ResponseEntity<Response>(new Response("success"), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<Response>(new Response("Failed. Please try again."), HttpStatus.OK);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<Response>(new Response("Failed. Please try again."), HttpStatus.OK);
+		}
+
 	}
 
 }

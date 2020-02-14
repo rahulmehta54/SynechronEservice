@@ -29,11 +29,17 @@ public class ServiceManService {
 	}
 
 	@Transactional
-	public int deleteByStatus(int status, long id) {
+	public int updateStatus(int status, long id) {
 		return repo.updateStatus(status, id);
 	}
 
 	public ServiceMan findById(long id) {
 		return repo.getOne(id);
+	}
+	
+	@Transactional
+	public int updateBookingStatus(int status,long id)
+	{
+		return repo.updateBookingStatus(status, id);
 	}
 }

@@ -38,8 +38,9 @@
 <!-- summernote -->
 <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
 <!-- Google Font: Source Sans Pro -->
-
-
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
@@ -77,15 +78,15 @@
 											value="<c:out value="${refresh}" />">
 										<div class="col-md-5">
 											<button class="btn pull-left"
-												style="background-color: #007bff; color: white;"
-												id="cartList">Cart List</button>
+												style="display: none; background-color: #007bff; color: white;"
+												id="serviceProviderList">Service Provider List</button>
 										</div>
 										<div class="col-md-3">
-											<h5>Cart</h5>
+											<h5>Order List</h5>
 										</div>
 										<div class="col-md-1"></div>
 										<div class="col-md-3">
-											<c:if test="${adminStatus==1}">
+											<c:if test="${adminStatus==3}">
 												<button class="btn pull-right"
 													style="background-color: #007bff; color: white;"
 													id="addServiceProvider">Add Service Provider</button>
@@ -97,52 +98,51 @@
 								</div>
 								<!-- /.card-header -->
 
-
-
-
-
 							</div>
 
 							<div class="card card-body" id="tableDiv">
 								<table id="example1" class="table table-bordered table-striped">
 									<thead>
 										<tr>
-											<th>Cart Id</th>
+											<th>Id</th>
+											<th>Category</th>
 											<th>Service Provider Name</th>
-											<th>Mobile Number</th>
-											<th>Email Id</th>
-											<th>Experience</th>
-											<th>Inspection Rate</th>
-											<c:if test="${adminStatus==2}">
-												<th width="100px;">Order</th>
+											<th>Amount</th>
+											<th>Order Date</th>
+											<th>Order Status</th>
+											<c:if test="${adminStatus==1}">
+												<c:if test="${item.orderStatus=='Pending'}">
+													<th>Action</th>
+												</c:if>
 											</c:if>
-											<c:if test="${adminStatus==2}">
-												<th>Action</th>
-											</c:if>
+
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach items="${list}" var="item">
 											<tr>
 												<td><c:out value="${item.id}" /></td>
-												<td><c:out value="${item.serviceMan.name}" /></td>
-												<td><c:out value="${item.serviceMan.mobileNumber}" /></td>
-												<td><c:out value="${item.serviceMan.emailId}" /></td>
-												<td><c:out value="${item.serviceMan.experience}" /></td>
-												<td><c:out value="${item.serviceMan.rate}" /></td>
-
-
-												<c:if test="${adminStatus==2}">
-													<td><button class="btn pull-right"
-															style="background-color: #007bff; color: white;"
-															onclick="placeOrder(${item.id});">Place Order</button></td>
+												<td><c:out
+														value="${item.cart.serviceMan.category.name}" /></td>
+												<td><c:out value="${item.cart.serviceMan.name}" /></td>
+												<td><c:out value="${item.cart.serviceMan.rate}" /></td>
+												<td><c:out value="${item.orderDate}" /></td>
+												<c:if test="${item.orderStatus=='Pending'}">
+													<td style="color: red;"><c:out
+															value="${item.orderStatus}" /></td>
 												</c:if>
-												<c:if test="${adminStatus==2}">
-													<td><a onclick="deleteFromCart(${item.id});"><i
-															class="fa fa-trash-alt pull-right" aria-hidden="true"
-															style="color: #007bff;"></i></a></td>
+												<c:if test="${item.orderStatus=='Service Complete'}">
+													<td style="color: green;"><c:out
+															value="${item.orderStatus}" /></td>
 												</c:if>
-
+												<c:if test="${adminStatus==1}">
+													<c:if test="${item.orderStatus=='Pending'}">
+														<td><button class="btn pull-right"
+																style="background-color: #007bff; color: white;"
+																onclick="changeStatus(${item.id});">Change
+																Order Status</button></td>
+													</c:if>
+												</c:if>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -164,15 +164,15 @@
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title">Remove Service Provider From Cart</h4>
+									<h4 class="modal-title">Delete Service Provider</h4>
 									<button type="button" class="close" data-dismiss="modal"
 										aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									<p>Are You Sure You Want To Remove Service Provider From
-										Cart?&hellip;</p>
+									<p>Are You Sure You Want To Delete Service
+										Provider?&hellip;</p>
 								</div>
 								<input type="hidden" id="serviceProviderId">
 								<div class="modal-footer justify-content-between">
@@ -243,7 +243,7 @@
 		$.widget.bridge('uibutton', $.ui.button)
 	</script>
 
-	<script type="text/javascript" src="CustomJs/cart.js"></script>
+	<script type="text/javascript" src="CustomJs/order.js"></script>
 
 	<!-- Bootstrap 4 -->
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

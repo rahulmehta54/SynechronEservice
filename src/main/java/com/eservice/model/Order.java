@@ -2,7 +2,6 @@ package com.eservice.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,16 +11,22 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @Entity
 @Table(name = "tbl_order")
 @Component
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 public class Order {
 
 	@Id
@@ -30,22 +35,9 @@ public class Order {
 
 	private String orderStatus;
 
-	@OneToOne
-	private User user;
+	@Temporal(TemporalType.DATE)
+	private Date orderDate;
 
 	@OneToOne
-	private ServiceMan serviceMan;
-
-	@OneToOne
-	private InspectionRate rate;
-
-	@CreationTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "create_date")
-	private Date createDate;
-
-	@UpdateTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "modify_date")
-	private Date modifyDate;
+	private Cart cart;
 }

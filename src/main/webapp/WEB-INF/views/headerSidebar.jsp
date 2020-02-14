@@ -4,9 +4,11 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ -->
 
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -59,10 +61,14 @@
 				href="/showCart"> <i class="fa fa-shopping-cart"
 					style="color: #ff8000"></i>
 			</a></li>
+			<li class="nav-item dropdown"><a href="/logout"><button
+						class="btn btn-primary"
+						style="background-color: #007bff; color: white;">Sign-Out</button>
+			</a></li>
 
 			<li class="nav-item dropdown" title="Sign Out"><a
-				class="nav-link" data-toggle="" href="/logout"> <i
-					class="fa fa-sign-out" style="color: white;"></i>
+				class="nav-link" data-toggle="" href=""> <i
+					class="fa fa-sign-out"></i>
 			</a></li>
 
 		</ul>
@@ -74,7 +80,7 @@
 		<a href="../../index3.html" class="brand-link"> <img
 			src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
 			class="brand-image img-circle elevation-3" style="opacity: .8">
-			<span class="brand-text font-weight-light">AdminLTE 3</span>
+			<span class="brand-text font-weight-light">E-Service</span>
 		</a>
 
 		<!-- Sidebar -->
@@ -82,11 +88,11 @@
 			<!-- Sidebar user (optional) -->
 			<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 				<div class="image">
-					<img src="../../dist/img/user2-160x160.jpg"
-						class="img-circle elevation-2" alt="User Image">
+					<!-- <img src="../../dist/img/user2-160x160.jpg"
+						class="img-circle elevation-2" alt="User Image"> -->
 				</div>
 				<div class="info">
-					<a href="#" class="d-block">Alexander Pierce</a>
+					<a href="#" class="d-block"></a>
 				</div>
 			</div>
 
@@ -134,14 +140,17 @@
 								</p>
 						</a></li>
 					</c:if>
-					<c:if test="${adminStatus eq 2}">
-						<li class="nav-item has-treeview"><a href="/order"
-							class="nav-link"> <i class="nav-icon fas fa-tachometer-alt"></i>
-								<p>
-									Order List <i class="right fas fa-angle-left"></i>
-								</p>
-						</a></li>
-					</c:if>
+
+					<li class="nav-item has-treeview"><a href="/orderList"
+						class="nav-link"> <i class="nav-icon fas fa-tachometer-alt"></i>
+							<p>
+								Order List <i class="right fas fa-angle-left"></i>
+							</p>
+					</a></li>
+
+
+
+
 
 				</ul>
 			</nav>

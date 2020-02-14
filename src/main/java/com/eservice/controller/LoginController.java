@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eservice.config.StatusSetting;
 import com.eservice.model.User;
+import com.eservice.repository.RoleRepo;
+import com.eservice.service.RoleService;
 import com.eservice.service.UserService;
 
 @Controller
@@ -26,9 +29,18 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private RoleRepo repo;
+
+	@Autowired
+	private StatusSetting statusSetting;
+
 	@GetMapping("/index")
 	public ModelAndView loginPage() {
 		modelAndView.setViewName("login");
+
+		user = new User();
+
 		modelAndView.addObject("command", user);
 		modelAndView.addObject("errorMessage", "");
 		return modelAndView;
@@ -85,6 +97,42 @@ public class LoginController {
 		modelAndView.setViewName("login");
 		return modelAndView;
 
+	}
+
+	@GetMapping("/registration")
+	public ModelAndView registration() {
+		modelAndView.addObject("command", user);
+		modelAndView.setViewName("registration");
+		return modelAndView;
+	}
+
+	@PostMapping("/addUser")
+	public ModelAndView addUser(@ModelAttribute("command") User user) {
+		try {
+
+			user.setRole(repo.getOne(statusSetting.getUserRole()));
+
+			User userNew = new User();
+
+			userNew = userService.addUser(user);
+
+			if (userNew != null) {
+				modelAndView.setViewName("login");
+				modelAndView.addObject("command", user);
+				modelAndView.addObject("errorMessage", "");
+			} else {
+				modelAndView.setViewName("login");
+				modelAndView.addObject("command", user);
+				modelAndView.addObject("errorMessage", "");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			modelAndView.setViewName("login");
+			modelAndView.addObject("command", user);
+			modelAndView.addObject("errorMessage", "");
+		}
+		return modelAndView;
 	}
 
 }
