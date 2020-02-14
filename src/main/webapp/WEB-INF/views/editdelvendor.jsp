@@ -28,8 +28,11 @@
 					<tr>
 						<td><c:out value="${ vendor.id}"></c:out></td>
 						<td><c:out value="${ vendor.salePersonName}"></c:out></td>
+						<td><c:out value="${ vendor.category}"></c:out></td>
 						<td><c:out value="${ vendor.experience}"></c:out></td>
 						<td><c:out value="${ vendor.rate}"></c:out></td>
+						<td><c:out value="${ vendor.city}"></c:out></td>
+						<td><c:out value="${ vendor.mobileNumber}"></c:out></td>
  			<td>	<input type="checkbox" name="check" value="${vendor.id}"></td>
  			<td><a href="editvendor/${vendor.id}">Edit</a></td>  
  			 </tr>

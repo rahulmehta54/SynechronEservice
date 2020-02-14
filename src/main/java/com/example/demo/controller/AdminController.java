@@ -90,17 +90,18 @@ public class AdminController {
 //	editemp/${vendor.id}
 	   @RequestMapping(value="/editvendor/{id}")    
 	    public String edit(@PathVariable Long id, Model m){    
-	        SalesPerson vendor=repo.getOne(id);    
-	        m.addAttribute("command",vendor);  
+	        SalesPerson vendor=repo.getOne(id);  
+	        System.out.println(vendor+"============");
+	        m.addAttribute("edditt",vendor);  
 	        return "editvendor";    
 	    }  
-	   @RequestMapping(value="/editandsave",method = RequestMethod.POST)    
-	    public String editandsave(@ModelAttribute("salesperson") SalesPerson sp){  
-		 //  System.out.println(sp.getId()+"In the end");
+	   @PostMapping(value="/editandsavee")    
+	    public String editandsave(@ModelAttribute("edditt") SalesPerson sp){  
+		   System.out.println(sp.getId()+"In the end");
 		   
-		   
-	     //   repo.updateSalesPerson(sp.getId(),sp.getCategory(),sp.getCity(),sp.getExperience(),sp.getRate(),sp.getMobileNumber(),sp.getSalePersonName());
-		  // repo.save(sp);
+		  repo.save(sp); 
+	    //    repo.updateSalesPerson(sp.getId(),sp.getCategory(),sp.getCity(),sp.getExperience(),sp.getRate(),sp.getMobileNumber(),sp.getSalePersonName());
+		  
 		   
 	        return "success";    
 	    } 

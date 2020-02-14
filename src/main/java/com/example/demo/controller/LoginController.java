@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.controller.repository.UserRepository;
-
+import com.example.demo.entity.SalesPerson;
 import com.example.demo.entity.User;
 
 import lombok.Setter;
@@ -29,6 +29,7 @@ public class LoginController {
 	private ModelAndView mdlview;
 	@Autowired
 	private User user;
+	
 	
 	@GetMapping(path="/")
 	public ModelAndView init() {
