@@ -29,30 +29,29 @@
 			<br>
 
 			<jsp:include page="userHeader.jsp" />
-
 			<br>
-			<h4 class="centerText blue">Cart Items</h4>
-			<br> <br>
 
-			<table>
+			<table  class="table table-hover">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Mobile</th>
+						<th>First Name</th>
+						<th>Last Name</th>
 						<th>Category</th>
+						<th>Mobile</th>
 						<th>City</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<c:forEach items="${allServiceMens}" var="serviceMenBean">
+					<c:forEach items="${allCartItems}" var="allCartItemsBean">
 						<tr>
-							<td><c:out value="${serviceMenBean.sMenFName}" /></td>
-							<td><c:out value="${serviceMenBean.mobile}" /></td>
-							<td><c:out value="${serviceMenBean.category}" /></td>
-							<td><c:out value="${serviceMenBean.city}" /></td>
-							<td><a class="btn btn-warning btn-xs"
+							<td><c:out value="${allCartItemsBean.fName}" /></td>
+							<td><c:out value="${allCartItemsBean.lName}" /></td>
+							<td><c:out value="${allCartItemsBean.category}" /></td>
+							<td><c:out value="${allCartItemsBean.mobile}" /></td>
+							<td><c:out value="${allCartItemsBean.city}" /></td>
+							<td><a class="btn btn-danger btn-xs"
 								href="/cart/remove/${serviceMenBean.sId}">Remove</a></td>
 						</tr>
 					</c:forEach>

@@ -77,6 +77,9 @@
 					<form:input path="inspectionRates" cssClass="form-control" />
 				</div>
 
+				<form:input path="active" value="1" hidden="hidden"
+					class="form-control" />
+
 				<input class="btn btn-success" type="submit" value="Register">
 			</form:form>
 

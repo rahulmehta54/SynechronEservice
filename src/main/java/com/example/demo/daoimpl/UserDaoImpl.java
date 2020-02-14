@@ -37,4 +37,14 @@ public class UserDaoImpl implements UserDao {
 		}
 		return i;
 	}
+
+	@Override
+	public User getUserData(User user) {
+		String sql = "select userId from tbl_user where email=? and password=?";
+		Integer id = this.template.queryForObject(sql, new Object[] { user.getEmail(), user.getPassword() },
+				Integer.class);
+		User userData = new User();
+		userData.setUserId(id);
+		return userData;
+	}
 }

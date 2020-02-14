@@ -33,8 +33,6 @@
 			<jsp:include page="adminHeader.jsp" />
 
 			<br>
-			<h4 class="centerText blue">View Service Men</h4>
-			<br>
 
 			<table class="table table-hover">
 				<thead>

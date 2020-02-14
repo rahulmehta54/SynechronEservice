@@ -33,7 +33,12 @@ public class ServiceMenController {
 		return "addServiceMen";
 	}
 
-	// -----SEARCH SERVICEMEN
+	/**
+	 * SEARCH SERVICEMEN
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/viewServiceMen")
 	public String openForm(Model model) {
 		List<ServiceMen> allServiceMens = this.serviceDaoJPA.findAll();
@@ -45,10 +50,18 @@ public class ServiceMenController {
 	public String openFormUser(Model model) {
 		List<ServiceMen> allServiceMens = this.serviceDaoJPA.findAll();
 		model.addAttribute("allServiceMens", allServiceMens);
+		model.addAttribute("command", serviceMen);
 		return "viewServiceMenUser";
 	}
 
-	// -----SEARCH SERVICEMEN BY CITY AND CATEGORY
+	/**
+	 * SEARCH SERVICEMEN BY CITY AND CATEGORY
+	 * 
+	 * @param city
+	 * @param category
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/searchServiceMen")
 	public String searchServiceMen(@RequestParam("city") String city, @RequestParam("category") String category,
 			Model model) {
@@ -59,16 +72,22 @@ public class ServiceMenController {
 	}
 
 	@PostMapping("/searchServiceMenUser")
-	public String searchServiceMenUser(@RequestParam("city") String city, @RequestParam("category") String category,
-			Model model) {
+	public String searchServiceMenUser(@ModelAttribute("command") ServiceMen serviceMen, Model model) {
 		String nextPage = "viewServiceMenUser";
-		System.out.println("City and Category" + city + " - " + category);
+		System.out.println("City - " + serviceMen.getCity() + " ,  Category - " + serviceMen.getCategory());
 		List<ServiceMen> allServiceMens = this.serviceMenDaoImpl.filteredServiceMens(serviceMen);
+		System.out.println("-----All Service Men after filter " + allServiceMens.size() + "-" + allServiceMens);
 		model.addAttribute("allServiceMens", allServiceMens);
 		return nextPage;
 	}
 
-	// -----ADD SERVICEMEN
+	/**
+	 * ADD SERVICEMEN
+	 * 
+	 * @param serviceMen
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/addServiceMen")
 	public String checkServiceMen(@ModelAttribute("command") ServiceMen serviceMen, Model model) {
 		String nextPage = "viewServiceMen";
@@ -79,7 +98,13 @@ public class ServiceMenController {
 		return nextPage;
 	}
 
-	// -----DELETE SERVICEMEN
+	/**
+	 * DELETE SERVICEMEN
+	 * 
+	 * @param id
+	 * @param model
+	 * @return
+	 */
 	@GetMapping(value = "delete/{id}")
 	public String deleteServiceMenById(@PathVariable("id") int id, Model model) {
 		System.out.println("delete - user id : ==========" + id);
@@ -89,7 +114,13 @@ public class ServiceMenController {
 		return "viewServiceMen";
 	}
 
-	// -----EDIT SERVICEMEN
+	/**
+	 * EDIT SERVICEMEN
+	 * 
+	 * @param sId
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/edit/{sId}")
 	public String getServiceMenBeanById(@PathVariable("sId") int sId, Model model) {
 		System.out.println("edit - user id : ==========" + sId);

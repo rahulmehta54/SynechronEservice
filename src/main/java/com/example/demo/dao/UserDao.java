@@ -6,4 +6,6 @@ import com.example.demo.dto.User;
 @Repository
 public interface UserDao {
 	int loginUser(User user);
+
+	User getUserData(User user);
 }

@@ -22,10 +22,10 @@
 
 	<div class="d-flex">
 		<div class="p-2 bg-warning flex-fill">
-			<a href="viewServiceMen">View Service Men</a>
+			<a href="/viewServiceMen">View Service Men</a>
 		</div>
 		<div class="p-2 bg-success flex-fill">
-			<a href="addServiceMen">Add Service Men</a>
+			<a href="/addServiceMen">Add Service Men</a>
 		</div>
 	</div>
 

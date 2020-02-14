@@ -14,23 +14,28 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartId;
 
+	private String fName;
+	private String lName;
+	private String category;
+	private String mobile;
+	private String city;
 	private int userId;
 	private int sId;
-	private String fName;
-	private String mobile;
-	private String category;
 	private int active;
 
 	public Cart() {
 	}
 
-	public Cart(int cartId, int userId, int sId, String fName, String mobile, String category, int active) {
+	public Cart(int cartId, String fName, String lName, String category, String mobile, String city, int userId,
+			int sId, int active) {
 		this.cartId = cartId;
+		this.fName = fName;
+		this.lName = lName;
+		this.category = category;
+		this.mobile = mobile;
+		this.city = city;
 		this.userId = userId;
 		this.sId = sId;
-		this.fName = fName;
-		this.mobile = mobile;
-		this.category = category;
 		this.active = active;
 	}
 
@@ -66,12 +71,12 @@ public class Cart {
 		this.fName = fName;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public String getlName() {
+		return lName;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setlName(String lName) {
+		this.lName = lName;
 	}
 
 	public String getCategory() {
@@ -80,6 +85,22 @@ public class Cart {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public int getActive() {

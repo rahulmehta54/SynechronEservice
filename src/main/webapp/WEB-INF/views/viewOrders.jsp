@@ -29,31 +29,30 @@
 			<br>
 
 			<jsp:include page="userHeader.jsp" />
-
 			<br>
-			<h4 class="centerText blue">Orders Placed</h4>
-			<br> <br>
 
-			<table>
+			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Mobile</th>
+						<th>First Name</th>
+						<th>Last Name</th>
 						<th>Category</th>
+						<th>Mobile</th>
 						<th>City</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<c:forEach items="${allServiceMens}" var="serviceMenBean">
+					<c:forEach items="${allOrders}" var="allOrdersBean">
 						<tr>
-							<td><c:out value="${serviceMenBean.sMenFName}" /></td>
-							<td><c:out value="${serviceMenBean.mobile}" /></td>
-							<td><c:out value="${serviceMenBean.category}" /></td>
-							<td><c:out value="${serviceMenBean.city}" /></td>
-							<td><button>Edit</button>
-								<button>Delete</button></td>
+							<td><c:out value="${allOrdersBean.fName}" /></td>
+							<td><c:out value="${allOrdersBean.lName}" /></td>
+							<td><c:out value="${allOrdersBean.category}" /></td>
+							<td><c:out value="${allOrdersBean.mobile}" /></td>
+							<td><c:out value="${allOrdersBean.city}" /></td>
+							<td><a class="btn btn-danger btn-xs"
+								href="/order/cancel/${serviceMenBean.sId}">Cancel</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

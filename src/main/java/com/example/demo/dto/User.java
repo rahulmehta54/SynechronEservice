@@ -23,10 +23,7 @@ public class User implements Serializable {
 	private String mobile;
 	private String password;
 	private String cpassword;
-
-	@Column(name = "userType", columnDefinition = "int(11) default '2'")
 	private int userType;
-	@Column(name = "active", columnDefinition = "int(11) default '1'")
 	private int active;
 
 	public User() {
@@ -116,6 +113,13 @@ public class User implements Serializable {
 
 	public void setActive(int active) {
 		this.active = active;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", email=" + email + ", fName=" + fName + ", lName=" + lName + ", mobile="
+				+ mobile + ", password=" + password + ", cpassword=" + cpassword + ", userType=" + userType
+				+ ", active=" + active + "]";
 	}
 
 }

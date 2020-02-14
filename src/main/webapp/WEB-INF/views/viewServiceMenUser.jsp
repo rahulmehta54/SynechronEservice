@@ -31,21 +31,26 @@
 			<jsp:include page="userHeader.jsp" />
 
 			<br>
-			<h4 class="centerText blue">View Service Men</h4>
-			<br>
 
-			<%-- <div>
-				<form:form action="/searchServiceMenUser" method="post">
-					<!-- 					<input class="form-control mr-sm-2" type="search"
-						placeholder="City" aria-label="Search" />
- -->
-					<form:input path="city" cssClass="form-control" />
-					<form:input path="category" cssClass="form-control" />
-
-					<input class="btn btn-success" type="submit" value="Register">
-
-				</form:form>
-			</div> --%>
+			<!-- SEARCH BY CITY AND CATEGORY -->
+			<form:form action="/searchServiceMenUser" method="post">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<form:input path="city" placeholder="City" cssClass="form-control" />
+					</div>
+					<form:select path="category" cssClass="form-control">
+						<form:option selected="selected" value="select">--Select--</form:option>
+						<form:option value="Plumber">Plumber</form:option>
+						<form:option value="Cleaner">Cleaner</form:option>
+						<form:option value="Carpenter">Carpenter</form:option>
+						<form:option value="Electrician">Electrician</form:option>
+						<form:option value="Driver">Driver</form:option>
+					</form:select>
+					<div class="input-group-prepend">
+						<input class="btn btn-info" type="submit" value="Search">
+					</div>
+				</div>
+			</form:form>
 
 			<table class="table table-hover">
 				<thead>
