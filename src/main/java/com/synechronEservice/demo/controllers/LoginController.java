@@ -2,6 +2,8 @@ package com.synechronEservice.demo.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +29,8 @@ import com.synechronEservice.demo.services.LoginServices;
 import net.bytebuddy.dynamic.loading.PackageDefinitionStrategy.Definition.Undefined;
 
 @Controller
-@SessionAttributes("name")
 public class LoginController {
-
-	@Autowired
+    @Autowired
 	Users user;
 	@Autowired
 	LoginServices service;
@@ -50,14 +50,16 @@ public class LoginController {
    
    
    @RequestMapping(value="/login", method = RequestMethod.POST)
-   public String showWelcomePage(ModelMap model, @RequestParam String emailIId, @RequestParam String password){
+   public String showWelcomePage(HttpSession session,ModelMap model, @RequestParam String emailIId, @RequestParam String password){
        
 	   boolean isValidUser = service.isAuthUser(emailIId, password);
+	   
        if (!isValidUser) {
            model.put("errorMessage", "Invalid Credentials");
            return "index";
        }else {
-    	   model.put("name", emailIId);
+    	   user=service.getUserDetail(emailIId, password);
+    	   session.setAttribute("userid", user.getId());
            if(service.isAdmin(emailIId,password)) {
         	   List <ServiceProvider> getUserList=srvcprointr.findAll();
         	   model.put("serviceproviderList", getUserList);

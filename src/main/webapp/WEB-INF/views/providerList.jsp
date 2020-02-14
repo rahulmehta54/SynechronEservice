@@ -44,8 +44,11 @@
 	</form>
 
 
-	<div class="container detaiPage">
+	<div class="container detaiPage" >
+		
 		<div class="table-wrapper">
+			
+		<form method="post" action="/addTocart">	
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
@@ -54,12 +57,16 @@
 						</h3>
 					</div>
 					<div class="col-sm-6">
-						<a href="/addEmployeeModal" class="btn btn-success"
+						<!-- <a href="/addEmployeeModal" class="btn btn-success"
 							data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Go
-								To Cart</span></a>
+								To Cart</span></a> -->
+					<button type="submit" class="btn btn-success"><i class="fa fa-shopping-cart">&#xE147;</i> <span>Go
+								To Cart</span></button>
 					</div>
 				</div>
 			</div>
+			
+			
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -72,7 +79,7 @@
 					</tr>
 				</thead>
 				<tbody>
-
+  
 					<c:forEach var="serviceProvider" items="${serviceproviderList}">
 						<tr>
 							<td>${ serviceProvider.firstName}</td>
@@ -80,25 +87,27 @@
 							<td>${ serviceProvider.category}</td>
 							<td>${ serviceProvider.mobileNo}</td>
 							<td>${ serviceProvider.rate}</td>
-							<td><a href="/addTocart/${serviceProvider.serviceId}" ><i
+							<%-- 	<td><a href="/addTocart/${serviceProvider.serviceId}" ><i
 									class="fa fa-shopping-cart" 
-									 title="Add to cart" >&#xE254;</i></a></td>
+									 title="Add to cart" >&#xE254;</i></a></td> --%>
+							<td><input type="checkbox" name="providerid"
+								value="${serviceProvider.serviceId}" /></td>
 						</tr>
 					</c:forEach>
-
-					<c:if test="${serviceproviderList==null}">
+   
 						<tr>
-							<td>No Service Provider Found in your Location</td>
+							<td><h3>${error}</h3></td>
 						</tr>
-					</c:if>
+					
 
 				</tbody>
 			</table>
+		</form>
 		</div>
+	</div>
 
 
 
-		
 
 </body>
 </html>

@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity(name="users")
-@NoArgsConstructor
 public class Users {
 
 	@Id

@@ -9,4 +9,5 @@ import com.synechronEservice.demo.models.Users;
 public interface LoginInterface extends JpaRepository<Users, Integer> {
 
 	
+	public Users findByEmailIdAndPassWord(String emailid,String Password); 
 }

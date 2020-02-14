@@ -2,6 +2,7 @@ package com.synechronEservice.demo.models;
 
 import java.util.Date;
 
+import javax.management.loading.PrivateClassLoader;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -15,7 +16,6 @@ public class UserServiceProviderBookingTracker {
     
 	@Id
 	private int userServiceId;
-	private Date bookingDate;
+	private String bookingDate;
 	private boolean isPaymentCompleted;
-	
 }

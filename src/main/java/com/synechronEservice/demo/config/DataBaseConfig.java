@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.synechronEservice.demo.models.ServiceProvider;
+import com.synechronEservice.demo.models.UserServiceProviderBookingTracker;
 import com.synechronEservice.demo.models.Users;
 
 @Configuration
@@ -25,5 +26,10 @@ public class DataBaseConfig {
 	@Bean
 	public ServiceProvider serviceProvider() {
 		return new ServiceProvider();
+	}
+	
+	@Bean
+	public UserServiceProviderBookingTracker bookingTracker() {
+		return new UserServiceProviderBookingTracker();
 	}
 }
