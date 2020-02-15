@@ -66,77 +66,7 @@
 			<!-- END HEADER DESKTOP-->
 
 			<!-- MAIN CONTENT-->
-			<%-- <div class="main-content">
-				<div class="section__content section__content--p30">
-					<div class="container-fluid">
-
-
-						<div class="row">
-							<div class="col-md-12">
-								<!-- DATA TABLE -->
-								<h3 class="title-5 m-b-35">Category table</h3>
-								<div class="table-data__tool">
-									<div class="table-data__tool-left"></div>
-									<div class="table-data__tool-right">
-									<a href="addServiceMan">
-										<button class="au-btn au-btn-icon au-btn--green au-btn--small">
-											<i class="zmdi zmdi-plus"></i>Add Service Man</button>
-									</a>
-										
-									</div>
-								</div>
-								<div class="table-responsive table-responsive-data2">
-									<table class="table table-data2" style="overflow-x:auto; ">
-										<thead>
-											<tr>
-												<th>Name</th>
-												<th>Mobile</th>
-												<th>Email</th>
-												<th>Category</th>
-												<th>City</th>
-												<th>State</th>
-												<th>Experience</th>
-												<th>Min. Charges</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:forEach items="${serviceManList}" var="serviceMan">
-												<tr class="tr-shadow">
-													<td><c:out value="${serviceMan.serviceName}"></c:out></td>
-													<td><c:out value="${serviceMan.mobile}"></c:out></td>
-													<td><c:out value="${serviceMan.email}"></c:out></td>
-													<td><c:out value="${serviceMan.category.name}"></c:out></td>
-													<td><c:out value="${serviceMan.address.city.name}"></c:out></td>
-													<td><c:out value="${serviceMan.address.state.stateName}"></c:out></td>
-													<td><c:out value="${serviceMan.experience}"></c:out></td>
-													<td><c:out value="${serviceMan.inspectionCharge}"></c:out></td> 
-													<td>
-														<div class="table-data-feature">
-
-															<a href="updateCategory/${category.categoryId}/'${category.name}'">
-															<button class="item" data-toggle="tooltip"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-															</button>
-															</a>
-															<button class="item" data-toggle="tooltip"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-															</button>
-														</div>
-													</td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-								<!-- END DATA TABLE -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> --%>
+			
 			
 			
 			<div class="main-content">

@@ -109,7 +109,7 @@
 															<a href="addToCart?serviceId=${serviceMan.serviceId}">
 															<button class="item" data-toggle="tooltip"
 																data-placement="top" title="Add To Cart">
-															    </i><i class="fa fa-shopping-cart"></i>
+															    <i class="fa fa-shopping-cart"></i>
 															</button>
 															</a>
 														</div>

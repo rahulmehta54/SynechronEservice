@@ -10,10 +10,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,6 +31,7 @@ public class Payment {
 	private String modeOfPayment;
 	private double amount;
 	
+	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	private Date payDate;
 	

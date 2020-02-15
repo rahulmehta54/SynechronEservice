@@ -25,6 +25,7 @@
 	rel="stylesheet" media="all">
 <link href="vendor/mdi-font/css/material-design-iconic-font.min.css"
 	rel="stylesheet" media="all">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Bootstrap CSS-->
 <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet"
@@ -77,13 +78,10 @@
 						<div class="row">
 							<div class="col-md-12">
 								<!-- DATA TABLE -->
-								<h3 class="title-5 m-b-35">Service Man table</h3>
+								<h3 class="title-5 m-b-35">Cart Details</h3>
 								<div class="table-data__tool">
 									<div class="table-data__tool-left"></div>
-									<div class="table-data__tool-right"><a href="addServiceMan">
-										<button class="au-btn au-btn-icon au-btn--green au-btn--small">
-											<i class="zmdi zmdi-plus"></i>add Service Man
-										</button></a>
+									<div class="table-data__tool-right">
 									</div>
 								</div>
 								<div class="table-responsive table-responsive-data2">
@@ -100,24 +98,23 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${serviceManList}" var="serviceMan">
+											<c:forEach items="${cartList}" var="cart">
 												<tr class="tr-shadow">
-													<td><c:out value="${serviceMan.serviceName}"></c:out></td>
-													<td><c:out value="${serviceMan.mobile}"></c:out></td>
-													<td><c:out value="${serviceMan.category.name}"></c:out></td>
-													<td><c:out value="${serviceMan.address.city.name}"></c:out></td>
-													<td><c:out value="${serviceMan.experience}"></c:out></td>
-													<td><c:out value="${serviceMan.inspectionCharge}"></c:out></td> 
+													<td><c:out value="${cart.serviceMan.serviceName}"></c:out></td>
+													<td><c:out value="${cart.serviceMan.mobile}"></c:out></td>
+													<td><c:out value="${cart.serviceMan.category.name}"></c:out></td>
+													<td><c:out value="${cart.serviceMan.address.city.name}"></c:out></td>
+													<td><c:out value="${cart.serviceMan.experience}"></c:out></td>
+													<td><c:out value="${cart.serviceMan.inspectionCharge}"></c:out></td> 
 													<td>
 														<div class="table-data-feature">
-
-															<a href="updateServiceMan?serviceId=${serviceMan.serviceId}">
+															<a href="addPayment?id=${cart.cartId}">
 															<button class="item" data-toggle="tooltip"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
+																data-placement="top" title="Book Now">
+																<i class="fa fa-cc-visa"></i>
 															</button>
 															</a>
-															<a href="deleteServiceMan?id=${serviceMan.serviceId}">
+															<a href="deleteCart?id=${cart.cartId}">
 															<button class="item" data-toggle="tooltip"
 																data-placement="top" title="Delete">
 																<i class="zmdi zmdi-delete"></i>
