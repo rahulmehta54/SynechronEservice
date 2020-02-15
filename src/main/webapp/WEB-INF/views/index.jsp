@@ -13,9 +13,10 @@
 </head>
 <body>
 	<div align="center">
+		<br> <br>
 		<h1 class="centerText blue">${mainHeading}</h1>
 		<%-- <jsp:include page="login.jsp" /> --%>
-
+		<br>
 		<div class="form-group">
 			<a href="login">Login</a>
 		</div>

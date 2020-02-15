@@ -15,9 +15,10 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	
+
 	private String sMenFName;
 	private String sMenLName;
+	private String category;
 	private String mobile;
 	private String city;
 	private String experience;
@@ -26,16 +27,18 @@ public class Order implements Serializable {
 	private String paymentMode;
 	private int userId;
 	private int sId;
+	private int active;
 
 	public Order() {
 	}
 
-	public Order(int orderId, String sMenFName, String sMenLName, String mobile, String city, String experience,
-			String inspectionRates, String payAmount, String paymentMode, int userId, int sId) {
-		super();
+	public Order(int orderId, String sMenFName, String sMenLName, String category, String mobile, String city,
+			String experience, String inspectionRates, String payAmount, String paymentMode, int userId, int sId,
+			int active) {
 		this.orderId = orderId;
 		this.sMenFName = sMenFName;
 		this.sMenLName = sMenLName;
+		this.category = category;
 		this.mobile = mobile;
 		this.city = city;
 		this.experience = experience;
@@ -44,6 +47,7 @@ public class Order implements Serializable {
 		this.paymentMode = paymentMode;
 		this.userId = userId;
 		this.sId = sId;
+		this.active = active;
 	}
 
 	public int getOrderId() {
@@ -68,6 +72,14 @@ public class Order implements Serializable {
 
 	public void setsMenLName(String sMenLName) {
 		this.sMenLName = sMenLName;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getMobile() {
@@ -134,4 +146,11 @@ public class Order implements Serializable {
 		this.sId = sId;
 	}
 
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
 }

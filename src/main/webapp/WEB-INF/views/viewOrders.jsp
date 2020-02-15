@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div align="center">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<br>
 			<h2 class="centerText blue">User Home</h2>
 			<br>
@@ -39,6 +39,8 @@
 						<th>Category</th>
 						<th>Mobile</th>
 						<th>City</th>
+						<th>Amount</th>
+						<th>PaymentMode</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -46,13 +48,17 @@
 				<tbody>
 					<c:forEach items="${allOrders}" var="allOrdersBean">
 						<tr>
-							<td><c:out value="${allOrdersBean.fName}" /></td>
-							<td><c:out value="${allOrdersBean.lName}" /></td>
+							<td><c:out value="${allOrdersBean.sMenFName}" /></td>
+							<td><c:out value="${allOrdersBean.sMenLName}" /></td>
 							<td><c:out value="${allOrdersBean.category}" /></td>
 							<td><c:out value="${allOrdersBean.mobile}" /></td>
 							<td><c:out value="${allOrdersBean.city}" /></td>
+
+							<td><c:out value="${allOrdersBean.payAmount}" /></td>
+							<td><c:out value="${allOrdersBean.paymentMode}" /></td>
+
 							<td><a class="btn btn-danger btn-xs"
-								href="/order/cancel/${serviceMenBean.sId}">Cancel</a></td>
+								href="/order/cancel/${allOrdersBean.orderId}">Cancel</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

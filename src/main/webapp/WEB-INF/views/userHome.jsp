@@ -15,7 +15,7 @@
 
 	
 	<div align="center">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<br>
 			<h2 class="centerText blue">User Home</h2>
 			<br>

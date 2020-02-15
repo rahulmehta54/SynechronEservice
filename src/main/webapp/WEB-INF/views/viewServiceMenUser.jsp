@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div align="center">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<br>
 			<h2 class="centerText blue">User Home</h2>
 			<br>
@@ -58,6 +58,8 @@
 						<th>Name</th>
 						<th>Mobile</th>
 						<th>Category</th>
+						<th>Experience</th>
+						<th>Charges</th>
 						<th>City</th>
 						<th>Action</th>
 					</tr>
@@ -65,16 +67,18 @@
 				<tbody>
 					<c:forEach items="${allServiceMens}" var="serviceMenBean">
 						<tr>
-							<td><c:out value="${serviceMenBean.sMenFName}" /></td>
+							<td><c:out
+									value="${serviceMenBean.sMenFName} ${serviceMenBean.sMenLName}" /></td>
 							<td><c:out value="${serviceMenBean.mobile}" /></td>
 							<td><c:out value="${serviceMenBean.category}" /></td>
+							<td><c:out value="${serviceMenBean.experience}" /></td>
+							<td><c:out value="${serviceMenBean.inspectionRates}" /></td>
 							<td><c:out value="${serviceMenBean.city}" /></td>
 
 							<td><a class="btn btn-warning btn-xs"
-								href="/cart/${serviceMenBean.sId}">Cart</a> <a
+								href="/addToCart/${serviceMenBean.sId}">Cart</a> <a
 								class="btn btn-danger btn-xs"
-								href="/order/${serviceMenBean.sId}">Order</a></td>
-							</td>
+								href="/addOrder/${serviceMenBean.sId}">Order</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

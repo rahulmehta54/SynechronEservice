@@ -24,14 +24,14 @@
 	<div align="center">
 		<div class="col-md-12">
 			<br>
-			<h2 class="centerText blue">Admin Home</h2>
+			<h2 class="centerText blue">User Home</h2>
 			<br>
 
 			<jsp:include page="adminHeader.jsp" />
 
 			<form:form action="/updateServiceMen" method="post">
 				<br>
-				<h4 class="centerText blue">Edit Service Men</h4>
+				<h4 class="centerText blue">Add Order</h4>
 				<br>
 				<br>
 
@@ -87,7 +87,7 @@
 					<form:input path="inspectionRates" cssClass="form-control" />
 				</div>
 
-				<input class="btn btn-success" type="submit" value="Update">
+				<input class="btn btn-success" type="submit" value="Order">
 			</form:form>
 
 

@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div align="center">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<br>
 			<h2 class="centerText blue">User Home</h2>
 			<br>
@@ -31,7 +31,7 @@
 			<jsp:include page="userHeader.jsp" />
 			<br>
 
-			<table  class="table table-hover">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>First Name</th>
@@ -52,7 +52,7 @@
 							<td><c:out value="${allCartItemsBean.mobile}" /></td>
 							<td><c:out value="${allCartItemsBean.city}" /></td>
 							<td><a class="btn btn-danger btn-xs"
-								href="/cart/remove/${serviceMenBean.sId}">Remove</a></td>
+								href="/cart/remove/${allCartItemsBean.cartId}">Remove</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

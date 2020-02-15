@@ -1,7 +1,12 @@
 package com.example.demo.daoimpl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.dao.UserDao;
@@ -14,37 +19,25 @@ public class UserDaoImpl implements UserDao {
 	public JdbcTemplate template;
 
 	@Override
-	public int loginUser(User user) {
-		// 0 - Not found
-		// 1 - admin
-		// 2 - user
-
-		int i = 0;
-		String sql = "select count(*) from tbl_user where email=? and password=?";
-		int count = this.template.queryForObject(sql, new Object[] { user.getEmail(), user.getPassword() },
-				Integer.class);
-//		System.out.println("==========Count :" + count + "===========");
-		if (count == 1) {
-			String query = "select userType from tbl_user where email=? and password=?";
-			int userType = this.template.queryForObject(query, new Object[] { user.getEmail(), user.getPassword() },
-					Integer.class);
-//			System.out.println("==========UserType :" + userType + "===========");
-			if (userType == 1) {
-				i = 1;
-			} else if (userType == 2) {
-				i = 2;
-			}
-		}
-		return i;
-	}
-
-	@Override
-	public User getUserData(User user) {
-		String sql = "select userId from tbl_user where email=? and password=?";
-		Integer id = this.template.queryForObject(sql, new Object[] { user.getEmail(), user.getPassword() },
-				Integer.class);
-		User userData = new User();
-		userData.setUserId(id);
-		return userData;
+	public List<User> loginUserData(User user) {
+		String sql = "select * from tbl_user where email=? and password=?";
+		List<User> userList = this.template.query(sql, new Object[] { user.getEmail(), user.getPassword() },
+				new RowMapper<User>() {
+					@Override
+					public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+						User userObj = new User();
+						userObj.setUserId(rs.getInt(1));
+						userObj.setCpassword(rs.getString(2));
+						userObj.setEmail(rs.getString(3));
+						userObj.setfName(rs.getString(4));
+						userObj.setlName(rs.getString(5));
+						userObj.setMobile(rs.getString(6));
+						userObj.setPassword(rs.getString(7));
+						userObj.setUserType(rs.getInt(8));
+						userObj.setActive(rs.getInt(9));
+						return userObj;
+					}
+				});
+		return userList;
 	}
 }

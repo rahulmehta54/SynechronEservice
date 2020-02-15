@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,21 +47,19 @@ public class UserController {
 	@PostMapping("/login")
 	public String checkLogin(HttpSession session, @ModelAttribute("command") User user) {
 		String nextPage = "login";
-		int i = this.userDaoImpl.loginUser(user);
 
-		/**
-		 * Setting user data in session
-		 */
-		User userData = this.userDaoImpl.getUserData(user);
-		System.out.println("UserData in : " + userData);
-		if (userData != null) {
-			session.setAttribute("userSession", userData);
-		}
-
-		if (i == 1) {
-			nextPage = "adminHome";
-		} else if (i == 2) {
-			nextPage = "userHome";
+		List<User> userList = this.userDaoImpl.loginUserData(user);
+		if (userList != null && userList.size() == 1) {
+			/**
+			 * Setting user data in session
+			 */
+			session.setAttribute("userSession", userList.get(0));
+			int userType = userList.get(0).getUserType();
+			if (userType == 1) {
+				nextPage = "adminHome";
+			} else if (userType == 2) {
+				nextPage = "userHome";
+			}
 		}
 		return nextPage;
 	}

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div align="center">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<br>
 			<h2 class="centerText blue">Admin Home</h2>
 			<br>

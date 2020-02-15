@@ -22,7 +22,7 @@
 </head>
 <body>
 	<div align="center">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<br>
 			<h2 class="centerText blue">Admin Home</h2>
 			<br>
@@ -30,8 +30,6 @@
 			<jsp:include page="adminHeader.jsp" />
 
 			<form:form action="addServiceMen" method="post">
-				<br>
-				<h4 class="centerText blue">Add Service Men</h4>
 				<br>
 				<br>
 
