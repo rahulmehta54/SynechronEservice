@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Cart;
 import com.example.demo.entity.Order;
-import com.example.demo.entity.Service;
+import com.example.demo.entity.ServiceMen;
 import com.example.demo.entity.User;
 
 @Configuration
@@ -33,8 +33,8 @@ public class WebConfig {
 	}
 
 	@Bean
-	public Service service() {
-		return new Service();
+	public ServiceMen service() {
+		return new ServiceMen();
 	}
 
 	

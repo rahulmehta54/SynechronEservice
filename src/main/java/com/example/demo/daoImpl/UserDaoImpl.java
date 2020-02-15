@@ -25,6 +25,7 @@ public class UserDaoImpl implements UserDao {
 		//2-User
 		
 		int i=0;
+		
 		String sql="select count(*) from user where email=? and password=?";
 		int count=this.template.queryForObject(sql, new Object[] { user.getEmail(),user.getPassword()}, Integer.class);
 		

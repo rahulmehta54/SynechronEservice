@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,14 +18,15 @@ import lombok.NoArgsConstructor;
 public class Order {
 
 	@Id
-	private int order_id;
-	private int service_id;
-	private String service_name;
-	private double contact_no;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int orderId;
+	private int serviceId;
+	private String serviceName;
+	private double contactNo;
 	private String issue;
 	private int amount;
-	private String pay_mode;
+	private String payMode;
 	private String category;
-	private int cust_id;
+	private int userId;
 
 }

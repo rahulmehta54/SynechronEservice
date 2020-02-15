@@ -45,7 +45,7 @@ public class UserController {
 	 */
 
 	@GetMapping("/login")
-	public String initForm(Model model) {
+	public String openLoginForm(Model model) {
 		model.addAttribute("command", user);
 		return "login";
 	}
@@ -65,7 +65,7 @@ public class UserController {
 		return nextPage;
 	}
 	@GetMapping("/register")
-	public String initRegisterForm(Model model) {
+	public String openRegisterForm(Model model) {
 		model.addAttribute("command", user);
 		return "register";
 	}

@@ -1,32 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 <meta charset="ISO-8859-1">
-
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-
-<title>E-Service</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<div align="center">
+<div align="center">
 		<div class="col-md-6">
 			<br>
 			<h2 class="centerText blue">Admin Home</h2>
@@ -34,29 +26,39 @@
 
 			<jsp:include page="adminHeader.jsp" />
 
-			<form:form action="addServiceMen" method="post">
+			<form:form action="/updateServiceMen" method="post">
 				<br>
-				<h4 class="centerText blue">Add Service Men</h4>
+				<h4 class="centerText blue">Edit Service Men</h4>
 				<br>
 				<br>
 
+				<form:input path="sId" type="text" hidden="hidden"
+					class="form-control" />
+				<form:input path="payAmount" type="text" hidden="hidden"
+					class="form-control" />
+				<form:input path="paymentMode" type="text" hidden="hidden"
+					class="form-control" />
+				<form:input path="active" type="text" hidden="hidden"
+					class="form-control" />
+
 				<div class="form-group">
 					<label class="align-left">First Name:</label>
-					<form:input path="sFName" cssClass="form-control" />
+					<form:input path="sFName" class="form-control" />
 				</div>
 
 				<div class="form-group">
 					<label class="align-left">Last Name:</label>
-					<form:input path="sLName" cssClass="form-control" />
+					<form:input path="sLName" class="form-control" />
 				</div>
 
 				<div class="form-group">
 					<label class="align-left">Mobile Number:</label>
-					<form:input path="mob" cssClass="form-control" />
+					<form:input path="mobile" class="form-control" />
 				</div>
 
 				<div class="form-group">
 					<label class="align-left">City:</label>
+					<%-- <input type="text"	id="city" class="form-control" value="${city}" /> --%>
 					<form:input path="city" cssClass="form-control" />
 				</div>
 
@@ -78,11 +80,11 @@
 				</div>
 
 				<div class="form-group">
-					<label class="align-left">Inspection Rates:</label>
-					<form:input path="inspectionRate" cssClass="form-control" />
+					<label class="align-left">Rates:</label>
+					<form:input path="inspectionRates" cssClass="form-control" />
 				</div>
 
-				<input class="btn btn-success" type="submit" value="Add">
+				<input class="btn btn-success" type="submit" value="Update">
 			</form:form>
 
 

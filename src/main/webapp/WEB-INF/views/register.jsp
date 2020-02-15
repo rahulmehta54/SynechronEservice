@@ -31,17 +31,17 @@
 
 				<div class="form-group">
 					<label class="align-left">First Name:</label>
-					<form:input path="fname" cssClass="form-control" />
+					<form:input path="fName" cssClass="form-control" />
 				</div>
 
 				<div class="form-group">
 					<label class="align-left">Last Name:</label>
-					<form:input path="lname" cssClass="form-control" />
+					<form:input path="lName" cssClass="form-control" />
 				</div>
 
 				<div class="form-group">
 					<label class="align-left">Mobile Number:</label>
-					<form:input path="mob" cssClass="form-control" />
+					<form:input path="mobile" cssClass="form-control" />
 				</div>
 
 				<div class="form-group">
@@ -53,6 +53,8 @@
 					<label class="align-left">Confirm Password:</label>
 					<form:input path="cpassword" cssClass="form-control" />
 				</div>
+				
+				<form:input path="userType" value="2" hidden="hidden" cssClass="form-control"/>
 
 				<input class="btn btn-success" type="submit" value="Register">
 			</form:form>
