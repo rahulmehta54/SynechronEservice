@@ -21,17 +21,15 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cart_id;
-	
+
 	private int service_id;
 	private String serviceman_Name;
 	private long contact;
 	private String category;
 	private int user_id;
-	
+
 	public Cart() {
 		super();
 	}
-	
-	
-	
+
 }

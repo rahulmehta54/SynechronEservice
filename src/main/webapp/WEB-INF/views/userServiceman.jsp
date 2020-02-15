@@ -117,11 +117,11 @@
 					<td><c:out value="${item.inspection_rate}" /></td>
 					<td>
 					
-					<a href="/editServiceman/${item.service_Id}"> <i
+					<a href="/addToCart/${item.service_Id}"> <i
 							class="fa fa-shopping-cart"></i></a> 
 							
 					<a
-						href="/deleteServiceman/${item.service_Id} " style="color: red">
+						href="/deleteServicemanFromCart/${item.service_Id} " style="color: red">
 							<i class="fa fa-trash"></i>
 					</a></td>
 				</tr>

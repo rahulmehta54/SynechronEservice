@@ -1,7 +1,12 @@
 package com.example.demo.daoImpl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.dao.UserDao;
@@ -41,4 +46,19 @@ public class UserDaoImpl implements UserDao {
 		return i;
 	}
 
+	/*
+	 * public User getDataOfUSer(User user) { String sql =
+	 * "select * from user_table where email=? and password=?"; User user1 =
+	 * this.jdbcTemplate.queryForObject(sql, new Object[] { user.getEmail(),
+	 * user.getPassword() }, User.class); return user1; }
+	 */
+
+	public User getDataOfUser(User user) {
+		String sql = "select User_Id from user_table where email=? and password=?";
+		int id = this.jdbcTemplate.queryForObject(sql, new Object[] { user.getEmail(), user.getPassword() },
+				Integer.class);
+		User userdata = new User();
+		userdata.setUser_Id(id);
+		return userdata;
+	}
 }
