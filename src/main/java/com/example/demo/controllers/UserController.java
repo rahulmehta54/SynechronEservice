@@ -4,6 +4,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,16 +94,22 @@ public class UserController {
 	}
 
 	@GetMapping("/addToCart/{service_Id}")
-	public ModelAndView addToCart(Model model, @PathVariable("service_Id") int service_Id, HttpSession session) {
+	public ResponseEntity<String> addToCart(Model model, @PathVariable("service_Id") int service_Id,
+			HttpSession session) {
 		System.out.println("" + service_Id);
-//		modelAndView.addObject("service_Id", user_Id);
-//		User user = (User) session.getAttribute("submit");
+		User user = (User) session.getAttribute("submit");
 		Serviceman s = servicemanRepository.findById(service_Id).get();
-//		addItemToCart(user,);
+		Cart cart = new Cart();
+		cart.setServiceman_Name(s.getServicemanName());
+		cart.setCategory(s.getCategory());
+		cart.setContact(s.getContact_No());
+		cart.setCity(s.getCity());
+		cart.setExp(s.getExp());
+		cart.setInspectionRate(s.getInspection_rate());
 
-		modelAndView.addObject("cartList",s);
-		modelAndView.setViewName("viewCart");
-		return modelAndView;
+		cartRepository.saveAndFlush(cart);
+
+		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
 
 	/*
@@ -111,5 +119,12 @@ public class UserController {
 	 * modelAndView.setViewName("userServiceman"); modelAndView.addObject("list",
 	 * servicemanRepository.findAll()); return modelAndView; }
 	 */
+
+	@GetMapping("/showCartList")
+	public ModelAndView showCartList() {
+		modelAndView.setViewName("viewCart");
+		modelAndView.addObject("cartList", cartRepository.findAll());
+		return modelAndView;
+	}
 
 }

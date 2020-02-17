@@ -115,17 +115,11 @@
 					<td><c:out value="${item.contact_No} " /></td>
 					<td><c:out value="${item.exp} " /></td>
 					<td><c:out value="${item.inspection_rate}" /></td>
-					<td>
-					
-					<a href="/addToCart/${item.service_Id}"> <i
-							class="fa fa-shopping-cart"></i></a> 
-							
-					<%-- <a
+					<td><a onclick="addToCart(${item.service_Id});"> <i
+							class="fa fa-shopping-cart"></i></a> <%-- <a
 						href="/deleteServicemanFromCart/${item.service_Id} " style="color: red">
 							<i class="fa fa-trash"></i>
-					</a> --%>
-					
-					</td>
+					</a> --%></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -133,4 +127,31 @@
 
 
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function addToCart(serviceManId)
+{
+	alert("ddfdfdf");
+	
+	$.ajax({
+		type:"GET",
+		url:"/addToCart/"+serviceManId,
+		success:function(data){
+			location.href="/showCartList";
+		},error:function(data)
+		{
+			
+		}
+		
+		
+		
+	});
+	
+}
+
+
+</script>
+
 </html>

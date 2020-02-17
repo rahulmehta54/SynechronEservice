@@ -29,7 +29,7 @@
 	crossorigin="anonymous">
 
 </head>
-<body>${cartList}
+<body>
 
 	<table class="table table-bordered">
 
@@ -40,16 +40,28 @@
 			<th>City</th>
 			<th>Experience</th>
 			<th>Inspection Rate</th>
+			<th>Action</th>
 		</tr>
 
-		<%-- <c:forEach items="${cartList}" var="item">
-		
-			<tr>
-				
-				<td><c:out value="${item.servicemanName}" /></td>
+		<c:forEach items="${cartList}" var="item">
 
+			<tr>
+
+				<td><c:out value="${item.serviceman_Name}" /></td>
+				<td><c:out value="${item.category}" /></td>
+				<td><c:out value="${item.contact}" /></td>
+				<td><c:out value="${item.city}" /></td>
+				<td><c:out value="${item.exp}" /></td>
+				<td><c:out value="${item.inspectionRate}" /></td>
+				<td>
+				
+				<a href="/placeOrder/${cart_id}"> <i
+						class="fa fa-first-order "></i>
+				</a>
+				
+				</td>
 			</tr>
-		</c:forEach> --%>
+		</c:forEach>
 
 
 

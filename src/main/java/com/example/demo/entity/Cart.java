@@ -26,6 +26,9 @@ public class Cart {
 	private String serviceman_Name;
 	private long contact;
 	private String category;
+	private String city;
+	private int exp;
+	private int inspectionRate;
 	private int user_id;
 
 	public Cart() {
