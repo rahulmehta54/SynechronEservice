@@ -84,7 +84,9 @@ function myCategory() {
 <input type="text" id="myInput1" onkeyup="myCategory()" placeholder="Search for category..">
 
 <%-- 	<form:form method="POST" action="addSaleperson" >
- --%>		<table class="table v-middle" id="updateTable">
+ --%>	 
+ <form:form method="POST" action="addSalepersonTobuy" modelAttribute="salesPersonlist">
+ 	<table class="table v-middle" id="updateTable">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -124,6 +126,8 @@ function myCategory() {
 
 
 		</tbody>
+		<button type="submit" >add to cart</button>
+	</form:form>
 
 
 

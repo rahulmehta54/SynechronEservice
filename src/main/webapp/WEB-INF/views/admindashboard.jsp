@@ -7,6 +7,8 @@
 <title>Hello admin</title>
 </head>
 <body>
+
+<%=session.getAttribute("email")%>
                       hello admin 
                <h1>${name}</h1>
                <a href="addSaleperson">add a salespeson</a>

@@ -110,9 +110,9 @@
                         </li>
                         
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="salesOperatorDash.jsp" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="previousorder" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">previous orders</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorProfile.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorAddCustomer.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Add Customer</span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewcart" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">view cart</span></a></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorEditCustomer.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Edit Customer</span></a></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorDeleteCustomer.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Delete Customer</span></a></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewSalesperson" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">View serviceman</span></a></li>

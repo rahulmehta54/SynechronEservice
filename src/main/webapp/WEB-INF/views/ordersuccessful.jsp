@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Success page</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-<%=session.getAttribute("user")%>
-<span>hello  world   </span> ${check} yo
+
+your order has been placed return home
+<a href="userdashboard">HOME</a>
+
 </body>
 </html>

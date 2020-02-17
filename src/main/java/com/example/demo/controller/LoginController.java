@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,8 @@ public class LoginController {
 		
 	}
 	@GetMapping(path="/login")
-	public String initForm(Model model) {
+	public String initForm(Model model,HttpServletRequest request) {
+		
 		model.addAttribute("command",user);
 		System.out.println("hello world");
 		return "login";
@@ -49,8 +51,9 @@ public class LoginController {
 
 
 	@PostMapping(path="/login")
-	private ModelAndView onSubmit(@Valid @ModelAttribute("command") User user) 
+	private ModelAndView onSubmit(@Valid @ModelAttribute("command") User user,HttpServletRequest request) 
 		{
+		
 		System.out.println(user.toString());
 		System.out.print(user.getName()+user.getPassword()+user.getRole());
 		List<User>	loggedinuser=repo.findByEmailAndPasswordAndRole(user.getEmail(),user.getPassword(),user.getRole());
@@ -59,6 +62,7 @@ public class LoginController {
 		for (User user2 : loggedinuser) {
 			System.out.println("foeacch"+user2.toString());
 			 name=user2.getName();
+			 request.getSession().setAttribute("user",user2);
 		}
 		
 		System.out.println("aaya");
