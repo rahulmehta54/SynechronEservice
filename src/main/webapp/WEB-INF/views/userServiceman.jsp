@@ -120,10 +120,12 @@
 					<a href="/addToCart/${item.service_Id}"> <i
 							class="fa fa-shopping-cart"></i></a> 
 							
-					<a
+					<%-- <a
 						href="/deleteServicemanFromCart/${item.service_Id} " style="color: red">
 							<i class="fa fa-trash"></i>
-					</a></td>
+					</a> --%>
+					
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

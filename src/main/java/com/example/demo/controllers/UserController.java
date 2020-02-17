@@ -1,8 +1,5 @@
 package com.example.demo.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -13,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.daoImpl.UserDaoImpl;
@@ -90,9 +86,6 @@ public class UserController {
 
 	@PostMapping("/register")
 	public String onSubmitRegisterForm(@ModelAttribute("command") User user) {
-
-		System.out.println("111111");
-
 		String nextPage = "index";
 		this.user_repository.save(user);
 		return nextPage;
@@ -100,16 +93,23 @@ public class UserController {
 
 	@GetMapping("/addToCart/{service_Id}")
 	public ModelAndView addToCart(Model model, @PathVariable("service_Id") int service_Id, HttpSession session) {
-		System.out.println(""+service_Id);
-		// modelAndView.addObject("service_Id", user_Id);
-		User user=(User) session.getAttribute("submit");
-		Serviceman s=servicemanRepository.findById(service_Id).get();
-		addItemToCart(user,s);
-		
-		
-		modelAndView.addObject("cartList", );
+		System.out.println("" + service_Id);
+//		modelAndView.addObject("service_Id", user_Id);
+//		User user = (User) session.getAttribute("submit");
+		Serviceman s = servicemanRepository.findById(service_Id).get();
+//		addItemToCart(user,);
+
+		modelAndView.addObject("cartList",s);
 		modelAndView.setViewName("viewCart");
 		return modelAndView;
 	}
+
+	/*
+	 * @GetMapping("/deleteServicemanFromCart/{service_Id}") public ModelAndView
+	 * deleteServicemanFromCart(@PathVariable int service_Id) {
+	 * this.servicemanRepository.deleteById(service_Id);
+	 * modelAndView.setViewName("userServiceman"); modelAndView.addObject("list",
+	 * servicemanRepository.findAll()); return modelAndView; }
+	 */
 
 }
