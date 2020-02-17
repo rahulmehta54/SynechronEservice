@@ -34,24 +34,32 @@
 
 			<!-- SEARCH BY CITY AND CATEGORY -->
 			<form:form action="/searchServiceMenUser" method="post">
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<form:input path="city" placeholder="City" cssClass="form-control" />
-					</div>
-					<form:select path="category" cssClass="form-control">
-						<form:option selected="selected" value="select">--Select--</form:option>
-						<form:option value="Plumber">Plumber</form:option>
-						<form:option value="Cleaner">Cleaner</form:option>
-						<form:option value="Carpenter">Carpenter</form:option>
-						<form:option value="Electrician">Electrician</form:option>
-						<form:option value="Driver">Driver</form:option>
-					</form:select>
-					<div class="input-group-prepend">
-						<input class="btn btn-info" type="submit" value="Search">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-6">
+							<label>Enter City:</label><br>
+							<form:input path="city" placeholder="Enter city"
+								cssClass="form-control" />
+						</div>
+						<div class="col-sm-5">
+							<label>Select Category:</label><br>
+							<form:select path="category" cssClass="form-control">
+								<form:option selected="selected" value="select">--Select--</form:option>
+								<form:option value="Plumber">Plumber</form:option>
+								<form:option value="Cleaner">Cleaner</form:option>
+								<form:option value="Carpenter">Carpenter</form:option>
+								<form:option value="Electrician">Electrician</form:option>
+								<form:option value="Driver">Driver</form:option>
+							</form:select>
+						</div>
+						<div class="input-group-prepend text-center">
+							<input class="btn btn-info" type="submit" value="Search">
+						</div>
 					</div>
 				</div>
 			</form:form>
 
+			<br>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -76,9 +84,10 @@
 							<td><c:out value="${serviceMenBean.city}" /></td>
 
 							<td><a class="btn btn-warning btn-xs"
-								href="/addToCart/${serviceMenBean.sId}">Cart</a> <a
+								href="/addToCart/${serviceMenBean.sId}">Add To Cart</a> <a
 								class="btn btn-danger btn-xs"
-								href="/addOrder/${serviceMenBean.sId}">Order</a></td>
+								href="/viewOrderForm/${serviceMenBean.sId}">Order</a></td>
+							<%-- href="/addOrder/${serviceMenBean.sId}">Order</a></td> --%>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -14,6 +14,7 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartId;
 
+	// java bean naming conventions should be used - first character and second character should not be uppercase
 	private String fName;
 	private String lName;
 	private String category;
@@ -111,4 +112,10 @@ public class Cart {
 		this.active = active;
 	}
 
+	@Override
+	public String toString() {
+		return "Cart [cartId=" + cartId + ", fName=" + fName + ", lName=" + lName + ", category=" + category
+				+ ", mobile=" + mobile + ", city=" + city + ", userId=" + userId + ", sId=" + sId + ", active=" + active
+				+ "]";
+	}
 }

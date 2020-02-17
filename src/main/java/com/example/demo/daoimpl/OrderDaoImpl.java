@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.dao.OrderDao;
+import com.example.demo.dto.Cart;
 import com.example.demo.dto.Order;
 import com.example.demo.dto.ServiceMen;
 import com.example.demo.dto.User;
@@ -63,5 +64,13 @@ public class OrderDaoImpl implements OrderDao {
 		String sql = "UPDATE tbl_order SET active=? WHERE orderId=?";
 		int val = this.template.update(sql, new Object[] { 0, orderId });
 		return val;
+	}
+
+	@Override
+	public Order getServiceMenDataInOder(ServiceMen objSerMen) {
+		Order order = new Order(0, objSerMen.getsMenFName(), objSerMen.getsMenLName(), objSerMen.getCategory(),
+				objSerMen.getMobile(), objSerMen.getCity(), objSerMen.getExperience(), objSerMen.getInspectionRates(),
+				objSerMen.getPayAmount(), objSerMen.getPaymentMode(), 0, objSerMen.getsId(), 1);
+		return order;
 	}
 }

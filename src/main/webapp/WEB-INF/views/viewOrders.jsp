@@ -39,7 +39,7 @@
 						<th>Category</th>
 						<th>Mobile</th>
 						<th>City</th>
-						<th>Amount</th>
+						<th>Amount Paid</th>
 						<th>PaymentMode</th>
 						<th>Action</th>
 					</tr>

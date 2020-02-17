@@ -38,6 +38,13 @@ public class UserController {
 		return mdlView;
 	}
 
+//	@GetMapping("/logout")
+//	public ModelAndView logout(HttpSession session) {
+//		mdlView.setViewName("index");
+//		mdlView.addObject("mainHeading", "E-Service");
+//		return mdlView;
+//	}
+
 	@GetMapping("/login")
 	public String initForm(Model model) {
 		model.addAttribute("command", user);

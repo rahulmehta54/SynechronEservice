@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.dao.ServiceDaoJPA;
 import com.example.demo.daoimpl.ServiceMenDaoImpl;
 import com.example.demo.dto.ServiceMen;
+import com.example.demo.dto.User;
 
 @Controller
 public class ServiceMenController {
@@ -27,50 +30,50 @@ public class ServiceMenController {
 	@Autowired
 	private ServiceMenDaoImpl serviceMenDaoImpl;
 
+	/**
+	 * Add SERVICEMEN
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/addServiceMen")
-	public String initForm(Model model) {
+	public String addServiceMen(Model model) {
 		model.addAttribute("command", serviceMen);
 		return "addServiceMen";
 	}
 
+	// Should not have two methods should have one method checking the user
 	/**
-	 * SEARCH SERVICEMEN
+	 * Open service men view form
 	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/viewServiceMen")
-	public String openForm(Model model) {
-		List<ServiceMen> allServiceMens = this.serviceDaoJPA.findAll();
-		model.addAttribute("allServiceMens", allServiceMens);
-		return "viewServiceMen";
-	}
-
-	@GetMapping("/viewServiceMenUser")
-	public String openFormUser(Model model) {
+	public String openFormUser(Model model, HttpSession session) {
+		String nextPage = "";
 		List<ServiceMen> allServiceMens = this.serviceDaoJPA.findAll();
 		model.addAttribute("allServiceMens", allServiceMens);
 		model.addAttribute("command", serviceMen);
-		return "viewServiceMenUser";
+
+		User userData = (User) session.getAttribute("userSession");
+		int userType = userData.getUserType();
+		if (userType == 1) {
+			nextPage = "viewServiceMen";
+		} else if (userType == 2) {
+			nextPage = "viewServiceMenUser";
+		}
+		return nextPage;
 	}
 
 	/**
-	 * SEARCH SERVICEMEN BY CITY AND CATEGORY
+	 * Search servicemen by city and category on user's dashboard
 	 * 
 	 * @param city
 	 * @param category
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/searchServiceMen")
-	public String searchServiceMen(@RequestParam("city") String city, @RequestParam("category") String category,
-			Model model) {
-		String nextPage = "viewServiceMen";
-//		List<ServiceMen> allServiceMens = this.serviceMenDaoImpl.filteredServiceMens(serviceMen);
-//		model.addAttribute("allServiceMens", allServiceMens);
-		return nextPage;
-	}
-
 	@PostMapping("/searchServiceMenUser")
 	public String searchServiceMenUser(@ModelAttribute("command") ServiceMen serviceMen, Model model) {
 		String nextPage = "viewServiceMenUser";
@@ -82,14 +85,14 @@ public class ServiceMenController {
 	}
 
 	/**
-	 * ADD SERVICEMEN
+	 * Add servicemen
 	 * 
 	 * @param serviceMen
 	 * @param model
 	 * @return
 	 */
 	@PostMapping("/addServiceMen")
-	public String checkServiceMen(@ModelAttribute("command") ServiceMen serviceMen, Model model) {
+	public String addServiceMen(@ModelAttribute("command") ServiceMen serviceMen, Model model) {
 		String nextPage = "viewServiceMen";
 		this.serviceDaoJPA.save(serviceMen);
 
@@ -99,7 +102,7 @@ public class ServiceMenController {
 	}
 
 	/**
-	 * DELETE SERVICEMEN
+	 * Delete servicemen
 	 * 
 	 * @param id
 	 * @param model
@@ -115,7 +118,7 @@ public class ServiceMenController {
 	}
 
 	/**
-	 * EDIT SERVICEMEN
+	 * Method to open edit service men form
 	 * 
 	 * @param sId
 	 * @param model
@@ -130,27 +133,20 @@ public class ServiceMenController {
 		return "editServiceMen";
 	}
 
+	/**
+	 * Update service men data
+	 * 
+	 * @param serviceMen
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/updateServiceMen")
 	public String updateServiceMenById(@ModelAttribute("command") ServiceMen serviceMen, Model model) {
 		System.out.println("ServiceMen Updated object : ==========" + serviceMen);
 		this.serviceDaoJPA.save(serviceMen);
 		String nextPage = "viewServiceMen";
-//		this.serviceMenDaoImpl.editServiceMen(serviceMen);
 		List<ServiceMen> allServiceMens = this.serviceDaoJPA.findAll();
 		model.addAttribute("allServiceMens", allServiceMens);
 		return nextPage;
 	}
-
-//	@GetMapping("/edit/{sId}/{sMenFName}/{sMenLName}/{mobile}/{city}/{category}/{experience}/{inspectionRates}")
-//	public String getServiceMenById(@PathVariable("sId") int sId, @PathVariable("sMenFName") String sMenFName,
-//			@PathVariable("sMenLName") String sMenLName, @PathVariable("mobile") String mobile,
-//			@PathVariable("city") String city, @PathVariable("category") String category,
-//			@PathVariable("experience") String experience, @PathVariable("inspectionRates") String inspectionRates,
-//			Model model) {
-//		System.out.println("edit id : ==========" + sMenFName);
-//		ServiceMen srMen = new ServiceMen(sId, sMenFName, sMenLName, mobile, category, city, experience,
-//				inspectionRates);
-//		model.addAttribute("command", srMen);
-//		return "editServiceMen";
-//	}
 }

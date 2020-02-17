@@ -23,7 +23,7 @@
 	<div class="d-flex">
 
 		<div class="p-2 bg-warning flex-fill">
-			<a class="blue" href="/viewServiceMenUser">View Service Men</a>
+			<a class="blue" href="/viewServiceMen">View Service Men</a>
 		</div>
 		<div class="p-2 bg-info flex-fill">
 			<a class="blue" href="/viewOrders">My Orders</a>

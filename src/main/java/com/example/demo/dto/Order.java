@@ -153,4 +153,14 @@ public class Order implements Serializable {
 	public void setActive(int active) {
 		this.active = active;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", sMenFName=" + sMenFName + ", sMenLName=" + sMenLName + ", category="
+				+ category + ", mobile=" + mobile + ", city=" + city + ", experience=" + experience
+				+ ", inspectionRates=" + inspectionRates + ", payAmount=" + payAmount + ", paymentMode=" + paymentMode
+				+ ", userId=" + userId + ", sId=" + sId + ", active=" + active + "]";
+	}
+	
+	
 }

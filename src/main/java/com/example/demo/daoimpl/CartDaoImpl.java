@@ -23,6 +23,8 @@ public class CartDaoImpl implements CartDao {
 	@Override
 	public List<Cart> findCartItemsByUserId(User userData) {
 		String sql = "select * FROM tbl_cart WHERE userID=? and active=?";
+		
+		// this.template.queryForList(sql,userData.getUserId(),userData.getActive());
 		List<Cart> cartList = this.template.query(sql, new Object[] { userData.getUserId(), 1 }, new RowMapper<Cart>() {
 			@Override
 			public Cart mapRow(ResultSet rs, int rowNum) throws SQLException {

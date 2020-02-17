@@ -44,6 +44,14 @@ public class CartController {
 		return "viewCart";
 	}
 
+	/**
+	 * Adding service men to cart 
+	 * 
+	 * @param sId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/addToCart/{sId}")
 	public String addToCart(@PathVariable("sId") int sId, Model model, HttpSession session) {
 		User userData = (User) session.getAttribute("userSession");
@@ -62,6 +70,14 @@ public class CartController {
 		return "viewServiceMenUser";
 	}
 
+	/**
+	 * Remove service men from the cart
+	 * 
+	 * @param cartId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/cart/remove/{cartId}")
 	public String removeFromCart(@PathVariable("cartId") int cartId, Model model, HttpSession session) {
 		int val = this.cartDaoImpl.removeFromCart(cartId);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.dto.Cart;
 import com.example.demo.dto.Order;
 import com.example.demo.dto.ServiceMen;
 import com.example.demo.dto.User;
@@ -16,4 +17,6 @@ public interface OrderDao {
 	int addOrder(User user, ServiceMen serviceMen);
 
 	int cancelOrder(int orderId);
+	
+	Order getServiceMenDataInOder(ServiceMen objServiceMen);
 }
