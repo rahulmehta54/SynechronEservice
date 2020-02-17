@@ -51,6 +51,7 @@
 <td><a href="editService/${item.sid}">Edit</a></td>
 <td><a href="deleteService/${item.sid}">Delete</a></td>
 </tr>
+
 </c:forEach>
 
 

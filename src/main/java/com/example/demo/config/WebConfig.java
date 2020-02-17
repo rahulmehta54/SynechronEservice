@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.example.demo.entity.Address;
 import com.example.demo.entity.Cart;
+import com.example.demo.entity.OrderBooked;
 import com.example.demo.entity.ServiceProvider;
 import com.example.demo.entity.Users;
 
@@ -28,5 +29,10 @@ public class WebConfig {
 	public Cart c()
 	{
 		return new Cart();
+	}
+	
+	@Bean
+	public OrderBooked ob() {
+		return new OrderBooked();
 	}
 }

@@ -111,7 +111,7 @@ public class UserController {
 
 		//System.out.println(uu.getMailId());
 		u=userv.checkUser(u);
-		System.out.println("from controller: " +u.getContactNum());
+		//System.out.println("from controller: " +u.getContactNum());
 		if(u!=null)
 		{
 			session.setAttribute("userSession", u);
@@ -129,15 +129,21 @@ public class UserController {
 
 
 	}
-
+	
 	@GetMapping(path="/userOperation")
+	public String userOperation()
+	{
+		return "userOperation";
+	}
+
+	@PostMapping(path="/userOperation")
 	public String search(@RequestParam String keyword, Model m)
 	{
 		System.out.println("search: "+keyword);
 		List<ServiceProvider> slist = userv.search(keyword);
 		System.out.println(slist.size());
 		m.addAttribute("listOfService", slist);
-		return "userOperation";
+		return "./userOperation";
 	}
 
 

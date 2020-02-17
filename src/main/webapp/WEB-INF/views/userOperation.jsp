@@ -27,7 +27,7 @@
 <h4 style="color:blue;"><b>Welcome <%= u.getFirstName()  %></b></h4>
 </div>
     <div>
-        <form  action="userOperation">
+        <form  action="userOperation" method="post">
         <input type="text" name="keyword" /> &nbsp;
         <input type="submit" value="Search" />
         </form>

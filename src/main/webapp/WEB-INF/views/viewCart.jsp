@@ -19,15 +19,11 @@
 <h3>${success}</h3>
 </div>
 <table border="1">
-<thead>
-<i><i/>
 
-<tr>
-	
-</tr>
-</thead>
 <tbody>
 <c:forEach items="${cartListbyUserId}" var="item">
+<c:set var="Total"
+ value="${Total + item.s.rates}"></c:set>
 <tr>
 <td>
 <c:out value="${item.s.sid}"/></td>
@@ -44,12 +40,28 @@
 <td>
 <c:out value="${item.s.contactNum}"/></td>
 
-<td><a href="#">Delete</a></td>
+<td><a href="deleteCart/${item.cartId}">Delete</a></td>
 </tr>
-</c:forEach>
 
+</c:forEach>
+<tr>
+<td colspan="5" align="right"><b>Sum: </b></td>
+<td>${Total}</td>
+</tr>
 
 </tbody>
 </table>
+<br>
+<br>
+ <div class="container">
+     <div class="row">
+        <div class="col-xs-12">
+           <div  class="text-center">
+			<a href="/payment/${Total}" class="btn btn-primary" role="button">CheckOut</a>&nbsp;&nbsp;
+			<a href="/userOperation" class="btn btn-warning" role="button">Continue Shopping</a>
+		   </div>
+        </div>
+     </div>
+  </div>
 </body>
 </html>
