@@ -67,7 +67,7 @@ public class UserController {
 
 		User userData = userDaoImpl.getDataOfUser(user);
 		System.out.println("userdata ======" + userData);
-		session.setAttribute("submit", userData);
+		session.setAttribute("userData", userData);
 //		session.setAttribute("submit", userDaoImpl.getDataOfUser(user));
 
 		String nextPage = "login";
@@ -97,7 +97,7 @@ public class UserController {
 	public ResponseEntity<String> addToCart(Model model, @PathVariable("service_Id") int service_Id,
 			HttpSession session) {
 		System.out.println("" + service_Id);
-		User user = (User) session.getAttribute("submit");
+		User user = (User) session.getAttribute("userData");
 		Serviceman s = servicemanRepository.findById(service_Id).get();
 		Cart cart = new Cart();
 		cart.setServiceman_Name(s.getServicemanName());

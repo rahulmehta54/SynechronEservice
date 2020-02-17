@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -56,7 +57,7 @@
 		<input class="btn btn-success" type="submit" value="Register">
 
 		<!-- <button class="btn btn-info"><a href="login">Login</a></button> -->
-	
+
 
 	</form:form>
 

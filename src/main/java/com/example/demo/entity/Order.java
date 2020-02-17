@@ -30,6 +30,7 @@ public class Order {
 	private String pay_mode;
 	private String category;
 	private int user_id;
+	private int cart_id;
 
 	public Order() {
 		super();

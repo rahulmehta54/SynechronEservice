@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -57,7 +58,7 @@
 
 	<form:form action="/updateServiceman" method="post">
 		<table>
-            <form:input path="service_Id" hidden="hidden"/>
+			<form:input path="service_Id" hidden="hidden" />
 			<%-- <tr><td>servicemanName:</td><td><form:input path="servicemanName" /></td></tr> --%>
 			Serviceman Name:
 			<form:input path="servicemanName" />
@@ -77,16 +78,13 @@
 			<form:input path="contact_No" />
 			<br> Experience:
 			<form:input path="exp" />
-			<br>
-			
-			City:
+			<br> City:
 			<form:input path="city" />
-			<br>
-			
-			 Inspection Rate: <form:input path="inspection_rate" />
+			<br> Inspection Rate:
+			<form:input path="inspection_rate" />
 			<br>
 
-			<input type="submit" value="Update" id="submit"/>
+			<input type="submit" value="Update" id="submit" />
 
 		</table>
 	</form:form>

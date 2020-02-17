@@ -54,11 +54,9 @@
 				<td><c:out value="${item.exp}" /></td>
 				<td><c:out value="${item.inspectionRate}" /></td>
 				<td>
-				
-				<a href="/placeOrder/${cart_id}"> <i
+				<a href="/placeOrder/${item.cart_id}"> <i
 						class="fa fa-first-order "></i>
 				</a>
-				
 				</td>
 			</tr>
 		</c:forEach>

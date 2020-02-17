@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-	<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-	
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +25,17 @@
 <body>
 
 	<h1 style="text-align: center;">Welcome to Admin Home</h1>
-	
+
 	<%-- <jsp:include page="addServiceman.jsp" />   --%>
-	
-	<button class="btn btn-info"><a href="/addServiceman">Add Serviceman</a></button><span>
-	<button class="btn btn-info"><a href="/viewServicemen">View Serviceman</a></button></span>
+
+	<button class="btn btn-info">
+		<a href="/addServiceman">Add Serviceman</a>
+	</button>
+	<span>
+		<button class="btn btn-info">
+			<a href="/viewServicemen">View Serviceman</a>
+		</button>
+	</span>
 
 </body>
 </html>

@@ -116,10 +116,12 @@
 					<td><c:out value="${item.exp} " /></td>
 					<td><c:out value="${item.inspection_rate}" /></td>
 					<td><a onclick="addToCart(${item.service_Id});"> <i
-							class="fa fa-shopping-cart"></i></a> <%-- <a
+							class="fa fa-shopping-cart"></i></a> 
+					<%-- <a
 						href="/deleteServicemanFromCart/${item.service_Id} " style="color: red">
 							<i class="fa fa-trash"></i>
-					</a> --%></td>
+					</a> --%>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -133,7 +135,7 @@
 <script type="text/javascript">
 function addToCart(serviceManId)
 {
-	alert("ddfdfdf");
+	alert("Do you want to add to the cart list??");
 	
 	$.ajax({
 		type:"GET",

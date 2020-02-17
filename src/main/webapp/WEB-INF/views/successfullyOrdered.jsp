@@ -8,8 +8,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Success</title>
+<title>Insert title here</title>
 
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -24,8 +25,10 @@
 </head>
 <body>
 
-	<h1 style="text-align: center;">Service man registered</h1>
-	<br>
-	<a href="adminHome">Admin Home</a>
+
+	<h1>Order successfully placed</h1>
+
+
+
 </body>
 </html>
