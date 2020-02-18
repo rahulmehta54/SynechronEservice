@@ -20,18 +20,18 @@ public class SalesPerson {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	Long id;
+	private Long id;
 	@Column(name="salePersonName")
-	String salePersonName;
+	private String salePersonName;
 	@Column(name="category")
-	String category;
+	private String category;
 	@Column(name="mobileNumber")
-	Long mobileNumber;
+	private Long mobileNumber;
 	@Column(name="city")
-	String city;
+	private String city;
 	@Column(name="experience")
-	String experience;
+	private String experience;
 	@Column(name="rate")
-	Double rate;
+	private Double rate;
 	
 }

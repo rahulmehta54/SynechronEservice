@@ -1,24 +1,24 @@
 package com.example.demo.entity;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.context.annotation.Scope;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Endorder" )
+@Table(name = "Endorder")
 
 @Data
 @AllArgsConstructor
@@ -27,14 +27,17 @@ public class EndOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	Long id;
+	private Long id;
 	@Column(name = "customerId")
-	Long customerId;
-	@Column(name = "saleperson")
-	String saleperson;
-	@Column (name="date")
-	LocalDateTime date;
-	@Column(name="Total")
-	Double total;
-	
+	private Long customerId;
+
+	@Column(name = "date")
+	private LocalDateTime date;
+	@Column(name = "Total")
+	private Double total;
+
+	@OneToMany
+	@JoinTable(name = "order_products")
+	private List<SalesPerson> salesPersonList;
+
 }

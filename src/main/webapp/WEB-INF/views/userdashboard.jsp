@@ -111,15 +111,11 @@
                         
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="previousorder" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">previous orders</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorProfile.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewcart" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">view cart</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorEditCustomer.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Edit Customer</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorDeleteCustomer.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Delete Customer</span></a></li>
+
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewCart" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">view cart</span></a></li>
+
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewSalesperson" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">View serviceman</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorAddSales.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Add Sale</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorEditSales.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Edit Sale</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="SalesOperatorDeleteSales.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Delete Sale</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="signOut.jsp" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Log Out</span></a></li>
+
                     </ul>
                     
                 </nav>
@@ -207,11 +203,7 @@
 																																						
                                     <div class="ml-auto">
 									
-                                        <div class="dl">
-											 <span class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" onkeyup="myFunction()" ><i class="ti-search"></i></a>
-								 		<div class="app-search position-absolute">
-											
-										</div>  
+                                         
 										</span>																													
                                    
 										</div>

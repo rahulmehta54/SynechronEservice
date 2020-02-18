@@ -54,7 +54,7 @@
 
 		</c:forEach>
 	</tbody>
-<!-- 	<button type="submit" >submit</button> -->
+	<button type="submit" >Delete from cart</button>
 	</form:form>
    <h1>total price=${total}</h1>
    <a href="placeorder">place order</a></td>

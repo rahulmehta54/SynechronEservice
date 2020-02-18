@@ -22,11 +22,11 @@ public class Finalcart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	Long id;
+	private	Long id;
 	@Column(name="userid")
-	Long userId;
+	private Long userId;
 	@Column(name="salespersonid")
-	Long salespersonid;
+	private Long salespersonid;
 
 }
 

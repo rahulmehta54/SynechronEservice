@@ -20,11 +20,11 @@ public class OrderAndServiceman {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	Long id;
+	private Long id;
 	@Column(name = "orderid")
-	Long orderid;
+	private Long orderid;
 	@Column(name = "salepersonid")
-	Long salepersonid;
+	private Long salepersonid;
 	
 	
 }

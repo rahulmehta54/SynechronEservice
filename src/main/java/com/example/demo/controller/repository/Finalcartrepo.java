@@ -6,4 +6,6 @@ import com.example.demo.entity.Finalcart;
 
 public interface Finalcartrepo extends JpaRepository<Finalcart, Long> {
 
+	void deleteBySalespersonid(Long check);
+
 }
