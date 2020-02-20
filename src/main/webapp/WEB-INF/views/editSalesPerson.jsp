@@ -13,7 +13,7 @@
 <body>
         <h1>Edit Employee</h1>  
        <h1>Edit</h1>  
-       <form:form method="POST" action="/editandsavee"  modelAttribute="edditt">    
+       <form:form method="POST" action="/editandsavee"  modelAttribute="salesPerson">    
         <table >    
         <tr>  
           
@@ -48,7 +48,7 @@
           
          <tr>    
             
-          <td><input type="submit"  value=submit /></td>    
+          <td><input type="submit"  value=Update /></td>    
          </tr>    
         </table>    
        </form:form>    

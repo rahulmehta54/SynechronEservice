@@ -28,7 +28,7 @@ import lombok.Setter;
 @Setter
 public class AdminController {
 	@Autowired
-	private SalesPersonRepository   repo;
+	private SalesPersonRepository   salesPersonRepo;
 	@Autowired
 	private ModelAndView mdlview;
 	@Autowired
@@ -50,64 +50,67 @@ public class AdminController {
 	}
 
 	@PostMapping(path="/addSaleperson")
-	private String onSubmit(@Valid @ModelAttribute("command") SalesPerson  salesperson) 
+	private String addSalePerson(@Valid @ModelAttribute("command") SalesPerson  salesperson) 
 	{
 
-		repo.save(salesperson);
-		return "success";
+		salesPersonRepo.save(salesperson);
+		return "successfull";
 
 
 	}
-	
+
 	@GetMapping(path="/deleteSaleperson")
 	public ModelAndView deleteSaleperson() {
-		List<SalesPerson> list=repo.findAll();
-		
-		
+		List<SalesPerson> listOfSalesPerson=salesPersonRepo.findAll();
+
+
 		List<Integer> idlist=new ArrayList<Integer>();
-		mdlview.addObject("vendorlist",list);
+		mdlview.addObject("salesPersonlist",listOfSalesPerson);
 		mdlview.addObject("idlist",idlist);
-		mdlview.setViewName("editdelvendor");
+		mdlview.setViewName("editDelSalesPerson");
 		return mdlview;
-	
+
 	}
 	@PostMapping(path="/deleteSaleperson")
 	private String delete(@RequestParam("check")Long[] checkboxvalues) 
 	{
-	//	Integer[] selectedStudentIds = request.getParameterValues("selected");
-  
-   for (Long  check: checkboxvalues) {
-	 //  repo.deleteById(integer);
-	   System.out.println(check);
-	   repo.deleteById(check);
+		//	Integer[] selectedStudentIds = request.getParameterValues("selected");
 
-}
-   
-		return "success";
+		for (Long  check: checkboxvalues) {
+			//  salesPersonRepo.deleteById(integer);
+			System.out.println(check);
+			salesPersonRepo.deleteById(check);
+
+		}
+
+		return "successfull";
 
 
 	}
-//	editemp/${vendor.id}
-	   @RequestMapping(value="/editvendor/{id}")    
-	    public String edit(@PathVariable Long id, Model m){    
-	        SalesPerson vendor=repo.getOne(id);  
-	        System.out.println(vendor+"============");
-	        m.addAttribute("edditt",vendor);  
-	        return "editvendor";    
-	    }  
-	   @PostMapping(value="/editandsavee")    
-	    public String editandsave(@ModelAttribute("edditt") SalesPerson sp){  
-		   System.out.println(sp.getId()+"In the end");
-		   
-		  repo.save(sp); 
-	    //    repo.updateSalesPerson(sp.getId(),sp.getCategory(),sp.getCity(),sp.getExperience(),sp.getRate(),sp.getMobileNumber(),sp.getSalePersonName());
-		  
-		   
-	        return "success";    
-	    } 
 	
-	
-	
+	@RequestMapping(value="/editSalesPerson/{id}")    
+	public String edit(@PathVariable Long id, Model model){    
+		SalesPerson salesPerson=salesPersonRepo.getOne(id);  
+		
+		model.addAttribute("salesPerson",salesPerson);  
+		return "editSalesPerson";    
+	}  
+	@PostMapping(value="/editandsavee")    
+	public String editandsave(@ModelAttribute("edditt") SalesPerson salesPerson){  
+		System.out.println(salesPerson.getId()+"In the end");
+
+		salesPersonRepo.save(salesPerson); 
+		//    salesPersonRepo.updateSalesPerson(sp.getId(),sp.getCategory(),sp.getCity(),sp.getExperience(),sp.getRate(),sp.getMobileNumber(),sp.getSalePersonName());
+
+
+		return "successfull";    
+	} 
+
+	@GetMapping(path="/home")
+	public  String returnhome() {
+		return "admindashboard";
+	}
+
 
 
 

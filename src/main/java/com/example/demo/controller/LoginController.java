@@ -32,16 +32,16 @@ public class LoginController {
 	private User user;
 	
 	
+	/*
+	 * @GetMapping(path="/") public String init() {
+	 * 
+	 * return "login";
+	 * 
+	 * 
+	 * }
+	 */
 	@GetMapping(path="/")
-	public ModelAndView init() {
-		mdlview.setViewName("index");
-		mdlview.addObject("mainheading","E-services");
-		return mdlview;
-		
-		
-	}
-	@GetMapping(path="/login")
-	public String initForm(Model model,HttpServletRequest request) {
+	public String initForm(Model model) {
 		
 		model.addAttribute("command",user);
 		System.out.println("hello world");
@@ -59,10 +59,10 @@ public class LoginController {
 		List<User>	loggedinuser=repo.findByEmailAndPasswordAndRole(user.getEmail(),user.getPassword(),user.getRole());
 		System.out.println("insidelogin"+loggedinuser.toString());
 		String name="default";
-		for (User user2 : loggedinuser) {
-			System.out.println("foeacch"+user2.toString());
-			 name=user2.getName();
-			 request.getSession().setAttribute("user",user2);
+		for (User x : loggedinuser) {
+			System.out.println("foeacch"+x.toString());
+			 name=x.getName();
+			 request.getSession().setAttribute("user",x);
 		}
 		
 		System.out.println("aaya");
@@ -82,7 +82,7 @@ public class LoginController {
 				}}
 			
 			else {
-				mdlview.setViewName("index");
+				mdlview.setViewName("login");
 				return mdlview;}
 		
 		}
@@ -100,7 +100,7 @@ public class LoginController {
 		{
 		repo.save(user);
 	
-	return "success";
+	return "successfulsignup";
 		}
 	
 	

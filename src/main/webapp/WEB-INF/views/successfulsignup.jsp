@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Success page</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-
-<span>Successful</span>
-<a href="userdashboard"> dashboard</a>
+successfully signed up
+<a href="/">return to login page</a>
 </body>
 </html>
