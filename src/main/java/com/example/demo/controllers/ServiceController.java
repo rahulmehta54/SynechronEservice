@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.ServiceMen;
@@ -19,6 +22,7 @@ import com.example.demo.repos.ServiceRepository;
 @Controller
 public class ServiceController {
 
+	@Autowired
 	private ModelAndView mdlView;
 
 	@Autowired
@@ -91,27 +95,43 @@ public class ServiceController {
 
 	}
 
-	/*
-	 * @GetMapping("/edit/{id}") public String
-	 * getServiceMenbyid(@PathVariable("id")int id,Model model) {
-	 * 
-	 * ServiceMen service=servicerepo.findById(id).get(); model.addAttribute("")
-	 * return null;
-	 * 
-	 * }
-	 */
+
+	@GetMapping("/edit/{serviceId}")
+	public ModelAndView editServicemen(@PathVariable("serviceId") int serviceId, Model model) {
+		/*
+		 * model.addAttribute("serviceMan",
+		 * this.servicemanRepository.findById(service_Id)); return "editServiceman";
+		 */
+
+		// System.out.println("=====service id====="+serviceId);
+		mdlView.setViewName("editServiceMen");
+        
+		ServiceMen serviceMen = servicerepo.findById(serviceId).get();
+//		serviceMen.setsFName(sFName);
+        
+		//System.out.println("=====service data====="  );
+		//serviceMen.setsFName(service.getsFName());
+		//servicerepo.save(serviceMen);
+		//mdlView.addObject("ServiceMen", serviceMen);
+		mdlView.addObject("command", serviceMen);
+		
+		return mdlView;
+
+	}
+
+	@RequestMapping(value = "/updateServiceMen", method = RequestMethod.POST)
+	public String onUpdateAndSubmitServiceman(@ModelAttribute("command") ServiceMen service, Model model) {
+		//System.out.println(service.getServiceId());
+		servicerepo.save(service);
+//		List<Serviceman> allserviceman = this.servicemanRepository.findAll();
+		model.addAttribute("allServiceMens", servicerepo.findAll());
+		return "viewServiceMen";
+		
+		
+	}
 
 }
 
-//	@GetMapping(path = "/addService")
-//	public String addservice(Model model) {
-//
-//		this.servicerepo.save(this.service);
-//
-//		model.addAttribute("element", this.service);
-//
-//		return "success";
-//	}
 
 //	@GetMapping(path = "/viewService")
 //	public ModelAndView findAll() {

@@ -33,24 +33,12 @@
 			<br>
 			<h4 class="centerText blue">View Service Men for user</h4>
 			<br>
-			
-			
-			
-			<%-- <div>
-				<form:form action="/searchServiceMenUser" method="post">
-					<!-- 					<input class="form-control mr-sm-2" type="search"
-						placeholder="City" aria-label="Search" />
- -->
-					<form:input path="city" cssClass="form-control" />
-					<form:input path="category" cssClass="form-control" />
-					<input class="btn btn-success" type="submit" value="Register">
-				</form:form>
-			</div> --%>
+	
 
 			<table class="table table-hover">
 				<thead>
 					<tr>
-					    <th>Service Id</th>
+						<th>Service Id</th>
 						<th>Name</th>
 						<th>Mobile</th>
 						<th>Category</th>
@@ -61,18 +49,16 @@
 				<tbody>
 					<c:forEach items="${allServiceMens}" var="service">
 						<tr>
-						    <td><c:out value="${service.serviceId}" /></td>
+							<td><c:out value="${service.serviceId}" /></td>
 							<td><c:out value="${service.sFName}" /></td>
 							<td><c:out value="${service.mob}" /></td>
 							<td><c:out value="${service.category}" /></td>
 							<td><c:out value="${service.city}" /></td>
-							
+
 
 							<td><a class="btn btn-warning btn-xs"
-								href="/viewCart?serviceId=${service.serviceId}">Cart</a> <a
-								class="btn btn-danger btn-xs"
-								href="/order/${service.serviceId}">Order</a></td>
-							</td> 
+								 href="/viewCart/${service.serviceId}">Cart</a> 
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -80,4 +66,22 @@
 		</div>
 	</div>
 </body>
+
+<!-- 
+<script>
+	function viewCart(id) {
+		
+		alert("dfdfdf");
+		
+		$.ajax({
+			type : "GET",
+			url : "/viewCart/" + id,
+			success : function(data) {
+				location.href = "/showCartList";
+			}
+			error : function(data) {
+			}
+		})
+	}
+</script> -->
 </html>

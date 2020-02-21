@@ -8,6 +8,7 @@ import com.example.demo.entity.User;
 public interface UserDao {
 
 	int loginUser(User user);
-		
-	
+
+	public User getDataofUser(User user);
+
 }

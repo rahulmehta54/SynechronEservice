@@ -46,7 +46,7 @@
 				</thead>
 
 				<tbody>
-					<c:forEach items="${allServiceMens}" var="serviceMenBean">
+					<c:forEach items="${cart}" var="cart">
 						<tr>
 							<td><c:out value="${serviceMenBean.sMenFName}" /></td>
 							<td><c:out value="${serviceMenBean.mobile}" /></td>

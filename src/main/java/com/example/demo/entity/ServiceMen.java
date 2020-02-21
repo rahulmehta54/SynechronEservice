@@ -18,15 +18,16 @@ public class ServiceMen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int serviceId;
-	private String sFName;
+	public String sFName;
 	private String sLName;
 	private String category;
-	private long mob;
+	private String mob;
 	private String city;
 	private int experience;
 	private int inspectionRate;
 	private double payAmount;
 	private String payMode;
+	private int status;
 	
 	
 	public int getServiceId() {
@@ -53,10 +54,10 @@ public class ServiceMen {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public long getMob() {
+	public String getMob() {
 		return mob;
 	}
-	public void setMob(long mob) {
+	public void setMob(String mob) {
 		this.mob = mob;
 	}
 	public String getCity() {
@@ -94,6 +95,12 @@ public class ServiceMen {
 		return "ServiceMen [serviceId=" + serviceId + ", sFName=" + sFName + ", sLName=" + sLName + ", category="
 				+ category + ", mob=" + mob + ", city=" + city + ", experience=" + experience + ", inspectionRate="
 				+ inspectionRate + ", payAmount=" + payAmount + ", payMode=" + payMode + "]";
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	

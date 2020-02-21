@@ -28,6 +28,9 @@ public class Cart {
 	private int contact;
 	private String category;
 	private int userId;
+	private String city;
+	private int inspectionRate;
+	private String mob;
 	
 	
 	//to map cart and servicemen by using serviceid

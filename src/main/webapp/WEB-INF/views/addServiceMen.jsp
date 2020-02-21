@@ -32,14 +32,17 @@
 			<h2 class="centerText blue">Admin Home</h2>
 			<br>
 
-			<jsp:include page="adminHeader.jsp" />
+			<%-- <jsp:include page="adminHeader.jsp" /> --%>
 
 			<form:form action="addServiceMen" method="post">
 				<br>
 				<h4 class="centerText blue">Add Service Men</h4>
 				<br>
 				<br>
-
+					
+					<form:input path="status" value="1" type="text" hidden="hidden"
+					class="form-control" />
+					
 				<div class="form-group">
 					<label class="align-left">First Name:</label>
 					<form:input path="sFName" cssClass="form-control" />

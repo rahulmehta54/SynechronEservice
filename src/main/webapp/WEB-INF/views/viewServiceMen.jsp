@@ -23,60 +23,54 @@
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<script type="text/javascript">
-	
 
+<script type="text/javascript">
 	function myFunction() {
-	  // Declare variables
-	  var input, filter, table, tr, td, i, txtValue;
-	  input = document.getElementById("myInput");
-	  filter = input.value.toUpperCase();
-	  table = document.getElementById("myTable");
-	  tr = table.getElementsByTagName("tr");
+		// Declare variables
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
 
-	  // Loop through all table rows, and hide those who don't match the search query
-	  for (i = 0; i < tr.length; i++) {
-	    td = tr[i].getElementsByTagName("td")[3];
-	    if (td) {
-	      txtValue = td.textContent || td.innerText;
-	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-	        tr[i].style.display = "";
-	      } else {
-	        tr[i].style.display = "none";
-	      }
-	    }
-	  }
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[3];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
 	}
-	
-	</script>
-	
-	<script type="text/javascript">
-	
+</script>
 
+<script type="text/javascript">
 	function myFunction1() {
-	  // Declare variables
-	  var input, filter, table, tr, td, i, txtValue;
-	  input = document.getElementById("myInput1");
-	  filter = input.value.toUpperCase();
-	  table = document.getElementById("myTable");
-	  tr = table.getElementsByTagName("tr");
+		// Declare variables
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput1");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
 
-	  // Loop through all table rows, and hide those who don't match the search query
-	  for (i = 0; i < tr.length; i++) {
-	    td = tr[i].getElementsByTagName("td")[2];
-	    if (td) {
-	      txtValue = td.textContent || td.innerText;
-	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-	        tr[i].style.display = "";
-	      } else {
-	        tr[i].style.display = "none";
-	      }
-	    }
-	  }
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[2];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
 	}
-	
-	</script>
+</script>
 
 </head>
 <body>
@@ -93,12 +87,16 @@
 		<h2>ServiceMen provider</h2>
 
 		<%-- ${allServiceMens} --%>
-        <tr>
-		SearchByCity<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-        </tr>
-         <tr>
-		SearchByCategory<input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search for names..">
-        </tr>
+		<tr>
+			Search By City:
+			<input type="text" id="myInput" onkeyup="myFunction()"
+				placeholder="Search for names..">
+		</tr>
+		<tr>
+			Search By Category:
+			<input type="text" id="myInput1" onkeyup="myFunction1()"
+				placeholder="Search for names..">
+		</tr>
 		<table class="table table-bordered" id="myTable">
 			<thead>
 				<tr>
@@ -118,16 +116,15 @@
 						<td><c:out value="${service.mob}" /></td>
 						<td><c:out value="${service.category}" /></td>
 						<td><c:out value="${service.city}" /></td>
-						<td><a href="/edit"><i class="fa fa-edit"></i></a></td>
-						<td><a href="/delete/${service.serviceId}"><i class="fa fa-trash"></i></a></td>
-						<%-- <td>
-						 <a href="edit/${service.serviceId}">Edit</a>
-					 <a href="/edit"><i class="fa fa-edit"></i></a>
+						<td>
 						
-						<!-- <a href="/"><i class="fa fa-trash"></i></a> -->
-						
-						<!--  <a href="/delete"/${} >-->
-						</td> --%>
+						<a href="/edit/${service.serviceId}"><i
+								class="fa fa-edit"></i></a>
+								
+						<a href="/delete/${service.serviceId}"><i
+								class="fa fa-trash"></i></a>
+								
+						</td>
 
 					</tr>
 				</c:forEach>

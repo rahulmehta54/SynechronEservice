@@ -14,12 +14,12 @@
 		<div class="p-2 bg-success flex-fill">
 			<a href="addServiceMen">Add Service Men</a>
 		</div>
-		<div class="p-2 bg-success flex-fill">
-			<a href="addOrder">Add Order</a>
+		 <div class="p-2 bg-success flex-fill">
+			<a href="viewCart">View Cart</a>
 		</div>
-		<div class="p-2 bg-success flex-fill">
+		<!-- <div class="p-2 bg-success flex-fill">
 			<a href="viewOrder">View Order</a>
-		</div>
+		</div> --> -->
 	</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    <%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,22 +25,22 @@
 			<h2 class="centerText blue">Admin Home</h2>
 			<br>
 
-			<jsp:include page="adminHeader.jsp" />
-
+			<%-- <jsp:include page="adminHeader.jsp" />
+ --%>
 			<form:form action="/updateServiceMen" method="post">
 				<br>
 				<h4 class="centerText blue">Edit Service Men</h4>
 				<br>
 				<br>
 
-				<form:input path="sId" type="text" hidden="hidden"
+				<%-- <form:input path="serviceId" type="text" hidden="hidden"
 					class="form-control" />
 				<form:input path="payAmount" type="text" hidden="hidden"
 					class="form-control" />
 				<form:input path="paymentMode" type="text" hidden="hidden"
 					class="form-control" />
 				<form:input path="active" type="text" hidden="hidden"
-					class="form-control" />
+					class="form-control" /> --%>
 
 				<div class="form-group">
 					<label class="align-left">First Name:</label>
@@ -51,11 +52,11 @@
 					<form:input path="sLName" class="form-control" />
 				</div>
 
-				<div class="form-group">
+				<%-- <div class="form-group">
 					<label class="align-left">Mobile Number:</label>
-					<form:input path="mobile" class="form-control" />
+					<form:input path="mob" class="form-control" />
 				</div>
-
+ --%>
 				<div class="form-group">
 					<label class="align-left">City:</label>
 					<%-- <input type="text"	id="city" class="form-control" value="${city}" /> --%>
@@ -81,7 +82,7 @@
 
 				<div class="form-group">
 					<label class="align-left">Rates:</label>
-					<form:input path="inspectionRates" cssClass="form-control" />
+					<form:input path="inspectionRate" cssClass="form-control" />
 				</div>
 
 				<input class="btn btn-success" type="submit" value="Update">
